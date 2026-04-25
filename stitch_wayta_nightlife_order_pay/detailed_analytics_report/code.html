@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VenuePulse Analytics - Electric Daybreak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#1c1d00",
+                      "on-tertiary-fixed": "#23005b",
+                      "outline": "#78795f",
+                      "on-tertiary-container": "#8243ff",
+                      "surface-tint": "#5f6300",
+                      "on-primary-container": "#707400",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f6f3f2",
+                      "surface": "#fcf8f8",
+                      "outline-variant": "#c9c8aa",
+                      "tertiary": "#7212ff",
+                      "on-background": "#1c1b1b",
+                      "on-surface": "#1c1b1b",
+                      "primary": "#5f6300",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#c7cf00",
+                      "on-primary-fixed-variant": "#474a00",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "tertiary-fixed": "#e9ddff",
+                      "inverse-surface": "#313030",
+                      "on-secondary-fixed-variant": "#840076",
+                      "on-secondary-fixed": "#3a0033",
+                      "surface-container-high": "#ebe7e7",
+                      "primary-container": "#f6ff00",
+                      "on-tertiary-fixed-variant": "#5700c9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#faf2ff",
+                      "secondary-fixed-dim": "#fface8",
+                      "secondary": "#a90097",
+                      "surface-variant": "#e5e2e1",
+                      "on-surface-variant": "#484831",
+                      "surface-container": "#f0edec",
+                      "secondary-fixed": "#ffd7f0",
+                      "tertiary-fixed-dim": "#d1bcff",
+                      "secondary-container": "#d300bd",
+                      "primary-fixed": "#e3ec00",
+                      "surface-bright": "#fcf8f8",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#dcd9d9",
+                      "surface-container-highest": "#e5e2e1",
+                      "inverse-primary": "#c7cf00",
+                      "background": "#fcf8f8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-lg": "24px",
+                      "unit-sm": "8px",
+                      "touch-target-min": "48px",
+                      "unit-xl": "40px",
+                      "container-margin": "20px",
+                      "base": "4px",
+                      "unit-xs": "4px",
+                      "unit-md": "16px",
+                      "touch-target-optimal": "56px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "status-banner": ["Inter"],
+                      "label-bold": ["Inter"],
+                      "headline-lg": ["Spline Sans"],
+                      "display-xl": ["Spline Sans"],
+                      "headline-md": ["Spline Sans"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<aside class="fixed left-0 top-0 flex flex-col h-full z-40 bg-white dark:bg-slate-950 h-screen w-64 border-r border-slate-100 dark:border-slate-800 shadow-xl font-['Spline_Sans'] text-sm font-semibold">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Electric Daybreak</h2>
+<p class="text-xs text-slate-500 font-normal">Main Stage Venue</p>
+</div>
+</div>
+<nav class="flex-1 px-2 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 bg-lime-400 text-slate-900 rounded-lg shadow-inner transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-lime-500 px-4 py-3 mx-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Revenue</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-lime-500 px-4 py-3 mx-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-lime-500 px-4 py-3 mx-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Customers</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-lime-500 px-4 py-3 mx-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<button class="w-full flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-lime-500 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-error hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<div class="ml-64 min-h-screen flex flex-col">
+<header class="bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-6 h-16 font-['Spline_Sans'] font-medium text-slate-900 dark:text-slate-50">
+<div class="flex items-center gap-4">
+<h1 class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">VenuePulse</h1>
+<div class="ml-8 hidden lg:flex items-center bg-surface-container rounded-full px-4 py-1.5 gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none outline-none text-sm w-48 focus:ring-0" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="Manager Profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end venue manager in a clean modern office with soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKOMyp_I47Dc2P6iLIGkORuv8zmyvV34hTUHuZlk2x2x04YEzLRjKmDPhfRqoywruK5jePyOkO-v3aldy9m5ng1_t7E1zxSplsLd6mNkvYhKkMoKC6ec701juLPjyL4QojzvSWsCeyTKECXBQkiCxVau_4p7lFGZHbtoTdQA72KwXIxwA190-69-8z0yhf8qQPVNSubfKjV6Jfa7N0JtZagHxFAxQCmoa9wlaWUTm7yXQIH7bK81nko2dvwNZiec-MdEn654uw_KQ"/>
+</div>
+</div>
+</header>
+<main class="flex-1 p-8 space-y-8 max-w-[1600px] mx-auto w-full">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Analytics Overview</h2>
+<p class="text-slate-500">Real-time performance metrics for Electric Daybreak Main Stage</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 h-12 flex items-center gap-2 border-2 border-secondary text-secondary font-label-bold rounded-lg hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">download</span>
+                        Export Data
+                    </button>
+<button class="px-6 h-12 bg-primary-container text-on-primary-fixed font-label-bold rounded-lg shadow-sm hover:brightness-95 transition-all active:scale-95">
+                        Refresh Report
+                    </button>
+</div>
+</div>
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="text-slate-500 font-label-bold">Total Revenue</span>
+<span class="text-emerald-500 text-xs font-bold bg-emerald-50 px-2 py-0.5 rounded-full">+12.4%</span>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900 tracking-tight">$428,500</p>
+<p class="text-xs text-slate-400">vs last 30 days</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="text-slate-500 font-label-bold">New Customers</span>
+<span class="text-emerald-500 text-xs font-bold bg-emerald-50 px-2 py-0.5 rounded-full">+8.2%</span>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900 tracking-tight">12,840</p>
+<p class="text-xs text-slate-400">Unique visitors</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="text-slate-500 font-label-bold">Avg. Transaction</span>
+<span class="text-error text-xs font-bold bg-error-container px-2 py-0.5 rounded-full">-1.5%</span>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900 tracking-tight">$33.40</p>
+<p class="text-xs text-slate-400">Across all stalls</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between h-32 lg:col-span-1 md:col-span-3">
+<div class="flex justify-between items-start">
+<span class="text-slate-500 font-label-bold">Peak Pulse</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-primary text-xs font-bold">LIVE</span>
+</div>
+</div>
+<div>
+<p class="text-3xl font-black text-slate-900 tracking-tight">21:00</p>
+<p class="text-xs text-slate-400">Projected peak time</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<section class="lg:col-span-2 bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Revenue Trend</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-slate-100 text-slate-600">Daily</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-primary-container text-on-primary-fixed">Weekly</button>
+</div>
+</div>
+<div class="relative h-64 w-full">
+<div class="absolute inset-0 flex items-end justify-between px-2">
+<div class="w-full h-full flex items-end gap-1">
+<div class="w-1/12 bg-primary/20 h-[30%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/20 h-[45%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/30 h-[60%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/40 h-[40%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/50 h-[75%] rounded-t-sm border-t-4 border-primary"></div>
+<div class="w-1/12 bg-primary/60 h-[90%] rounded-t-sm border-t-4 border-primary"></div>
+<div class="w-1/12 bg-primary/40 h-[55%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/20 h-[40%] rounded-t-sm"></div>
+<div class="w-1/12 bg-primary/30 h-[65%] rounded-t-sm border-t-4 border-primary"></div>
+<div class="w-1/12 bg-primary/50 h-[85%] rounded-t-sm border-t-4 border-primary"></div>
+<div class="w-1/12 bg-primary/70 h-[95%] rounded-t-sm border-t-4 border-primary"></div>
+<div class="w-1/12 bg-primary/40 h-[50%] rounded-t-sm"></div>
+</div>
+</div>
+<div class="absolute inset-0 border-b border-slate-100 flex flex-col justify-between text-[10px] text-slate-400 font-bold">
+<p>$100k</p>
+<p>$75k</p>
+<p>$50k</p>
+<p>$25k</p>
+<p>0</p>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</section>
+<section class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col">
+<h3 class="font-headline-md text-headline-md mb-6">Customer Insights</h3>
+<div class="flex-1 flex flex-col items-center justify-center relative">
+<div class="w-48 h-48 rounded-full border-[16px] border-slate-50 relative flex items-center justify-center">
+<div class="absolute inset-0 border-[16px] border-primary border-t-transparent border-l-transparent -rotate-45 rounded-full"></div>
+<div class="absolute inset-0 border-[16px] border-secondary border-b-transparent border-r-transparent border-t-transparent -rotate-12 rounded-full"></div>
+<div class="text-center">
+<p class="text-2xl font-black text-slate-900">72%</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold">Retention</p>
+</div>
+</div>
+<div class="mt-8 w-full space-y-3">
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-slate-600">VIP Members</span>
+</div>
+<span class="font-bold">42%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-slate-600">Standard Access</span>
+</div>
+<span class="font-bold">38%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-200"></span>
+<span class="text-slate-600">New Leads</span>
+</div>
+<span class="font-bold">20%</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md">Transaction Logs</h3>
+<p class="text-sm text-slate-400">Detailed record of recent venue activity</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">filter_list</span>
+<select class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-sm font-semibold focus:ring-2 ring-primary transition-all appearance-none cursor-pointer">
+<option>All Categories</option>
+<option>Beverages</option>
+<option>Merchandise</option>
+<option>Food</option>
+</select>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">calendar_month</span>
+<button class="pl-10 pr-4 py-2 bg-slate-50 rounded-lg text-sm font-semibold">Today</button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50/50 text-[10px] text-slate-400 font-black uppercase tracking-widest">
+<th class="px-6 py-4">Transaction ID</th>
+<th class="px-6 py-4">Customer</th>
+<th class="px-6 py-4">Items</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">#TXN-882190</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">JD</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Jane Doe</p>
+<p class="text-[10px] text-slate-400">VIP Tier 1</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600">Neon Glowsticks (x4), Water</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-bold">
+<span class="w-1 h-1 bg-emerald-600 rounded-full"></span>
+                                        Complete
+                                    </span>
+</td>
+<td class="px-6 py-4 font-black text-slate-900">$54.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">#TXN-882191</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold text-xs">MS</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Marcus Smith</p>
+<p class="text-[10px] text-slate-400">Regular</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600">Event Poster, T-Shirt (L)</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 text-[10px] font-bold">
+<span class="w-1 h-1 bg-amber-600 rounded-full"></span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-4 font-black text-slate-900">$112.50</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">#TXN-882192</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-xs">AK</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Alex Kim</p>
+<p class="text-[10px] text-slate-400">New Member</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600">Premium Cocktail (x2)</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-bold">
+<span class="w-1 h-1 bg-emerald-600 rounded-full"></span>
+                                        Complete
+                                    </span>
+</td>
+<td class="px-6 py-4 font-black text-slate-900">$36.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between">
+<p class="text-xs text-slate-400 font-bold">Showing 3 of 1,240 transactions</p>
+<div class="flex gap-2">
+<button class="p-1.5 rounded bg-white border border-slate-200 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1.5 rounded bg-white border border-slate-200 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-6">Product Performance</h3>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-500">
+<span>Beverages</span>
+<span>$142k</span>
+</div>
+<div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-500">
+<span>Merchandise</span>
+<span>$98k</span>
+</div>
+<div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-500">
+<span>Snacks</span>
+<span>$45k</span>
+</div>
+<div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 rounded-full" style="width: 38%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Live Staffing</h3>
+<p class="text-sm text-slate-400">Active personnel across all zones</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Zone Alpha</p>
+<p class="text-2xl font-black text-primary">12 Active</p>
+</div>
+<div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">VIP Deck</p>
+<p class="text-2xl font-black text-secondary">8 Active</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</body></html>

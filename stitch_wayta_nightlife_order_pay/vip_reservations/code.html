@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wayta | VIP Table Reservation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-container": "#d300bd", "on-background": "#1c1b1b", "on-secondary-fixed-variant": "#840076", "surface-variant": "#e5e2e1", "tertiary-fixed-dim": "#d1bcff", "outline-variant": "#c9c8aa", "error-container": "#ffdad6", "surface-dim": "#dcd9d9", "on-secondary": "#ffffff", "surface-container": "#f0edec", "on-error-container": "#93000a", tertiary: "#7212ff", "surface-container-low": "#f6f3f2", "on-tertiary-fixed": "#23005b", "inverse-surface": "#313030", "on-secondary-container": "#fffbff", "on-primary-container": "#707400", "on-primary-fixed-variant": "#474a00", surface: "#fcf8f8", "primary-container": "#f6ff00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-fixed": "#e3ec00", primary: "#5f6300", "surface-tint": "#5f6300", error: "#ba1a1a", "on-primary": "#ffffff", "surface-container-high": "#ebe7e7", "on-surface": "#1c1b1b", "secondary-fixed-dim": "#fface8", "on-error": "#ffffff", "tertiary-fixed": "#e9ddff", "primary-fixed-dim": "#c7cf00", "on-tertiary-container": "#8243ff", "inverse-on-surface": "#f3f0ef", "tertiary-container": "#faf2ff", "inverse-primary": "#c7cf00", outline: "#78795f", "on-tertiary-fixed-variant": "#5700c9", secondary: "#a90097", "on-secondary-fixed": "#3a0033", "surface-bright": "#fcf8f8", "on-primary-fixed": "#1c1d00", "secondary-fixed": "#ffd7f0", "surface-container-highest": "#e5e2e1", "on-surface-variant": "#484831", background: "#fcf8f8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {gutter: "12px", "touch-target-optimal": "56px", "unit-xl": "40px", "unit-xs": "4px", "unit-sm": "8px", base: "4px", "unit-lg": "24px", "touch-target-min": "48px", "container-margin": "20px", "unit-md": "16px"}, fontFamily: {"headline-md": ["Spline Sans"], "body-md": ["Inter"], "headline-lg": ["Spline Sans"], "body-lg": ["Inter"], "status-banner": ["Inter"], "display-xl": ["Spline Sans"], "label-bold": ["Inter"], headline: ["Spline Sans"], display: ["Spline Sans"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "status-banner": ["14px", {lineHeight: "20px", fontWeight: "600"}], "display-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-bold": ["14px", {lineHeight: "20px", fontWeight: "700"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .floor-plan-grid {
+            background-image: radial-gradient(circle at 2px 2px, #1f1f1f 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .table-glow-available {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .pulse-active {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; filter: brightness(1); }
+            50% { opacity: 0.7; filter: brightness(1.5); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800">
+<div class="flex items-center gap-4">
+<button class="text-cyan-400 hover:text-cyan-300 transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-black text-cyan-400 italic tracking-wider font-['Spline_Sans']">Wayta</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-8 text-zinc-400 font-['Spline_Sans']">
+<a class="text-cyan-400 transition-colors" href="#">Floor Plan</a>
+<a class="hover:text-cyan-300 transition-colors" href="#">Experience</a>
+<a class="hover:text-cyan-300 transition-colors" href="#">Pricing</a>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-cyan-400 overflow-hidden bg-surface-container">
+<img alt="User profile photo" data-alt="Close-up portrait of a stylish young man with short dark hair and a confident expression against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLF6cYjk4tjbKopdZUOMPz7m4u4kf-ug_CeNaMoUndiis1pVmpkWKKTQtMXU_ekSC1C1Vlx9HEMHtLtJo5CptL1qJEZW3VXGuRRj9w5YeGES0dB_Vq6erky-PddeGevLdl4ldg0bWK-0c-QQGxYsCmcwqysq6rn_764SNlk4Ij061nC8LRIwbVLL0Pr1DgPmZdkTiNPsSynNaG521LqFl4_nbm4rEfd2iOvnms8iTWX4D0k4AXtU7AWSO4A66j-XdFy1i2Xj6-sRE"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 min-h-screen px-container-margin max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-unit-lg flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<span class="text-primary-container font-label-bold uppercase tracking-widest text-xs">VIP EXPERIENCE</span>
+<h2 class="font-headline-lg text-headline-lg mt-2">Main Room Reservations</h2>
+<p class="text-on-surface-variant mt-1">Select a table to view requirements and availability.</p>
+</div>
+<div class="flex gap-unit-md p-unit-sm bg-surface-container-low rounded-xl border border-zinc-800">
+<div class="flex items-center gap-2 px-unit-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-xs font-label-bold text-on-surface-variant">AVAILABLE</span>
+</div>
+<div class="flex items-center gap-2 px-unit-sm">
+<span class="w-3 h-3 rounded-full bg-zinc-700"></span>
+<span class="text-xs font-label-bold text-on-surface-variant">BOOKED</span>
+</div>
+</div>
+</div>
+<!-- Main Interaction Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-unit-lg items-start">
+<!-- Floor Plan Canvas -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-2xl border border-zinc-800 p-unit-lg relative overflow-hidden floor-plan-grid min-h-[600px] flex items-center justify-center">
+<!-- Stage Area -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-primary-container/20 to-transparent border-x border-b border-cyan-400/30 flex items-center justify-center">
+<span class="text-primary-container font-headline-md opacity-50 tracking-[0.5em] uppercase">The Stage</span>
+<div class="absolute bottom-0 w-full h-[1px] bg-primary-container shadow-[0_0_20px_rgba(0,240,255,0.8)]"></div>
+</div>
+<!-- DJ Booth -->
+<div class="absolute top-28 left-1/2 -translate-x-1/2 w-32 h-12 bg-zinc-900 border border-zinc-700 rounded flex items-center justify-center">
+<span class="text-[10px] text-zinc-500 font-bold uppercase">DJ Booth</span>
+</div>
+<!-- Tables Layout -->
+<div class="grid grid-cols-3 gap-unit-xl md:gap-24 relative mt-32">
+<!-- Row 1: VVIP -->
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-16 h-16 rounded-xl bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-500 font-bold transition-all group-hover:bg-zinc-700">V1</div>
+<span class="text-[10px] mt-2 text-zinc-600 font-bold uppercase">Booked</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center scale-110">
+<div class="w-20 h-20 rounded-xl bg-primary-container border-2 border-cyan-300 flex items-center justify-center text-on-primary font-black table-glow-available pulse-active">V2</div>
+<span class="text-[10px] mt-2 text-primary-container font-bold uppercase tracking-widest">Selected</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-16 h-16 rounded-xl bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-500 font-bold transition-all group-hover:bg-zinc-700">V3</div>
+<span class="text-[10px] mt-2 text-zinc-600 font-bold uppercase">Booked</span>
+</div>
+<!-- Row 2: Standard VIP -->
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-surface-container border-2 border-primary-container/50 flex items-center justify-center text-primary-container font-bold transition-all hover:scale-105 hover:bg-primary-container/10">A1</div>
+<span class="text-[10px] mt-2 text-zinc-500 font-bold uppercase">Available</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-surface-container border-2 border-primary-container/50 flex items-center justify-center text-primary-container font-bold transition-all hover:scale-105 hover:bg-primary-container/10">A2</div>
+<span class="text-[10px] mt-2 text-zinc-500 font-bold uppercase">Available</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-surface-container border-2 border-primary-container/50 flex items-center justify-center text-primary-container font-bold transition-all hover:scale-105 hover:bg-primary-container/10">A3</div>
+<span class="text-[10px] mt-2 text-zinc-500 font-bold uppercase">Available</span>
+</div>
+<!-- Row 3 -->
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-500 font-bold">B1</div>
+<span class="text-[10px] mt-2 text-zinc-600 font-bold uppercase">Booked</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-surface-container border-2 border-primary-container/50 flex items-center justify-center text-primary-container font-bold transition-all hover:scale-105 hover:bg-primary-container/10">B2</div>
+<span class="text-[10px] mt-2 text-zinc-500 font-bold uppercase">Available</span>
+</div>
+<div class="group relative cursor-pointer flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-500 font-bold">B3</div>
+<span class="text-[10px] mt-2 text-zinc-600 font-bold uppercase">Booked</span>
+</div>
+</div>
+<!-- Entrance Label -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-zinc-600 uppercase font-bold tracking-[0.3em] text-[10px]">
+<span class="material-symbols-outlined text-sm" data-icon="login">login</span>
+                    Main Entrance
+                </div>
+</div>
+<!-- Booking Sidebar -->
+<aside class="lg:col-span-4 space-y-unit-lg">
+<!-- Details Card -->
+<div class="bg-surface-container border border-zinc-800 rounded-2xl overflow-hidden glass-panel">
+<div class="h-48 relative">
+<img alt="Luxury nightclub interior" class="w-full h-full object-cover" data-alt="Interior of a luxury dark nightclub with neon cyan lighting, sleek black furniture, and blurred party atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTJKvetK7N9gd2rDj0dZHEBrFww1OM3-cRrD5n07Ge5f4Rnz7fCa0016Ue70l8tm1Kln8zpMAXgoFwC-0AByAPmnE1pjajWVPZvdE9LtCfN3srNpTLmPOrjc6qOFlg9dQZa1HSsZmJ0n-QT6Ptd0bU05PLaGXKodQdXPiRHsc6L_vYWeD4RUVajbJHpss30pvolXDUPn6dcBsH4SqWPB9N7Yne9wIq7eLH5NVChml7Qn87USOmuI3JPQnsyQUDFnWK92xsx4yk8w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary-container text-on-primary text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">PREMIUM VIEW</span>
+<h3 class="text-headline-md font-headline-md mt-1">VVIP Front Row - V2</h3>
+</div>
+</div>
+<div class="p-unit-lg space-y-unit-md">
+<div class="flex justify-between items-center py-unit-sm border-b border-zinc-800">
+<span class="text-zinc-400">Capacity</span>
+<span class="font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+                                8-10 Persons
+                            </span>
+</div>
+<div class="flex justify-between items-center py-unit-sm border-b border-zinc-800">
+<span class="text-zinc-400">Location</span>
+<span class="font-bold">Stage Center</span>
+</div>
+<div class="flex justify-between items-center py-unit-sm border-b border-zinc-800">
+<span class="text-zinc-400">Minimum Spend</span>
+<span class="text-primary-container text-xl font-black">$2,500</span>
+</div>
+<div class="pt-unit-md">
+<h4 class="text-xs font-label-bold text-zinc-500 uppercase mb-unit-sm tracking-wider">Inclusions</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-on-background">
+<span class="material-symbols-outlined text-cyan-400 text-base" data-icon="check_circle">check_circle</span>
+                                    2 Premium Spirits Bottles
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-background">
+<span class="material-symbols-outlined text-cyan-400 text-base" data-icon="check_circle">check_circle</span>
+                                    Dedicated Host Service
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-background">
+<span class="material-symbols-outlined text-cyan-400 text-base" data-icon="check_circle">check_circle</span>
+                                    Skip-the-line Express Entry
+                                </li>
+</ul>
+</div>
+<button class="w-full bg-primary-container text-on-primary h-touch-target-optimal rounded-xl font-bold text-lg shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:scale-[1.02] active:scale-95 transition-all mt-unit-lg uppercase tracking-tight">
+                            Book Table Now
+                        </button>
+</div>
+</div>
+<!-- Live Pulse Info -->
+<div class="bg-zinc-900/50 border border-zinc-800 p-unit-md rounded-xl flex items-center gap-4">
+<div class="relative flex items-center justify-center">
+<span class="absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-20 animate-ping"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-cyan-400 uppercase tracking-widest">LIVE UPDATES</p>
+<p class="text-sm text-zinc-400">3 users currently viewing Table V2</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Navigation Shell (Bottom Navigation for Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] scale-110">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">VIP</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="Confirmation_Number">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Wallet</span>
+</div>
+</nav>
+<!-- Floating Connectivity Banner (Simulated) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-[60] w-[calc(100%-40px)] max-w-md bg-[#FFB800] text-black font-status-banner text-status-banner px-4 py-2 rounded-lg flex items-center justify-between shadow-2xl hidden" id="offline-banner">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span>Unstable Connection - Retrying...</span>
+</div>
+<button class="material-symbols-outlined text-black/50" data-icon="close">close</button>
+</div>
+</body></html>

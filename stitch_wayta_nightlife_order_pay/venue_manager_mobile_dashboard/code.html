@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#e3ec00",
+                    "inverse-primary": "#c7cf00",
+                    "primary-container": "#f6ff00",
+                    "on-secondary-fixed": "#3a0033",
+                    "inverse-surface": "#313030",
+                    "surface": "#fcf8f8",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffd7f0",
+                    "surface-container-high": "#ebe7e7",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "background": "#fcf8f8",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "on-secondary-container": "#fffbff",
+                    "surface-dim": "#dcd9d9",
+                    "surface-bright": "#fcf8f8",
+                    "surface-container-low": "#f6f3f2",
+                    "outline": "#78795f",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-surface": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474a00",
+                    "on-primary-fixed": "#1c1d00",
+                    "primary-fixed-dim": "#c7cf00",
+                    "on-primary-container": "#707400",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7212ff",
+                    "tertiary-container": "#faf2ff",
+                    "surface-tint": "#5f6300",
+                    "on-surface-variant": "#484831",
+                    "surface-container": "#f0edec",
+                    "secondary-fixed-dim": "#fface8",
+                    "secondary-container": "#d300bd",
+                    "outline-variant": "#c9c8aa",
+                    "on-secondary-fixed-variant": "#840076",
+                    "secondary": "#a90097",
+                    "on-secondary": "#ffffff",
+                    "primary": "#5f6300",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary-container": "#8243ff",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "surface-container-highest": "#e5e2e1",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "unit-xl": "40px",
+                    "gutter": "12px",
+                    "base": "4px",
+                    "unit-md": "16px",
+                    "touch-target-optimal": "56px",
+                    "unit-sm": "8px",
+                    "unit-lg": "24px",
+                    "unit-xs": "4px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "status-banner": ["Inter"],
+                    "headline-md": ["Spline Sans"],
+                    "headline-lg": ["Spline Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "display-xl": ["Spline Sans"]
+            },
+            "fontSize": {
+                    "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+<h1 class="font-headline-md text-xl font-black text-black uppercase italic tracking-tight">WAYTA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-2 py-1 bg-primary-container rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">LIVE</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up professional headshot of a venue manager in a sleek uniform with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE6J-M56f67wqnar0yw318W4K9bT1goGETARmUktAmP0jeokDdPsNTmEqCqqnCaXkx29HFLvCYnoJr5-sUGvc-2Aa27lIkXYkvyGVBrOw0Xr5jxtPM9DApOHIVflTMJxhF9HRYDZMk1HZzpZLKsmB4dCC-fcmNEurMqlW4Ki4gAfsddufL2lvs6EKbVDgMB9LlC35DKWC42Xogy6Z3i7cLVWHP2RBUIkHdIgYKaAuIM-Bx2izd2ejjVydDDPjsrtTcZ14qR9rrET0"/>
+</div>
+</div>
+</header>
+<main class="pt-20 px-4 space-y-6">
+<!-- Core Metrics Grid -->
+<section>
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-headline-md text-lg">Performance Pulse</h2>
+<span class="text-[12px] font-label-bold text-primary">Updated just now</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Total Sales -->
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] text-lime-600 font-bold bg-lime-50 px-1.5 py-0.5 rounded">+12%</span>
+</div>
+<p class="text-[11px] font-label-bold text-on-surface-variant uppercase tracking-wider">Total Sales</p>
+<p class="font-headline-md text-xl">R142,500</p>
+</div>
+<!-- Active Orders -->
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary text-xl">reorder</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-[10px] text-on-surface-variant font-bold">LIVE</span>
+</div>
+</div>
+<p class="text-[11px] font-label-bold text-on-surface-variant uppercase tracking-wider">Active Orders</p>
+<p class="font-headline-md text-xl text-primary">48</p>
+</div>
+<!-- Venue Capacity -->
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary text-xl">groups</span>
+<div class="w-10 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[72%] h-full bg-primary"></div>
+</div>
+</div>
+<p class="text-[11px] font-label-bold text-on-surface-variant uppercase tracking-wider">Capacity</p>
+<p class="font-headline-md text-xl">72%</p>
+</div>
+<!-- Avg. Wait Time -->
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary text-xl">timer</span>
+<span class="text-[10px] text-error font-bold bg-error-container/30 px-1.5 py-0.5 rounded">High</span>
+</div>
+<p class="text-[11px] font-label-bold text-on-surface-variant uppercase tracking-wider">Avg. Wait</p>
+<p class="font-headline-md text-xl text-error">6 mins</p>
+</div>
+</div>
+</section>
+<!-- Charts Section (Asymmetric) -->
+<section class="grid grid-cols-1 gap-4">
+<div class="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-label-bold text-sm uppercase tracking-widest text-on-surface-variant">Sales Velocity</h3>
+<div class="flex gap-1">
+<div class="w-1 h-3 bg-primary rounded-full"></div>
+<div class="w-1 h-5 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="h-24 w-full flex items-end justify-between gap-1">
+<!-- Simple Bar Chart Mockup -->
+<div class="w-full bg-surface-container rounded-t-sm h-[30%]"></div>
+<div class="w-full bg-surface-container rounded-t-sm h-[45%]"></div>
+<div class="w-full bg-surface-container rounded-t-sm h-[20%]"></div>
+<div class="w-full bg-primary rounded-t-sm h-[70%]"></div>
+<div class="w-full bg-primary rounded-t-sm h-[85%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[60%]"></div>
+<div class="w-full bg-surface-container rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-surface-container rounded-t-sm h-[55%]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-label-bold text-on-surface-variant">
+<span>12:00</span>
+<span>14:00</span>
+<span>16:00</span>
+<span>18:00</span>
+</div>
+</div>
+<div class="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm overflow-hidden">
+<h3 class="font-label-bold text-sm uppercase tracking-widest text-on-surface-variant mb-4">Top Volume Items</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant neon colored fruit cocktail with ice and a garnish in a crystal glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrgGso1AphCJwn5jukcujQhyX4g9M7iViOnwDY7QlSdbEGMSIeeyakcUmrhHBU9WpM6qEis-dnez_v6zQnuXdnsvmjaCu7b-EUQvRqlSzvtQm1SxZbdM9jN1PypI0eaBgKrcEfykfg4xxS-SYXUHdulTGgWvpjdnI6GBZTWQaYEvrRzDxZ35redFRg8_HMFL7cIcBetW_6pLXYc99nszDlyctxkVdKaiuvif_ZUhyYxHW6o9dfahO93K9EJ8VWynQqqWbE8uNp3w"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline">
+<span class="font-label-bold text-sm">Electric Gin Tonic</span>
+<span class="text-xs font-bold">842 units</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full mt-1">
+<div class="w-[85%] h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="sparkling amber colored craft beer with a thick white head in a tall glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcZYqukK-_w7dWs05wCStWGOPOSKmE7mSuQS5hK7S8wEeWFWba5fwXM9B9sgq1Let6xFmlFeDj9HEc-rhZFX6EG1XyPQ18RcF5i4kHTZSomZpIGIMqj107NJuWLNKjGXK6z-uJSWw4euGIDiyTW3-AOJ1AcoKIOS1z2Ojt8NSN7MkmGpmn_4wDm0REGVKF3YB44HiBxYjRJlaSY_U5vBbWqutPFH2E-CrW4nemAQrFR2-h8IVRCZcfUSNZ9DU6w9glElzGJwfwhfw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline">
+<span class="font-label-bold text-sm">Daybreak Lager</span>
+<span class="text-xs font-bold">612 units</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full mt-1">
+<div class="w-[62%] h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Real-time Order Feed -->
+<section class="pb-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-lg">Live Order Flow</h2>
+<button class="text-primary font-label-bold text-xs flex items-center gap-1">
+                    VIEW ALL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Order Card -->
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="font-headline-md text-primary text-sm">WT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-label-bold text-sm truncate">#ORD-8821</h4>
+<span class="text-[10px] text-on-surface-variant font-medium">2m ago</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">3x Electric Gin, 1x Nacho Plate</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-0.5 bg-lime-100 text-lime-700 text-[10px] font-black rounded-full uppercase tracking-tighter">PREPARING</span>
+<span class="text-xs font-bold">R450.00</span>
+</div>
+</div>
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="font-headline-md text-on-surface-variant text-sm">WT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-label-bold text-sm truncate">#ORD-8819</h4>
+<span class="text-[10px] text-on-surface-variant font-medium">5m ago</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">1x Daybreak Lager, 1x Water</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded-full uppercase tracking-tighter">READY</span>
+<span class="text-xs font-bold">R125.00</span>
+</div>
+</div>
+<div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm flex items-center gap-4 opacity-70">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="font-headline-md text-on-surface-variant text-sm">WT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-label-bold text-sm truncate">#ORD-8815</h4>
+<span class="text-[10px] text-on-surface-variant font-medium">12m ago</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">2x Classic Mojito</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-black rounded-full uppercase tracking-tighter">COLLECTED</span>
+<span class="text-xs font-bold">R220.00</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Emergency Flash CTA -->
+<div class="fixed bottom-24 right-4 z-40">
+<button class="w-16 h-16 bg-secondary rounded-full shadow-2xl flex items-center justify-center text-white active:scale-90 transition-transform ring-4 ring-secondary-container/30">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-100">
+<div class="flex flex-col items-center justify-center bg-lime-400 text-black rounded-xl px-4 py-1.5 transition-all">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Activity</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Metrics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Profile</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#fffbff",
+                    "secondary": "#a90097",
+                    "surface-variant": "#e5e2e1",
+                    "surface-container-high": "#ebe7e7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#5f6300",
+                    "secondary-container": "#d300bd",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary-fixed": "#3a0033",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary": "#ffffff",
+                    "outline": "#78795f",
+                    "background": "#fcf8f8",
+                    "error-container": "#ffdad6",
+                    "surface": "#fcf8f8",
+                    "on-secondary-fixed-variant": "#840076",
+                    "inverse-primary": "#c7cf00",
+                    "on-tertiary-container": "#8243ff",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "tertiary-fixed": "#e9ddff",
+                    "primary-container": "#f6ff00",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "tertiary-container": "#faf2ff",
+                    "surface-tint": "#5f6300",
+                    "on-surface-variant": "#484831",
+                    "primary-fixed": "#e3ec00",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#313030",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c9c8aa",
+                    "on-primary-fixed": "#1c1d00",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#474a00",
+                    "on-primary-container": "#707400",
+                    "on-background": "#1c1b1b",
+                    "primary-fixed-dim": "#c7cf00",
+                    "secondary-fixed": "#ffd7f0",
+                    "tertiary": "#7212ff",
+                    "secondary-fixed-dim": "#fface8",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container": "#f0edec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit-xs": "4px",
+                    "base": "4px",
+                    "unit-md": "16px",
+                    "unit-lg": "24px",
+                    "unit-sm": "8px",
+                    "gutter": "12px",
+                    "unit-xl": "40px",
+                    "touch-target-min": "48px",
+                    "container-margin": "20px",
+                    "touch-target-optimal": "56px"
+            },
+            "fontFamily": {
+                    "status-banner": ["Inter"],
+                    "headline-md": ["Spline Sans"],
+                    "display-xl": ["Spline Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Spline Sans"],
+                    "label-bold": ["Inter"]
+            },
+            "fontSize": {
+                    "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tap-highlight-none { -webkit-tap-highlight-color: transparent; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-slate-100 dark:border-slate-800 shadow-sm flex justify-between items-center w-full px-5 h-16">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Spline_Sans'] font-bold text-lg tracking-tight text-slate-900 dark:text-white text-2xl font-black tracking-tighter">Wayta</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close-up portrait of a stylish young man with minimalist lighting and a clean white background for a professional user profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb4xW7G2TZ9mjaS-XDqrDyN74Gjd7PTiVXE3Lib7oC_6pffg_clatUGCPnNp3ks828DrahZPQPdVtTJHkWoc2gqOhzVSGKItTpTeTiBQypgrrZ6ydZjXVnPLUTT5HokeGH6MW44jVkLD0KnPygdqVcvlslmCLtFmD6DTOY7hrgcn32J_uzeZGJqKuIOpr8mWv_NDXB18-MnfT346JV6w2YQTkbE86dFVBgoYI4NElrYLHigWXdMjYGana_pgY7X_YXXcxrNpf3xSc"/>
+</div>
+</header>
+<main class="px-container-margin pt-unit-md space-y-unit-xl">
+<!-- Hero Search Section -->
+<section class="space-y-unit-md">
+<div class="flex flex-col gap-unit-xs">
+<span class="text-secondary font-label-bold text-status-banner uppercase tracking-widest">Pulse Finder</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Discover your beat</h2>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline" data-icon="search">search</span>
+<input class="w-full h-touch-target-optimal pl-12 pr-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container text-body-md" placeholder="Search venues or events..." type="text"/>
+</div>
+</section>
+<!-- Night Clubs Bento Section -->
+<section class="space-y-unit-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md">Night Clubs</h3>
+<span class="text-primary font-label-bold text-label-bold cursor-pointer hover:opacity-70">See All</span>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Sumo Card -->
+<div class="col-span-2 glass-card rounded-3xl overflow-hidden border border-white/40 shadow-sm group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-energy nightclub interior with neon lime and cyan laser lights, dense crowd dancing in atmospheric smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3JIksvj3ok0EqTS6qtPzP2N7NKmKNl72hRrclpcAzRIo3d2iTn_vJnenCMTkAS8cX5L7wmJK1sKHaXc1DTGwSMMMgCKL4OHSqGI5uwDJ62HymfXhzyCZlcIPqNKAEC5f7yGRyRCkPYrn9Y4JAkxUQEWypARIr9JuIQhWNzYik9D7rZTkHL0UJDE8QbIA7yPjAa0N29dMT65L36NR4GrX9FfQYAr-oWwmnUT3yFIuLYQ2y8cKdsB9FzbxFHSWW3BV-L3vZDCDN8JQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded-xl p-2 shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="sports_kabaddi" style="font-variation-settings: 'FILL' 1;">sports_kabaddi</span>
+</div>
+<div>
+<h4 class="text-white font-headline-md text-body-lg">Sumo</h4>
+<span class="text-primary-container font-label-bold text-[12px] tracking-widest">SML</span>
+</div>
+</div>
+<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter shadow-xl">Live Now</div>
+</div>
+</div>
+<!-- Black Door Card -->
+<div class="bg-surface-container-high rounded-3xl p-5 flex flex-col justify-between min-h-[160px] border border-outline-variant/30">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 bg-on-background rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="door_front">door_front</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="favorite">favorite</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-md text-on-surface">Black Door</h4>
+<p class="text-outline text-[12px] font-semibold tracking-wider">BDNL</p>
+</div>
+</div>
+<!-- Taboo Card -->
+<div class="bg-surface-container-high rounded-3xl p-5 flex flex-col justify-between min-h-[160px] border border-outline-variant/30">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(169,0,151,0.3)]">
+<span class="material-symbols-outlined text-white" data-icon="block">block</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="favorite">favorite</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-md text-on-surface">Taboo</h4>
+<p class="text-outline text-[12px] font-semibold tracking-wider">TBO</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Outdoor Activities Section -->
+<section class="space-y-unit-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md">Outdoor Activities</h3>
+<span class="material-symbols-outlined text-outline" data-icon="filter_list">filter_list</span>
+</div>
+<!-- Montana Card (Horizontal Layout) -->
+<div class="bg-white rounded-3xl p-unit-sm flex items-center gap-unit-md shadow-sm border border-slate-50">
+<div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Aerial view of a vibrant outdoor festival stage at dawn with bright neon accents and soft mountain fog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZv-6GVf4_QAzhWsSlFZ1H8pi3RRFu-tb1GCq-4kf6txWsgGmM7xPviI6EDobFrrXsQYN0eqhP0n7HEUhbiUbEG_F8JjzTeMuqEjEHwaiNvRjvfikn11gFY5kiE5IVueytJXdI6syo9MOKRAyLulIlzqj6uwblHZsMBuTqvR-Fu-wiks00Uy1Z2duCdYQOddv-OzzMU0rr1d_2GEKnvggAyhFMsUDjOWGuvrIjZTBVLexWdlV2u2YIQQU6prUh1gJ4kYY5u_FrEc"/>
+</div>
+<div class="flex-1 pr-2">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-body-md text-on-surface">Montana</h4>
+<span class="text-outline text-[11px] font-bold tracking-widest uppercase">MNTN</span>
+</div>
+<div class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-black">OPEN</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-bold text-[12px]">4.9</span>
+<span class="text-outline font-normal ml-1">• 2.4 km away</span>
+</div>
+</div>
+</div>
+<!-- Featured Outdoor Card -->
+<div class="relative rounded-3xl h-40 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Wide shot of an outdoor pool party at an upscale resort with palm trees, electric lime lighting, and a clear morning sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0aai4Knq6yo4vFgp0pLSuZEQkPEHRbdKaaz0ZSLdJq_jJyXlV8MI2N8cLKtxha0eFFazF8HMwpjtboTdpHcwVEfQ31_2jb1589KLNsfYdkyIcQqXZTGkLjj7zTcqDFD4r_QSpKWAoDjjKPFQyiF3vNu5o47zsYDCkefBPfENafHAoIYin7KVL8Xtk8SZWQ0AVZ2Gykpr0spDyTUV-BWtFtbJdXUnJhJfq-xze1pZpDn8KVx2KBb5ttZgEAM5fRH-75cZzjHind6s"/>
+<div class="absolute inset-0 bg-gradient-to-r from-secondary/60 to-transparent"></div>
+<div class="absolute inset-0 p-unit-lg flex flex-col justify-center">
+<h5 class="text-white font-headline-lg text-headline-md">Morning Rave</h5>
+<p class="text-white/80 text-body-md mb-2">Starts at 06:00 AM</p>
+<button class="bg-primary-container text-on-primary-container w-max px-6 h-touch-target-min rounded-full font-label-bold text-label-bold shadow-lg active:scale-95 transition-transform">Book Spot</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pt-2 pb-safe-offset-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg fixed bottom-0 w-full z-50 border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-lime-600 dark:text-lime-400 bg-lime-50/50 dark:bg-lime-900/20 rounded-xl py-1 px-3 tap-highlight-none active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-lime-500 dark:text-lime-400" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-['Spline_Sans'] text-[10px] font-semibold uppercase tracking-wider">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3 hover:text-pink-500 dark:hover:text-pink-400 tap-highlight-none active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-['Spline_Sans'] text-[10px] font-semibold uppercase tracking-wider">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3 hover:text-pink-500 dark:hover:text-pink-400 tap-highlight-none active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-['Spline_Sans'] text-[10px] font-semibold uppercase tracking-wider">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3 hover:text-pink-500 dark:hover:text-pink-400 tap-highlight-none active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+<span class="font-['Spline_Sans'] text-[10px] font-semibold uppercase tracking-wider">VIP</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3 hover:text-pink-500 dark:hover:text-pink-400 tap-highlight-none active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Spline_Sans'] text-[10px] font-semibold uppercase tracking-wider">Wallet</span>
+</div>
+</nav>
+<!-- Floating Action Button Contextual Logic: Suppressed on details, shown here for quick discovery -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-secondary rounded-full flex items-center justify-center text-white shadow-[0_8px_20px_rgba(169,0,151,0.4)] active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+</button>
+</body></html>

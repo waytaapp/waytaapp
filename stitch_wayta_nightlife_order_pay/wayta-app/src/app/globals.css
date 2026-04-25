@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  /* Wayta base tokens (ported from prototypes) */
+  --background: #fcf8f8;
+  --on-background: #1c1b1b;
+
+  --surface: #fcf8f8;
+  --surface-container: #f0edec;
+  --surface-container-low: #f6f3f2;
+  --surface-variant: #e5e2e1;
+
+  --primary: #5f6300;
+  --primary-container: #f6ff00;
+  --secondary: #a90097;
+  --secondary-container: #d300bd;
+
+  --outline-variant: #c9c8aa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-variant: var(--surface-variant);
+
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+
+  --color-outline-variant: var(--outline-variant);
+
+  /* Tailwind v4 font tokens */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-spline-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--on-background);
+}

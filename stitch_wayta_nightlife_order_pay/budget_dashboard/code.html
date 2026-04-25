@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-container": "#d300bd", "on-background": "#1c1b1b", "on-secondary-fixed-variant": "#840076", "surface-variant": "#e5e2e1", "tertiary-fixed-dim": "#d1bcff", "outline-variant": "#c9c8aa", "error-container": "#ffdad6", "surface-dim": "#dcd9d9", "on-secondary": "#ffffff", "surface-container": "#f0edec", "on-error-container": "#93000a", tertiary: "#7212ff", "surface-container-low": "#f6f3f2", "on-tertiary-fixed": "#23005b", "inverse-surface": "#313030", "on-secondary-container": "#fffbff", "on-primary-container": "#707400", "on-primary-fixed-variant": "#474a00", surface: "#fcf8f8", "primary-container": "#f6ff00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-fixed": "#e3ec00", primary: "#5f6300", "surface-tint": "#5f6300", error: "#ba1a1a", "on-primary": "#ffffff", "surface-container-high": "#ebe7e7", "on-surface": "#1c1b1b", "secondary-fixed-dim": "#fface8", "on-error": "#ffffff", "tertiary-fixed": "#e9ddff", "primary-fixed-dim": "#c7cf00", "on-tertiary-container": "#8243ff", "inverse-on-surface": "#f3f0ef", "tertiary-container": "#faf2ff", "inverse-primary": "#c7cf00", outline: "#78795f", "on-tertiary-fixed-variant": "#5700c9", secondary: "#a90097", "on-secondary-fixed": "#3a0033", "surface-bright": "#fcf8f8", "on-primary-fixed": "#1c1d00", "secondary-fixed": "#ffd7f0", "surface-container-highest": "#e5e2e1", "on-surface-variant": "#484831", background: "#fcf8f8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {gutter: "12px", "touch-target-optimal": "56px", "unit-xl": "40px", "unit-xs": "4px", "unit-sm": "8px", base: "4px", "unit-lg": "24px", "touch-target-min": "48px", "container-margin": "20px", "unit-md": "16px"}, fontFamily: {"headline-md": ["Spline Sans"], "body-md": ["Inter"], "headline-lg": ["Spline Sans"], "body-lg": ["Inter"], "status-banner": ["Inter"], "display-xl": ["Spline Sans"], "label-bold": ["Inter"], headline: ["Spline Sans"], display: ["Spline Sans"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "status-banner": ["14px", {lineHeight: "20px", fontWeight: "600"}], "display-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-bold": ["14px", {lineHeight: "20px", fontWeight: "700"}]}}}};</script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; }
+        .glass-card { background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(16px); border: 1px solid #1f1f1f; }
+        .neon-glow-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+        .neon-glow-pink { box-shadow: 0 0 20px rgba(255, 36, 228, 0.2); }
+        .progress-ring__circle { transition: stroke-dashoffset 0.35s; transform: rotate(-90deg); transform-origin: 50% 50%; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-cyan-400">menu</span>
+<h1 class="text-2xl font-black text-cyan-400 italic tracking-wider font-['Spline_Sans']">Wayta</h1>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-cyan-400 overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a stylish man with neon blue city lights reflecting on his face, high-intensity nightlife mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkNU9aABb_BNPdNnrnNDf78UtTGwh4troVWHMs598wtNQWEIckwKysur94GzBPknO75uYwWBdC07jubWfbPab9LAG0fZ3VUgmhrXbwhDZYHg906cBhmJ3V9D0TDkR6r7-DBZGSlQXgM192qGG-vDKKkxCIw4Z6UNruXB8ixRxldXzBZCZwGDJNxX8c7H8uPqAx0X3JKpS-rj_wp1P1oJhyIthOSuwQcMNeSVSU_AEPJnMhxDwS-dSCJS4dV1v3DJ0Tppb1cJK1nVk"/>
+</div>
+</header>
+<main class="pt-24 px-5 max-w-lg mx-auto space-y-6">
+<!-- Tonight's Budget Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Circular Progress Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center space-y-4 col-span-1 md:col-span-2 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-400"></span>
+</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface w-full">Tonight's Budget</h2>
+<div class="relative flex items-center justify-center py-4">
+<svg class="w-48 h-48">
+<circle class="text-zinc-800" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-cyan-400 progress-ring__circle" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.65" stroke-dashoffset="216.14" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center text-center">
+<span class="font-display-xl text-display-xl text-on-surface">R850</span>
+<span class="text-zinc-500 font-label-bold text-label-bold uppercase tracking-widest">Spent of R1500</span>
+</div>
+</div>
+<button class="w-full h-touch-target-optimal bg-primary-container text-on-primary font-label-bold text-label-bold rounded-lg neon-glow-blue active:scale-95 transition-transform">
+                    Update Budget
+                </button>
+</div>
+<!-- Mini Quick Actions -->
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-zinc-400 font-label-bold text-sm">Location Sharing</span>
+<span class="text-xs text-zinc-500">Live with friends</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-400"></div>
+</label>
+</div>
+<div class="flex -space-x-2">
+<img alt="Friend" class="h-8 w-8 rounded-full border-2 border-zinc-950" data-alt="Portrait of a young woman at a festival with colorful lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwW2Vj_3aZ-uhuPiIRkFM32f2QrFNPN2Y-9sIa8QsBMhuhgMHfzaqyiXgoqQAED3_SikHZsYEm82hb8jAuMk0n3FpwYJg74Ka9_Ce81tYbtWJ_nDkqBFBUY60-NmA5z-T08sNlAsCXOJF_ovoIs94BPsBUdtPgxXVh3fmMXoGIV22zUWNo2vtgLQgkSo9OSv7e5mvnog7J-I5RwcrL0YsxagA5G-Z0EAxZxVGp--YFxRiILbH7m54GYK6rOTdgFcPD14in3B4_oRo"/>
+<img alt="Friend" class="h-8 w-8 rounded-full border-2 border-zinc-950" data-alt="Portrait of a man in a dark environment with neon highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoklvLZURn038gK7UgP4_3RY8PDIZdCe1NCTgIemGcxyn-x6zu02T6zH6lHZeiXFyFDiwQzxjWdCiQPdgkqN9HiJ4gIRboAbM4LA89zCeVMkVSG-K3mLiXDuKhIDfZh3NRu_DYPZVU7p3BgTwD7MhlYYPvIWvxiwisjkOzv0CqSHN1Sv9DX9UVbAnJ-YjnBOtql9bemYft0pzvBsByf4hPl3pwmuK09FXiN5b6koyU7_2aut-bzSpeSeqgyz1pVNJ-lsJcgz0gKpk"/>
+<img alt="Friend" class="h-8 w-8 rounded-full border-2 border-zinc-950" data-alt="Portrait of a woman smiling with soft club lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWCTwpDx6cSp2qliLsKuK1CtRIjrF-EtAVy6tYTOgUD6U7ZItS9KEw0eg71FXgRbDJNwOoCkjh6GQprGsOSRPmmFY5rfbDtBaNjj6EktICgIOP9WYJMnBrRJa_3wyqwORkx8BwknNjFB8ZT31azpZX2CsnZ3HoXf9qUzjPY_K7oNE1ukokc4QBkSLiokIzYY0C9AEsKQasQbTCwXBblQD0VfUu7qBfwCJM7ZOmtyKU-3yK7JtuJfLmTN60lu8oL1pduK_ygvDGaIk"/>
+<div class="h-8 w-8 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center text-[10px] text-zinc-400">+12</div>
+</div>
+</div>
+<!-- Live Pulse Card -->
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between border-secondary-container/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-bold text-label-bold text-secondary">VIP Vault</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-on-surface tracking-tight">R3,420</span>
+<p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mt-1">Available Credit</p>
+</div>
+</div>
+</section>
+<!-- Recent Transactions -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Activity</h3>
+<span class="text-cyan-400 text-sm font-label-bold">View All</span>
+</div>
+<div class="space-y-3">
+<!-- Transaction Item 1 -->
+<div class="glass-card p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-zinc-900 flex items-center justify-center border border-zinc-800">
+<span class="material-symbols-outlined text-cyan-400">local_bar</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface">Madison Avenue</p>
+<p class="text-xs text-zinc-500">22:14 • Drinks &amp; Entry</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">-R450.00</p>
+<p class="text-[10px] text-zinc-600 font-bold uppercase">Success</p>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="glass-card p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-zinc-900 flex items-center justify-center border border-zinc-800">
+<span class="material-symbols-outlined text-cyan-400">restaurant</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface">Shimmy Beach Club</p>
+<p class="text-xs text-zinc-500">20:30 • Table Service</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">-R400.00</p>
+<p class="text-[10px] text-zinc-600 font-bold uppercase">Success</p>
+</div>
+</div>
+<!-- Ad/Promo Card -->
+<div class="relative h-24 rounded-xl overflow-hidden border border-zinc-800">
+<img alt="Club promotion" class="w-full h-full object-cover brightness-50" data-alt="Vibrant night club scene with crowd dancing under blue and pink laser lights, high motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe-cXy0heG7-MACiS_Ti6DMSNCpjGas-gTYpiCPDZP9_uowlFii0rpiiBavCzBf0GDfFWEmGU24DtaVjgYKZdfgqqqtXHVtghtAF7mUnu0dC5BWTpUTCOo0_k6sTSOhctXafMejwKhfg7Gimx3xX2EvQvzoAzutMrx_T9_lRQQztij8CJJ1p3hRPGUG_qxRRLJ-5-8UPqAjx-7IMMlFMvEvd4P1VgRHYfb60vhULiGeP67bXTAxXjZknom6aWiFXEC5V2ib3wWA-4"/>
+<div class="absolute inset-0 p-4 flex items-center justify-between bg-gradient-to-r from-black/80 to-transparent">
+<div>
+<p class="text-secondary font-bold text-xs uppercase tracking-widest">VIP Perk</p>
+<p class="text-on-surface font-headline-md text-sm">Free shot at Madison Ave</p>
+</div>
+<button class="h-8 px-4 bg-secondary-container text-on-secondary font-bold text-xs rounded-full uppercase">Claim</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">VIP</span>
+</a>
+<a class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+</nav>
+</body></html>

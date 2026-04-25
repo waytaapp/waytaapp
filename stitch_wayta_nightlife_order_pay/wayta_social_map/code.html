@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#7212ff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed": "#e9ddff",
+                    "outline": "#78795f",
+                    "error": "#ba1a1a",
+                    "secondary": "#a90097",
+                    "primary-container": "#f6ff00",
+                    "on-primary-fixed": "#1c1d00",
+                    "background": "#fcf8f8",
+                    "on-secondary-fixed": "#3a0033",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f0edec",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-primary": "#c7cf00",
+                    "surface-tint": "#5f6300",
+                    "outline-variant": "#c9c8aa",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-surface-variant": "#484831",
+                    "tertiary-container": "#faf2ff",
+                    "primary-fixed": "#e3ec00",
+                    "on-surface": "#1c1b1b",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "surface": "#fcf8f8",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d300bd",
+                    "surface-bright": "#fcf8f8",
+                    "on-primary-container": "#707400",
+                    "secondary-fixed": "#ffd7f0",
+                    "on-secondary-container": "#fffbff",
+                    "surface-variant": "#e5e2e1",
+                    "on-primary-fixed-variant": "#474a00",
+                    "secondary-fixed-dim": "#fface8",
+                    "surface-container-high": "#ebe7e7",
+                    "primary-fixed-dim": "#c7cf00",
+                    "primary": "#5f6300",
+                    "on-secondary-fixed-variant": "#840076",
+                    "on-error": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "on-tertiary-container": "#8243ff",
+                    "inverse-surface": "#313030",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit-sm": "8px",
+                    "gutter": "12px",
+                    "container-margin": "20px",
+                    "unit-xs": "4px",
+                    "unit-lg": "24px",
+                    "unit-md": "16px",
+                    "base": "4px",
+                    "unit-xl": "40px",
+                    "touch-target-optimal": "56px",
+                    "touch-target-min": "48px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "headline-md": ["Spline Sans"],
+                    "display-xl": ["Spline Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Spline Sans"],
+                    "status-banner": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.map-container {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC0lpHt-GXDXDxp7BNGST3srmVkW7jJjll-DWXyl4QTqfYMFzJeW4_r2w00hWoX8jgqppvchiuwYF2qP8iR6mvQIiZ4bPSNS5j1J9BGJVDUtvbnn8g4pjnwykT3Oz0Mtra5s-dO7jYZDZDymYyjHcMuyqWq8ejLc6HbbfHOmpKf-8cfuAmyitwJznD0oVYVR1qjMcMEFB8KDUN5wKbG2EmP9qP2xuOCiXv1q87HfFMtaHBnbk72D6Cqe5tsek3uBzLPZYcTD97mlGU);
+    background-size: cover;
+    background-position: center
+    }
+.glass-panel {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 h-16 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden active:scale-95 transition-all duration-150">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young man with a joyful expression at a festival, sun-drenched lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKAyzkYyv8CLfK3_DG96Bg97zEg1IgguTjMVt_ww5kK6RVgrS_5Fs-4WniWMYm4k7IgsmLhpvZYcHmIsb_MKaOzrqoJHBU7t3dqeq81I1ltSrxLNo7rx7pP5-aPMtzaPJflv3FBuquB814zr7yXMa-Gu7M1rTy55avoExPqOnVYfo3gePmSkH_zyulwO6BOIT8iKWsVezfSft70VvWrkhx98pOAe8bJQfFlSNgSpDg0crYcDQ3GQzPNDQ6q5D3PcXbh6E5r5sr748"/>
+</div>
+<span class="text-xl font-black uppercase italic text-slate-900 dark:text-white font-['Spline_Sans']">WAYTA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="relative flex-grow mt-16 mb-20 overflow-hidden map-container" data-location="Indio, California">
+<!-- Search Overlay -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40">
+<div class="bg-white/95 shadow-xl rounded-2xl flex items-center px-4 h-14 border border-slate-100">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface placeholder:text-slate-400" placeholder="Find friends or stages..." type="text"/>
+<div class="flex items-center gap-2 ml-2">
+<span class="h-6 w-[1px] bg-slate-200"></span>
+<span class="material-symbols-outlined text-secondary" data-icon="mic">mic</span>
+</div>
+</div>
+</div>
+<!-- Venue Markers -->
+<!-- Main Stage -->
+<div class="absolute top-[25%] left-[45%] z-20 group">
+<div class="flex flex-col items-center">
+<div class="bg-primary-container text-on-primary-fixed font-bold px-3 py-1 rounded-full text-[12px] shadow-lg mb-1 uppercase tracking-wider">Main Stage</div>
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center shadow-2xl border-4 border-white active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-slate-900" data-icon="festival" style="font-variation-settings: 'FILL' 1;">festival</span>
+</div>
+<div class="w-2 h-2 bg-primary-container rounded-full mt-1 animate-pulse"></div>
+</div>
+</div>
+<!-- Electric Forest -->
+<div class="absolute top-[60%] left-[20%] z-20 group">
+<div class="flex flex-col items-center">
+<div class="bg-slate-900/80 backdrop-blur-md text-white font-bold px-3 py-1 rounded-full text-[10px] shadow-lg mb-1 uppercase tracking-wider">Electric Forest</div>
+<div class="w-8 h-8 bg-on-primary-container rounded-full flex items-center justify-center shadow-xl border-2 border-white">
+<span class="material-symbols-outlined text-white text-sm" data-icon="park" style="font-variation-settings: 'FILL' 1;">park</span>
+</div>
+</div>
+</div>
+<!-- VIP Bar -->
+<div class="absolute top-[40%] right-[15%] z-20">
+<div class="flex flex-col items-center">
+<div class="bg-secondary text-white font-bold px-3 py-1 rounded-full text-[10px] shadow-lg mb-1 uppercase tracking-wider">VIP Bar</div>
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center shadow-xl border-2 border-white">
+<span class="material-symbols-outlined text-white text-sm" data-icon="local_bar">local_bar</span>
+</div>
+</div>
+</div>
+<!-- SOS Point -->
+<div class="absolute bottom-[20%] right-[30%] z-20">
+<div class="w-8 h-8 bg-error rounded-full flex items-center justify-center shadow-xl border-2 border-white ring-4 ring-error/20">
+<span class="material-symbols-outlined text-white text-sm" data-icon="emergency" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+</div>
+<!-- Friend Avatars -->
+<!-- Sarah -->
+<div class="absolute top-[35%] left-[30%] z-30 flex flex-col items-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary-container p-0.5 bg-white shadow-xl">
+<img alt="Sarah" class="w-full h-full rounded-full object-cover" data-alt="portrait of a young woman with a flower crown at a summer festival" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ZO3fsWnRWCxz1mJNsCZzHSXlU6p5Ye9jZtW55QckMmldgtlSUs-LuYl7osa0E153ncrUzEaQ2sSo-BzTFkOSXOIJRkh_xRpd0QJatmioxMJVOmofgs9DYKc1FcR1qFzzo4iALioy0vmxYgtvf7KmsMV3VgXNo7Zz5bXYVSODsoy-JUph0LJcgx0RqZ1XtiAnbaudqcfp7xkNkSdARjFrhAKjcg9ykxcJ5pQC6Jj4XV4ZvNisG1IFRsMCfnLM3K9WoB-tvW6hRL4"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-lime-400 border-2 border-white rounded-full"></div>
+</div>
+<span class="mt-1 bg-white/90 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-bold text-slate-900 shadow-sm">Sarah</span>
+</div>
+<!-- Marcus -->
+<div class="absolute top-[50%] left-[55%] z-30 flex flex-col items-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary-container p-0.5 bg-white shadow-xl">
+<img alt="Marcus" class="w-full h-full rounded-full object-cover" data-alt="man with cool sunglasses and festival wristbands smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx-5pME183DgQTvjtbVfJTV1QPsnI3T6oSsarlqgqezyXY6mbsQGa8u8dNIollk7I64Y_9VsOquw1AhyAAXxyymBiA_MtR8nqSxxokEPhfZJgKYfsE8RdFVokgX4LNnrK8-rRTeLtxGZLO77-nvGxdrGiBymN4NFnwJoWCjaofHQO_ojCGrX1N6XDa5kqGixnSLK-PrlgBQZltkL4C5v9yM-PGOzKVHgNAEypvEMtClwZsEJvwegcPgdpyPcAuBHyyvJrKX3S3pQk"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-lime-400 border-2 border-white rounded-full"></div>
+</div>
+<span class="mt-1 bg-white/90 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-bold text-slate-900 shadow-sm">Marcus</span>
+</div>
+<!-- Leo -->
+<div class="absolute bottom-[35%] right-[40%] z-30 flex flex-col items-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary-container p-0.5 bg-white shadow-xl">
+<img alt="Leo" class="w-full h-full rounded-full object-cover" data-alt="stylish man with a beanie laughing in a sunlit outdoor crowd" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT7_NCk3e0_0IAi70Bei9CfC3w9z4CQiLzMHDLEliE3ahDgBok95Bx_RVJE9NDr1kWXZoLOUuc-8soRqUv4maU11diMZl87jh7jBrU4AE0tyTPmfGmBgN2f1sFbJm0w5ZUN2jbPVsK1aHPBV_i-XOoGW5HWROCnFoVR_99v0Ncj2ce8EsAtmfF2qJKPQ37c5BpQbiEzSakdGd9S0x1r837Mku4ErLwLM6qU1rBmOZ7KTuzM7Exv2VferQO0CyPRHnX0p9Z3xpUqsg"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-slate-400 border-2 border-white rounded-full"></div>
+</div>
+<span class="mt-1 bg-white/90 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-bold text-slate-900 shadow-sm">Leo</span>
+</div>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-5 z-50 w-16 h-16 bg-primary-container text-on-primary-fixed rounded-2xl shadow-2xl flex flex-col items-center justify-center active:scale-90 transition-transform duration-200 border-2 border-white/50">
+<span class="material-symbols-outlined text-3xl" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-[8px] font-black uppercase mt-0.5">Live</span>
+</button>
+<!-- Dynamic Status Banner -->
+<div class="absolute bottom-4 left-5 right-5 z-40 bg-on-tertiary-fixed-variant text-white px-4 py-3 rounded-2xl shadow-lg flex items-center justify-between border-l-4 border-primary-container">
+<div class="flex items-center gap-3">
+<div class="relative w-2 h-2">
+<div class="absolute inset-0 bg-primary-container rounded-full animate-ping opacity-75"></div>
+<div class="relative bg-primary-container w-2 h-2 rounded-full"></div>
+</div>
+<div>
+<p class="text-[12px] font-bold leading-none">THE VOID @ MAIN STAGE</p>
+<p class="text-[10px] opacity-80 uppercase font-medium">Starting in 04:52</p>
+</div>
+</div>
+<button class="bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase transition-colors">Route</button>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-safe bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center bg-lime-400 dark:bg-lime-400 text-slate-900 rounded-xl py-1 px-4 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-['Spline_Sans'] text-[11px] font-bold uppercase mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-4 hover:text-pink-500 dark:hover:text-pink-400 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="festival">festival</span>
+<span class="font-['Spline_Sans'] text-[11px] font-bold uppercase mt-1">Stages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-4 hover:text-pink-500 dark:hover:text-pink-400 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-['Spline_Sans'] text-[11px] font-bold uppercase mt-1">Friends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-4 hover:text-pink-500 dark:hover:text-pink-400 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="font-['Spline_Sans'] text-[11px] font-bold uppercase mt-1">SOS</span>
+</a>
+</nav>
+</body></html>

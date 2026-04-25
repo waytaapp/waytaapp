@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200;1,6..72,400;1,6..72,900&amp;family=Space+Grotesk:wght@300;400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#410587",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#506600",
+                    "tertiary": "#ffffff",
+                    "surface-variant": "#353535",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary-fixed": "#270057",
+                    "outline": "#8e9379",
+                    "primary-container": "#c3f400",
+                    "on-background": "#e2e2e2",
+                    "inverse-surface": "#e2e2e2",
+                    "secondary-fixed": "#ffd7f5",
+                    "outline-variant": "#444933",
+                    "tertiary-fixed": "#ecdcff",
+                    "on-error": "#690005",
+                    "surface-tint": "#abd600",
+                    "on-secondary-fixed-variant": "#810081",
+                    "on-tertiary-fixed-variant": "#592a9e",
+                    "on-tertiary-container": "#784bbe",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed": "#161e00",
+                    "background": "#131313",
+                    "surface-container-highest": "#353535",
+                    "surface": "#131313",
+                    "on-primary": "#283500",
+                    "on-primary-container": "#556d00",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-surface": "#e2e2e2",
+                    "tertiary-fixed-dim": "#d5baff",
+                    "surface-dim": "#131313",
+                    "inverse-on-surface": "#303030",
+                    "primary-fixed": "#c3f400",
+                    "on-secondary": "#5b005b",
+                    "surface-container-low": "#1b1b1b",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#500050",
+                    "secondary-container": "#fe00fe",
+                    "primary": "#ffffff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-fixed-dim": "#abd600",
+                    "on-surface-variant": "#c4c9ac",
+                    "secondary": "#ffabf3",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#380038",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#d5baff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-safe": "24px",
+                    "fragment-offset": "12px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Newsreader"],
+                    "glitch-sm": ["Space Grotesk"],
+                    "label-mono": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-lg": ["Newsreader"]
+            },
+            "fontSize": {
+                    "headline-xl": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+                    "glitch-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.3em", "fontWeight": "300"}],
+                    "label-mono": ["12px", {"lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            overflow: hidden;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(204, 255, 0, 0.1);
+            position: absolute;
+            z-index: 10;
+        }
+        .glitch-overlay {
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+        }
+        .distort {
+            filter: url(#glitch);
+        }
+        .chromatic-aberration {
+            text-shadow: 2px 0 0 #fe00fe, -2px 0 0 #c3f400;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-on-background font-body-md min-h-screen flex items-center justify-center relative overflow-hidden selection:bg-secondary-container selection:text-black">
+<!-- Glitch Artifacts & Static -->
+<div class="fixed inset-0 glitch-overlay z-50"></div>
+<div class="fixed inset-0 opacity-20 z-40 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+<!-- Background Gradient Pulse -->
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-container/5 rounded-full blur-[120px] z-0"></div>
+<div class="fixed top-1/4 left-1/3 w-[400px] h-[400px] bg-primary-container/5 rounded-full blur-[100px] z-0"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-20 flex flex-col items-center justify-center w-full px-margin-safe max-w-4xl">
+<!-- Fragments Header -->
+<div class="absolute -top-32 left-0 transform -skew-x-12 opacity-40">
+<span class="font-glitch-sm text-glitch-sm text-primary-container uppercase block mb-1">SYSTEM_INIT_SEQ</span>
+<div class="h-[1px] w-48 bg-primary-container"></div>
+</div>
+<!-- The Logo Section (Tilted) -->
+<div class="relative transform rotate-[-2deg] mb-16">
+<!-- Glitch Layers -->
+<div class="absolute -top-1 -left-1 text-secondary-container font-headline-xl text-headline-xl italic opacity-70 translate-x-[2px]">WAYTA</div>
+<div class="absolute top-1 left-1 text-primary-container font-headline-xl text-headline-xl italic opacity-70 translate-x-[-2px]">WAYTA</div>
+<h1 class="relative font-headline-xl text-headline-xl text-white italic font-black uppercase tracking-widest drop-shadow-[0_0_15px_rgba(204,255,0,0.5)]">
+                WAYTA
+            </h1>
+<!-- Fragmented Border -->
+<div class="absolute -bottom-4 -right-12 w-64 h-[2px] bg-primary-container flex justify-between">
+<div class="w-4 h-4 bg-primary-container -mt-[7px]"></div>
+<div class="w-1 h-8 bg-secondary-container mt-[-15px]"></div>
+</div>
+</div>
+<!-- Fragmented Lightning Bolt Icon -->
+<div class="relative mb-12 flex items-center justify-center">
+<div class="absolute inset-0 bg-secondary-container/20 blur-2xl rounded-full scale-150 animate-pulse"></div>
+<div class="relative flex flex-col gap-1 items-center">
+<!-- Fragmented Top -->
+<span class="material-symbols-outlined text-[80px] text-primary-container translate-x-2 opacity-80" style="clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);">electric_bolt</span>
+<!-- Fragmented Middle -->
+<span class="material-symbols-outlined text-[80px] text-secondary-container -translate-x-3 chromatic-aberration" style="clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%);">electric_bolt</span>
+<!-- Fragmented Bottom -->
+<span class="material-symbols-outlined text-[80px] text-primary-container translate-x-1 opacity-90" style="clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);">electric_bolt</span>
+</div>
+</div>
+<!-- Progress Status Container -->
+<div class="w-full max-w-sm flex flex-col gap-4 transform skew-x-[-4deg]">
+<div class="flex justify-between items-end px-2">
+<div class="flex flex-col">
+<span class="font-glitch-sm text-glitch-sm text-white/40 uppercase mb-1">NETWORK_STATUS</span>
+<span class="font-label-mono text-label-mono text-primary-container uppercase">ESTABLISHING PULSE...</span>
+</div>
+<span class="font-headline-lg text-[32px] text-secondary-container italic font-black">88%</span>
+</div>
+<!-- Pulse Progress Bar (Fragmented Segments) -->
+<div class="flex gap-1 h-3 w-full">
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-primary-container opacity-50"></div>
+<div class="flex-1 bg-primary-container"></div>
+<div class="flex-1 bg-secondary-container animate-pulse"></div>
+<div class="flex-1 bg-white/10"></div>
+<div class="flex-1 bg-white/10"></div>
+<div class="flex-1 bg-white/10"></div>
+<div class="flex-1 bg-white/05"></div>
+</div>
+<!-- Meta Data Strings -->
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="border-t border-white/20 pt-2 flex flex-col">
+<span class="font-glitch-sm text-[8px] text-white/30 uppercase">LATENCY</span>
+<span class="font-label-mono text-label-mono text-white">0.002MS</span>
+</div>
+<div class="border-t border-white/20 pt-2 flex flex-col transform translate-x-fragment-offset">
+<span class="font-glitch-sm text-[8px] text-white/30 uppercase">ENCRYPTION</span>
+<span class="font-label-mono text-label-mono text-secondary-container">RSA_GLITCH_MOD</span>
+</div>
+</div>
+</div>
+<!-- Decorative Floating Text -->
+<div class="fixed bottom-12 left-12 transform rotate-90 origin-left">
+<span class="font-glitch-sm text-glitch-sm text-white/10 uppercase tracking-[1em]">UNAPOLOGETIC_BRUTALISM</span>
+</div>
+<div class="fixed top-12 right-12 text-right">
+<span class="font-glitch-sm text-glitch-sm text-secondary-container block mb-2">V.04.1_STABLE</span>
+<div class="w-12 h-1 bg-primary-container ml-auto"></div>
+</div>
+</main>
+<!-- Fragmented Bottom Corner Graphic -->
+<div class="fixed bottom-0 right-0 w-64 h-64 overflow-hidden pointer-events-none opacity-20">
+<div class="absolute bottom-0 right-0 w-full h-full border-r-[40px] border-b-[40px] border-primary-container transform rotate-12 translate-x-12 translate-y-12"></div>
+<div class="absolute bottom-8 right-8 w-1/2 h-1/2 bg-secondary-container"></div>
+</div>
+<!-- SVG Glitch Filter -->
+<svg class="hidden">
+<defs>
+<filter id="glitch">
+<fecolormatrix in="SourceGraphic" result="red" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></fecolormatrix>
+<feoffset dx="3" dy="0" in="red" result="red-offset"></feoffset>
+<fecolormatrix in="SourceGraphic" result="green" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"></fecolormatrix>
+<feoffset dx="-3" dy="0" in="green" result="green-offset"></feoffset>
+<feblend in="red-offset" in2="green-offset" mode="screen"></feblend>
+</filter>
+</defs>
+</svg>
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#3a0033",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-primary": "#c7cf00",
+                        "surface-container": "#f0edec",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary": "#7212ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "background": "#fcf8f8",
+                        "on-primary-fixed": "#1c1d00",
+                        "secondary": "#a90097",
+                        "primary-container": "#f6ff00",
+                        "tertiary-fixed": "#e9ddff",
+                        "outline": "#78795f",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#474a00",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed-dim": "#c7cf00",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-fixed": "#ffd7f0",
+                        "on-secondary-container": "#fffbff",
+                        "surface-bright": "#fcf8f8",
+                        "on-primary-container": "#707400",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#5f6300",
+                        "on-secondary-fixed-variant": "#840076",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "on-tertiary-container": "#8243ff",
+                        "on-tertiary-fixed": "#23005b",
+                        "on-surface-variant": "#484831",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-container": "#faf2ff",
+                        "primary-fixed": "#e3ec00",
+                        "surface-tint": "#5f6300",
+                        "outline-variant": "#c9c8aa",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf8f8",
+                        "secondary-container": "#d300bd",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#d1bcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit-xl": "40px",
+                        "touch-target-optimal": "56px",
+                        "touch-target-min": "48px",
+                        "unit-md": "16px",
+                        "base": "4px",
+                        "gutter": "12px",
+                        "container-margin": "20px",
+                        "unit-xs": "4px",
+                        "unit-lg": "24px",
+                        "unit-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Spline Sans"],
+                        "status-banner": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Spline Sans"],
+                        "display-xl": ["Spline Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .electric-glow {
+            box-shadow: 0 0 20px rgba(246, 255, 0, 0.4);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full flex items-center justify-between px-6 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-sm border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-slate-50 rounded-full">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-black text-slate-900 dark:text-white tracking-tighter font-['Spline_Sans']">Wayta</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-slate-50 rounded-full">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-32 px-5 max-w-2xl mx-auto">
+<!-- Profile Header Section -->
+<section class="flex flex-col items-center text-center mt-6 mb-8">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-4 border-primary-container p-1 electric-glow">
+<img alt="Alex Rivers" class="w-full h-full object-cover rounded-full" data-alt="stylish close-up portrait of a young man with trendy haircut in a sunlit outdoor festival setting, warm lighting, high energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoDMfCMArKr0ZJjnToeuEeZZPKoVdLGo-IwmVIHlt7wAQA6_gzh5GkA6wpLZNpqhw-LA4u3yBi2Tfj4WDZKaGXXc7iaZ_zpLAhM3JnSjlcSkqO3KofnU-fOBINfzSxOVjHFzO9cErQoGINRw8T6wg5BZvytZdALdzg68EzqM5J8feJ3IXNwcOab5ZUldy0AE5WS3Vr53GIuiaRYBw6kdk_oNcdDEowqcwM5sU7iZO74R9pMYJp9sbvjUBN00FNTSAS8UfP6aMf3tU"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border-2 border-white">
+                    Gold
+                </div>
+</div>
+<h2 class="mt-4 font-headline-lg text-headline-lg text-on-surface">Alex Rivers</h2>
+<p class="text-on-surface-variant font-medium tracking-wide">Gold Member</p>
+</section>
+<!-- Loyalty Bento Grid -->
+<section class="grid grid-cols-2 gap-4 mb-10">
+<div class="bg-primary-container/20 p-5 rounded-3xl border border-primary-container/30 flex flex-col justify-between h-36">
+<div>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<p class="text-xs font-bold uppercase tracking-widest text-primary opacity-80">Pulse Points</p>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black text-primary tracking-tighter">12,450</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-3xl border border-outline-variant flex flex-col justify-between h-36 shadow-sm">
+<div>
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<p class="text-xs font-bold uppercase tracking-widest text-secondary opacity-80">Loyalty</p>
+</div>
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface leading-tight">Member since</span>
+<span class="text-headline-md font-black text-on-surface tracking-tighter">2023</span>
+</div>
+</div>
+</section>
+<!-- Navigation Lists -->
+<div class="space-y-8">
+<!-- Account Group -->
+<div>
+<h3 class="px-2 mb-3 text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant/60">Account Settings</h3>
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant shadow-sm">
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="person_outline">person_outline</span>
+<span class="font-headline-md text-base font-semibold">Personal Info</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-outline-variant/30 mx-6"></div>
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<span class="font-headline-md text-base font-semibold">Security</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Payments Group -->
+<div>
+<h3 class="px-2 mb-3 text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant/60">Payments</h3>
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant shadow-sm">
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="credit_card">credit_card</span>
+<span class="font-headline-md text-base font-semibold">Linked Cards</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-outline-variant/30 mx-6"></div>
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-headline-md text-base font-semibold">Peach Payments setup</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Preferences Group -->
+<div>
+<h3 class="px-2 mb-3 text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant/60">Preferences</h3>
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant shadow-sm">
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="notifications_active">notifications_active</span>
+<span class="font-headline-md text-base font-semibold">Notifications</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-primary px-2 py-0.5 bg-primary-container rounded-full">On</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<div class="h-px bg-outline-variant/30 mx-6"></div>
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+<span class="font-headline-md text-base font-semibold">App Theme</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-medium text-on-surface-variant">Light</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Support Group -->
+<div>
+<h3 class="px-2 mb-3 text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant/60">Support</h3>
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant shadow-sm">
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="help_center">help_center</span>
+<span class="font-headline-md text-base font-semibold">Help Center</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-outline-variant/30 mx-6"></div>
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<span class="font-headline-md text-base font-semibold">Contact Us</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Legal Group -->
+<div>
+<h3 class="px-2 mb-3 text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant/60">Legal</h3>
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden border border-outline-variant shadow-sm">
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="policy">policy</span>
+<span class="font-headline-md text-base font-semibold">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="open_in_new">open_in_new</span>
+</button>
+<div class="h-px bg-outline-variant/30 mx-6"></div>
+<button class="w-full flex items-center justify-between px-6 h-16 hover:bg-surface-container-low transition-colors active:bg-surface-container">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<span class="font-headline-md text-base font-semibold">Terms</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Logout -->
+<button class="w-full flex items-center justify-center px-6 h-16 bg-error-container/20 rounded-[2rem] border border-error-container hover:bg-error-container/40 transition-colors active:scale-[0.98] mt-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+<span class="font-headline-md text-base font-black text-error uppercase tracking-widest">Logout</span>
+</div>
+</button>
+</div>
+<!-- App Version -->
+<p class="text-center mt-12 mb-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.3em]">Wayta App v2.4.0-electric</p>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-70 hover:text-pink-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Spline_Sans'] text-[12px] font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-70 hover:text-pink-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-['Spline_Sans'] text-[12px] font-semibold">Discovery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-70 hover:text-pink-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-['Spline_Sans'] text-[12px] font-semibold">Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-lime-600 dark:text-lime-400 scale-110 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Spline_Sans'] text-[12px] font-semibold">Profile</span>
+</a>
+</nav>
+</body></html>

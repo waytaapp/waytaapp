@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e5e2e1",
+                    "inverse-on-surface": "#f3f0ef",
+                    "secondary": "#a90097",
+                    "on-secondary": "#ffffff",
+                    "primary": "#5f6300",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary-container": "#8243ff",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "secondary-fixed-dim": "#fface8",
+                    "secondary-container": "#d300bd",
+                    "outline-variant": "#c9c8aa",
+                    "on-secondary-fixed-variant": "#840076",
+                    "on-surface-variant": "#484831",
+                    "surface-container": "#f0edec",
+                    "tertiary-container": "#faf2ff",
+                    "surface-tint": "#5f6300",
+                    "primary-fixed-dim": "#c7cf00",
+                    "on-primary-container": "#707400",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7212ff",
+                    "outline": "#78795f",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-surface": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474a00",
+                    "on-primary-fixed": "#1c1d00",
+                    "surface-container-low": "#f6f3f2",
+                    "on-secondary-container": "#fffbff",
+                    "surface-dim": "#dcd9d9",
+                    "surface-bright": "#fcf8f8",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "background": "#fcf8f8",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "surface": "#fcf8f8",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffd7f0",
+                    "surface-container-high": "#ebe7e7",
+                    "inverse-surface": "#313030",
+                    "inverse-primary": "#c7cf00",
+                    "primary-container": "#f6ff00",
+                    "on-secondary-fixed": "#3a0033",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#e3ec00",
+                    "on-background": "#1c1b1b",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit-sm": "8px",
+                    "unit-lg": "24px",
+                    "unit-xs": "4px",
+                    "container-margin": "20px",
+                    "unit-md": "16px",
+                    "touch-target-optimal": "56px",
+                    "base": "4px",
+                    "gutter": "12px",
+                    "touch-target-min": "48px",
+                    "unit-xl": "40px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "display-xl": ["Spline Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Spline Sans"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Spline Sans"],
+                    "status-banner": ["Inter"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .loading-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+        .blur-backdrop {
+            filter: blur(12px) saturate(1.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden">
+<!-- Blurred Background (Representative of Welcome Screen 37) -->
+<div class="fixed inset-0 z-0 blur-backdrop scale-105">
+<img alt="Festival Crowd" class="w-full h-full object-cover opacity-60" data-alt="dynamic outdoor music festival with vibrant neon stage lights, large crowd silhouetted against electric lime and pink daylight skies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGBJ3LBwDEW8Ad2SH9zx0h-tsrPWV3eULqb37Yf7RvEQ5vZmok552OYCrZc8unW5hfqYlAOJO6wWM5A1M9fn2czxFUpMPH4SWfhC3KqwkyjHl_ID8qmb1TbofbNH1E3cQCyty6LahHYJLz5NxEHUEC_v5xv66kW-R_j5Xqw4_PiQ-t7rptX7gQQJP37fX_-voV5RDob7GOsYfta014_Os04AjbEAFZVePk2vK2u-Xp2CFkTBGCpFNs22TqIWCUcy3Qj-ycElQNZ24"/>
+<div class="absolute inset-0 bg-white/40"></div>
+<!-- Blurred UI Elements to mimic the underlying screen -->
+<div class="absolute inset-x-0 bottom-20 px-8 space-y-4">
+<div class="h-16 bg-white/80 rounded-xl w-full"></div>
+<div class="h-14 bg-lime-400/80 rounded-xl w-full"></div>
+</div>
+<div class="absolute top-20 left-8">
+<div class="h-12 w-48 bg-black/80 rounded-lg mb-2"></div>
+<div class="h-6 w-32 bg-black/40 rounded-lg"></div>
+</div>
+</div>
+<!-- Main Loading Content -->
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen p-container-margin">
+<!-- Loading Container -->
+<div class="relative flex flex-col items-center">
+<!-- Stylish Multi-Ring Spinner -->
+<div class="relative w-24 h-24 flex items-center justify-center">
+<!-- Inner Neon Pink Ring -->
+<div class="absolute inset-0 border-4 border-secondary/20 rounded-full"></div>
+<div class="absolute inset-0 border-4 border-t-secondary rounded-full animate-spin"></div>
+<!-- Outer Electric Lime Pulse -->
+<div class="absolute -inset-4 border-2 border-primary-container rounded-full loading-pulse opacity-60"></div>
+<!-- Center Icon -->
+<span class="material-symbols-outlined text-4xl text-on-background font-bold" data-icon="bolt">bolt</span>
+</div>
+<!-- Authenticating Text -->
+<div class="mt-unit-xl text-center">
+<h1 class="font-headline-md text-headline-md text-on-background tracking-tight">
+                    Authenticating...
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-unit-xs">
+                    Preparing your Electric Daybreak experience
+                </p>
+</div>
+<!-- Live Pulse Badge (Mandatory Style Guidance) -->
+<div class="mt-12 flex items-center gap-2 px-unit-md py-unit-sm bg-white/80 backdrop-blur-md rounded-full shadow-sm border border-slate-100">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-bold text-label-bold text-on-background uppercase tracking-widest">Secure Link</span>
+</div>
+</div>
+</main>
+<!-- Connectivity Banner (Top Anchor) -->
+<div class="fixed top-0 left-0 w-full z-50 bg-[#FFB800] px-unit-md py-2 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-black text-sm" data-icon="warning">warning</span>
+<span class="font-status-banner text-status-banner text-black">Verifying connection stability...</span>
+</div>
+<!-- Hidden structure for TopAppBar styling preservation from JSON -->
+<header class="hidden md:flex justify-between items-center w-full px-5 h-16 bg-white/90 backdrop-blur-md font-['Spline_Sans'] antialiased shadow-sm border-b border-slate-100">
+<span class="text-2xl font-black italic tracking-tighter text-black">Wayta</span>
+</header>
+</body></html>

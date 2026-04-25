@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e3ec00",
+                        "inverse-primary": "#c7cf00",
+                        "primary-container": "#f6ff00",
+                        "on-secondary-fixed": "#3a0033",
+                        "inverse-surface": "#313030",
+                        "surface": "#fcf8f8",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffd7f0",
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf8f8",
+                        "surface-container-low": "#f6f3f2",
+                        "outline": "#78795f",
+                        "on-tertiary-fixed": "#23005b",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474a00",
+                        "on-primary-fixed": "#1c1d00",
+                        "primary-fixed-dim": "#c7cf00",
+                        "on-primary-container": "#707400",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#7212ff",
+                        "tertiary-container": "#faf2ff",
+                        "surface-tint": "#5f6300",
+                        "on-surface-variant": "#484831",
+                        "surface-container": "#f0edec",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-container": "#d300bd",
+                        "outline-variant": "#c9c8aa",
+                        "on-secondary-fixed-variant": "#840076",
+                        "secondary": "#a90097",
+                        "on-secondary": "#ffffff",
+                        "primary": "#5f6300",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#8243ff",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "48px",
+                        "unit-xl": "40px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "unit-md": "16px",
+                        "touch-target-optimal": "56px",
+                        "unit-sm": "8px",
+                        "unit-lg": "24px",
+                        "unit-xs": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "status-banner": ["Inter"],
+                        "headline-md": ["Spline Sans"],
+                        "headline-lg": ["Spline Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-xl": ["Spline Sans"]
+                    },
+                    "fontSize": {
+                        "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-lime {
+            box-shadow: 0 0 0 0 rgba(227, 236, 0, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(227, 236, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(227, 236, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(227, 236, 0, 0); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 selection:bg-primary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-50 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-slate-600">menu</span>
+</button>
+<h1 class="text-xl font-black text-black uppercase italic font-['Spline_Sans'] tracking-tight">WAYTA</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-lime-100 px-3 py-1 rounded-full border border-lime-200">
+<span class="material-symbols-outlined text-[18px] text-primary mr-1" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-xs font-bold text-primary">LIVE SYNC</span>
+</div>
+<img alt="User profile" class="w-9 h-9 rounded-full border-2 border-primary-container object-cover" data-alt="Close up portrait of a smiling professional man in a bright modern studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK76ZAzisVjInLNq7Eht_TPmQcS4vX-vc9-PHpfvAMveWeGp6vEDQHr3vUIs__JuvnYyODKF5LWr4eO7TlGUexISj9wIIyx1ZnH6ZN2LycahG_t3dc-xtaTtQadCM8lx17uYv4sp-488Gq7xXdcxGrCKpvVeUlsPo-KM_6bRXe-X-UOjA2krgGvjB6L9S_bRisDuEGf6rRaAgpRAkb1CkKg6F_Uvzwli2U4TeJrqQ4A964R3bzcZjW_s1LRXOIaYSd7NIBK5kznes"/>
+</div>
+</header>
+<main class="mt-14 px-5 pt-6 space-y-8">
+<!-- Spend Summary Bento -->
+<section class="space-y-4">
+<div class="flex items-end justify-between">
+<div>
+<p class="font-label-bold text-slate-500 uppercase tracking-widest text-[10px]">Current Balance</p>
+<h2 class="font-display-xl text-on-background tracking-tighter mt-1">$1,482.50</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold text-sm">+12.5%</span>
+<span class="text-slate-400 text-[10px]">vs yesterday</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="w-10 h-10 rounded-xl bg-lime-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium">Total Spent</p>
+<p class="text-lg font-bold text-on-background">$842.20</p>
+</div>
+</div>
+<div class="bg-secondary-container p-4 rounded-2xl border border-secondary-fixed-variant shadow-sm flex flex-col justify-between h-32">
+<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-white">receipt_long</span>
+</div>
+<div>
+<p class="text-xs text-white/80 font-medium">Transactions</p>
+<p class="text-lg font-bold text-white">24 Today</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="sticky top-[56px] z-40 bg-background/80 backdrop-blur-md py-2 -mx-5 px-5">
+<div class="flex gap-2">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-white border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 font-body-md" placeholder="Search transactions..." type="text"/>
+</div>
+<button class="h-14 w-14 bg-primary-fixed text-on-primary-fixed rounded-2xl flex items-center justify-center active:scale-95 transition-transform shadow-lg shadow-lime-200/50">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto no-scrollbar pb-2">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-bold whitespace-nowrap">All Time</button>
+<button class="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-bold whitespace-nowrap hover:bg-slate-50">Today</button>
+<button class="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-bold whitespace-nowrap hover:bg-slate-50">Sumo</button>
+<button class="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-full text-xs font-bold whitespace-nowrap hover:bg-slate-50">Drinks</button>
+</div>
+</section>
+<!-- Transaction History List -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-on-background">Recent Transactions</h3>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">May 24, 2024</span>
+</div>
+<div class="space-y-3">
+<!-- Transaction Item 1 -->
+<div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow active:scale-[0.98] duration-150">
+<div class="w-14 h-14 rounded-2xl overflow-hidden shrink-0">
+<img alt="Sumo Lounge" class="w-full h-full object-cover" data-alt="Interior of a luxury modern cocktail bar with neon lime lighting and velvet seating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBaPB62SNXG6SXrFp2_IjV9-w7kj2K95_OFOvhElhKzbuICJInibskZ_pJhZD6I0F66hAow90YIsPtepdAxxN92YOlkPNL4RYEI2dAok6y6X6ZEacJ4x02aYeSPdp4c8pub4HzGj601AcIC8_s-xUKO4TnzHcoDviiZx0yCeUZxExWWP4_aYEiBw_iJF4CgEhC8CvxYAaAgMJUzpR-K2ChluwMFmSrCD-Q0mT4c8cdIxAVmsLwQj6mEatEqZHaVH5i4z43gAMZhYk"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-background">Sumo Lounge</h4>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-xs text-slate-500">Drinks</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-slate-500">10:42 PM</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-background">-$42.00</p>
+<span class="inline-flex items-center text-[10px] bg-lime-100 text-primary font-bold px-1.5 py-0.5 rounded-full mt-1">SUCCESS</span>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow active:scale-[0.98] duration-150">
+<div class="w-14 h-14 rounded-2xl overflow-hidden shrink-0">
+<img alt="Black Door Entrance" class="w-full h-full object-cover" data-alt="A crowd of people at the entrance of a high-end music festival stage under bright stage lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChLAQ6tkVr13f9sqM0kB-qhIpp52MCONgLO424bEn50wH6323QYs26jSyVvfMUYvqRtYwlVo1vrktALYvzOnZ6vZ03Z3o8L1Z8Ax9UcQ1QXyvsbE2Ku6T2H5ULdePdAUM4BAXX7_DP05SuZJm7im1LBmbyscYmojiuJlD3tn9wUWyvAh3cE5Iml6ks3lv7EUw_9ERXaoImaIKthDLtUR_kgtIP8njG3ax9n08su3sdv6tF0EOEmmydxBV3yZ34QrK0BMfiW_U_uWs"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-background">Black Door</h4>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-xs text-slate-500">Entrance</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-slate-500">09:15 PM</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-background">-$120.00</p>
+<span class="inline-flex items-center text-[10px] bg-lime-100 text-primary font-bold px-1.5 py-0.5 rounded-full mt-1">SUCCESS</span>
+</div>
+</div>
+<!-- Transaction Item 3 (Failed) -->
+<div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow active:scale-[0.98] duration-150">
+<div class="w-14 h-14 rounded-2xl overflow-hidden shrink-0 grayscale opacity-60">
+<img alt="Neon Bar" class="w-full h-full object-cover" data-alt="Glass of colorful neon cocktail on a bar counter with blurred party lights behind" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjbvramm0bHivLEJ8542J4f8uWnX70Vld8NLUXQz_iSYjqOyoxLWtqONsfKQfZrrzUV2e3T-z6RBl-scRBIxkIPlT-P8kMpJ5mI_ASmGDXLt63qZ8vHUMsDALW3inXe84Z3K5EJvWjfTIUmdyu0RZe81bUEhZtPi1kMSnnj7vRvqlmTO15MRmCVv8T8pgryIHtp4Jww9WXhj3kMsJRqJmTt_rIaw10S-wC16YtMk1jkBzWpElSv8ALDC7a_-xkYqonbKqhwc-HXOI"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-slate-400">Electric Oasis</h4>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-xs text-slate-400">Merchandise</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-slate-400">08:40 PM</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-slate-400">-$25.00</p>
+<span class="inline-flex items-center text-[10px] bg-error-container text-error font-bold px-1.5 py-0.5 rounded-full mt-1 uppercase">Declined</span>
+</div>
+</div>
+<!-- Transaction Item 4 -->
+<div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow active:scale-[0.98] duration-150">
+<div class="w-14 h-14 rounded-2xl overflow-hidden shrink-0">
+<img alt="VIP Booth" class="w-full h-full object-cover" data-alt="Luxury VIP seating area with white leather sofas and bottles of champagne on ice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCRnpdJy_SHjGzxU9aYE7s6uczwsMNyPL1Yri1A8UbN0QE5li9AQYAi-tttp4anLi1wAECWDlEzTmMmr7Lssyty2b0no85_i5L2vp4HclK_-nc4jwtCj1XKL1i-sF1GJVk66vBXbESjT20fiIO9NHVYswaAzkqqcJUEZz4tvnl1j6Ankej3RA_ZsrJq222eS2exihPUsCAYz3LoWUIlSlPwVsZEuKJy_zUlGWFdJm90TJx27fTVy6DtWJfEU6y3AvCwd_mLB0N3wU"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-background">Sky Deck VIP</h4>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="text-xs text-slate-500">Service</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-slate-500">06:22 PM</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-background">-$350.00</p>
+<span class="inline-flex items-center text-[10px] bg-lime-100 text-primary font-bold px-1.5 py-0.5 rounded-full mt-1">SUCCESS</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Filter Sheet (Simulated Interaction State) -->
+<!-- This would normally be toggled, rendering it here as a fixed-bottom visible element for the UI demo -->
+<div class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm pointer-events-none opacity-0 transition-opacity"></div>
+<!-- Using a hidden-on-default but structurally present bottom sheet for design visibility -->
+<div class="fixed bottom-0 left-0 w-full z-[70] bg-white rounded-t-[32px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] transform translate-y-[100%] transition-transform duration-500 ease-out p-6 max-h-[751px] overflow-y-auto hidden">
+<div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-8"></div>
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-lg text-on-background">Filters</h3>
+<button class="text-primary font-bold">Clear All</button>
+</div>
+<div class="space-y-8">
+<!-- Date Range -->
+<div>
+<p class="font-label-bold text-slate-500 uppercase tracking-widest text-[11px] mb-4">Date Range</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-3 px-2 rounded-xl bg-primary text-on-primary font-bold text-xs">Today</button>
+<button class="py-3 px-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 font-bold text-xs">Yesterday</button>
+<button class="py-3 px-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 font-bold text-xs">Custom</button>
+</div>
+</div>
+<!-- Venues -->
+<div>
+<p class="font-label-bold text-slate-500 uppercase tracking-widest text-[11px] mb-4">Venues</p>
+<div class="flex flex-wrap gap-2">
+<button class="py-2.5 px-4 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-xs">Sumo</button>
+<button class="py-2.5 px-4 rounded-full bg-lime-100 border border-primary text-primary font-bold text-xs">Black Door</button>
+<button class="py-2.5 px-4 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-xs">The Oasis</button>
+<button class="py-2.5 px-4 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-xs">Sky Deck</button>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<p class="font-label-bold text-slate-500 uppercase tracking-widest text-[11px]">Price Range</p>
+<p class="text-sm font-bold text-on-background">$0 - $500+</p>
+</div>
+<div class="relative h-2 bg-slate-100 rounded-full w-full">
+<div class="absolute left-0 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-white border-2 border-primary rounded-full shadow-md"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-6 h-6 bg-white border-2 border-primary rounded-full shadow-md"></div>
+</div>
+</div>
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-bold py-4 rounded-2xl shadow-xl shadow-lime-200/50 mt-4 active:scale-95 transition-transform">
+                Apply Filters
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-white/95 backdrop-blur-lg rounded-t-2xl border-t border-slate-100 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-lime-400 text-black rounded-xl px-4 py-1.5 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Metrics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-lime-600 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold">Profile</span>
+</a>
+</nav>
+<!-- FAB Overlay -->
+<button class="fixed bottom-24 right-5 w-14 h-14 bg-secondary-container text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform pulse-lime z-40">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

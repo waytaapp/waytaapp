@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-container": "#d300bd", "on-background": "#1c1b1b", "on-secondary-fixed-variant": "#840076", "surface-variant": "#e5e2e1", "tertiary-fixed-dim": "#d1bcff", "outline-variant": "#c9c8aa", "error-container": "#ffdad6", "surface-dim": "#dcd9d9", "on-secondary": "#ffffff", "surface-container": "#f0edec", "on-error-container": "#93000a", tertiary: "#7212ff", "surface-container-low": "#f6f3f2", "on-tertiary-fixed": "#23005b", "inverse-surface": "#313030", "on-secondary-container": "#fffbff", "on-primary-container": "#707400", "on-primary-fixed-variant": "#474a00", surface: "#fcf8f8", "primary-container": "#f6ff00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-fixed": "#e3ec00", primary: "#5f6300", "surface-tint": "#5f6300", error: "#ba1a1a", "on-primary": "#ffffff", "surface-container-high": "#ebe7e7", "on-surface": "#1c1b1b", "secondary-fixed-dim": "#fface8", "on-error": "#ffffff", "tertiary-fixed": "#e9ddff", "primary-fixed-dim": "#c7cf00", "on-tertiary-container": "#8243ff", "inverse-on-surface": "#f3f0ef", "tertiary-container": "#faf2ff", "inverse-primary": "#c7cf00", outline: "#78795f", "on-tertiary-fixed-variant": "#5700c9", secondary: "#a90097", "on-secondary-fixed": "#3a0033", "surface-bright": "#fcf8f8", "on-primary-fixed": "#1c1d00", "secondary-fixed": "#ffd7f0", "surface-container-highest": "#e5e2e1", "on-surface-variant": "#484831", background: "#fcf8f8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {gutter: "12px", "touch-target-optimal": "56px", "unit-xl": "40px", "unit-xs": "4px", "unit-sm": "8px", base: "4px", "unit-lg": "24px", "touch-target-min": "48px", "container-margin": "20px", "unit-md": "16px"}, fontFamily: {"headline-md": ["Spline Sans"], "body-md": ["Inter"], "headline-lg": ["Spline Sans"], "body-lg": ["Inter"], "status-banner": ["Inter"], "display-xl": ["Spline Sans"], "label-bold": ["Inter"], headline: ["Spline Sans"], display: ["Spline Sans"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "status-banner": ["14px", {lineHeight: "20px", fontWeight: "600"}], "display-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-bold": ["14px", {lineHeight: "20px", fontWeight: "700"}]}}}};</script>
+<style>
+        .glass-card {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow-blue {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .neon-glow-pink {
+            box-shadow: 0 0 15px rgba(255, 36, 228, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800">
+<div class="flex items-center gap-4">
+<button class="text-cyan-400">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-black text-cyan-400 italic tracking-wider font-['Spline_Sans']">Wayta</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-zinc-400" data-icon="search">search</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-cyan-400/30">
+<img alt="User" data-alt="close-up of a stylish young man with short dark hair in a neon-lit nightclub environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ8icvWNe1OI5IrOSd44sQtylBl4FV88bqBDwnzMV5s8zON2zImR6tdEzwsht9_iFqr3zH9dIclrWf13SZKACW6k_ik8j8B7oJwLwPzbwJNE_T0Kn-4ezCKoOgcSImn8KLXG3gyE40MdJXmAdYBQI2ig-cdrlt6WuiFN_sX80AMHoX9NF7D-Zy12N0m8_RPlDRT8F_B9Zwrgzl1jGAdnw2ldvFwJEMGrV5isG7rVjaRzh3FsypVDg_qCjig2m_fC8_WWWSp6mbu2c"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-5 max-w-5xl mx-auto">
+<!-- Hero Section / Dynamic Banner -->
+<section class="relative h-48 w-full rounded-xl overflow-hidden mb-8 mt-4 group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="dramatic wide shot of a luxury cocktail being prepared with orange peel zest and smoke in a dark moody neon-lit bar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtf21M2gD57uXnh0lbcXKxptXYEHD5MB3r58mMfjvI2Jy06lmCWnuFgipsCqOleFD9NhfQvhSJAj5Rw7LgdKo_I_OpPAEw-WBubgXL77Okm6IWbpNZZrKFhZQuf23vQfPmCpIzHIHYGyFg4gR9K71A0Em3Nu3uQQf2LBSh3_273wWoZaCc0497gnnd1Jfz3TpDUGtl6sU7klYO9xq2FxGJjco0Wl99FkV9mA0FaP5q3Ryy4XyogDzMKtwNSrBiqahpvsUzKqz8l44"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+<span class="text-cyan-400 font-label-bold text-status-banner uppercase tracking-widest">Happy Hour Live</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white">20% Off Mixology</h2>
+</div>
+</section>
+<!-- Category Tabs -->
+<nav class="flex overflow-x-auto gap-3 pb-6 no-scrollbar">
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-bold text-sm whitespace-nowrap">Explore All</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-zinc-400 font-label-bold text-sm whitespace-nowrap hover:text-cyan-400 transition-colors">House Spirits</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-zinc-400 font-label-bold text-sm whitespace-nowrap hover:text-cyan-400 transition-colors">Cocktails</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-zinc-400 font-label-bold text-sm whitespace-nowrap hover:text-cyan-400 transition-colors">Craft Beer</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full glass-card text-zinc-400 font-label-bold text-sm whitespace-nowrap hover:text-cyan-400 transition-colors">Champagne</button>
+</nav>
+<!-- Menu Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Category Header: Cocktails -->
+<div class="col-span-full mt-4 flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-white border-l-4 border-cyan-400 pl-4">Signature Cocktails</h3>
+<span class="text-zinc-500 text-sm">8 Items</span>
+</div>
+<!-- Item Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full border border-zinc-800/50 hover:border-cyan-400/50 transition-all duration-300">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="close up of a neon blue cocktail with ice and a lemon slice in a tall glass with atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmNgzAFsS8cuV_ssGhufSo7XeiKIF218NoN3eVIwNT9tVpMkQasdyQLbWDGsc3Xw6fnDYNBNrFYpsIwNx8azHbMhgjA99e7e6Gqyf7mkdVMK7jA1IpuzYkdKVJzl7cx9Z7RlKo63HxD6dfwg5bvKxhEYIK84xoZ6cX8KNxUvSjiyrT4fwXXA5VOEfXO1krr8iTSRD0zpGe5gHR1tatB-LmKoq-4eiHhIKU0S4F8Ryd9r9DsWOiNoV2CcmJP_FBQZtKSo5ykDfCA1Q"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="text-cyan-400 font-bold">R125</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="font-headline-md text-xl text-white mb-1">Electric Sapphire</h4>
+<p class="text-zinc-400 text-sm mb-4 line-clamp-2">Premium Gin, Blue Curaçao, fresh lime, and a hint of elderflower fizz.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-primary-container text-on-primary-container h-touch-target-min rounded-lg font-label-bold flex items-center justify-center gap-2 active:scale-95 transition-transform neon-glow-blue">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full border border-zinc-800/50 hover:border-cyan-400/50 transition-all duration-300">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="a bright pink cocktail in a coupe glass with a small edible flower on top against a dark blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE3fDa9kXqb1-foqNAwdNF8LgmhZ0PYrNmgSy25UrKM7kRfUomL2AXx-1S9MdN8H6DEF2co_sEVIa8-LUBbQllywp-KDmd-nYZCBmTXNiDsf6Ih3_9p4azFsvRFYpGurim8lQ2NmT4ZkR59bo9bliVGFVXQFOHMgt_Xq00QWbnXG6Eb2HVInlZq3jkT_Fd4yB5TkPXjGYd5YFflsUbjhZ4bxB8xP_XipX5LofK_HqQekiDAHVlx-1rzuAtWeEpVPNity6olDxcAWw"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="text-cyan-400 font-bold">R110</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="font-headline-md text-xl text-white mb-1">Neon Velvet</h4>
+<p class="text-zinc-400 text-sm mb-4 line-clamp-2">Vodka infused with hibiscus, lemon juice, and simple syrup, topped with egg white foam.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-primary-container text-on-primary-container h-touch-target-min rounded-lg font-label-bold flex items-center justify-center gap-2 active:scale-95 transition-transform neon-glow-blue">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item Card 3 (House Spirit) -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full border border-zinc-800/50 hover:border-cyan-400/50 transition-all duration-300">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="whiskey being poured into a lowball glass with a large ice sphere in a luxury setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCezTpgDUmv3iAxi2PJ3Txpw636vbiURf_q7GofYMPkjXN2-Um8vYj19mGEGx0qCMUeOylY9tDfIUSFD0u5vCScNPH7_Q_sf2WfgBPj34lNzl0V-eegSrBJIQ-7hdSn9utz-8Vv15lKtQeF2qEQ9O9jFhArfvupvoZlGaUBXhQmfwIbXcCe2CUpS3Uvn6shdX0FREka3nuxQgG8oAO-MCAL1znybXHZoKmRx8G8bpjPfuwYSckGTANJCS0A1mqQmh5Gkokl4Ak3oiA"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="text-cyan-400 font-bold">R85</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="font-headline-md text-xl text-white mb-1">Aged Single Malt</h4>
+<p class="text-zinc-400 text-sm mb-4 line-clamp-2">12-year house selection. Served neat or with a single ice sphere.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-primary-container text-on-primary-container h-touch-target-min rounded-lg font-label-bold flex items-center justify-center gap-2 active:scale-95 transition-transform neon-glow-blue">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Category Header: Beer -->
+<div class="col-span-full mt-8 flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-white border-l-4 border-secondary-container pl-4">Craft Beer &amp; Cider</h3>
+<span class="text-zinc-500 text-sm">12 Items</span>
+</div>
+<!-- Beer Item 1 (Wide Layout) -->
+<div class="col-span-full glass-card rounded-xl p-4 flex gap-4 border border-zinc-800/50 hover:border-secondary-container/30 transition-all">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="chilled craft beer bottle with condensation droplets against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7dIiSoImXX51oZu6cOJBGrGlTlnLbMSOMW09SKkvUQCmA4lwA_czUoEQnvBiRSW5F_i964d_Ar8iPaxSsdzEU5Pz2q6OcaBvk593iliwkZrT1zH9M-JLPvTCjUxl41E-ACGU1BydnsK8HeDyUELGHxeyEGDdzE_RSPfQn7QnnWpIls9DEy6xnq5ffIskitEBT6GYR5wWwMFpzd4-_ETuunLQ9SDUYxqf0BeD6A2CQwWnTGdtp8IhXUMAbjFniSkI3NmRcR_9JIbA"/>
+</div>
+<div class="flex flex-col flex-grow justify-center">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-lg text-white">Midnight IPA</h4>
+<span class="text-secondary-container font-bold">R65</span>
+</div>
+<p class="text-zinc-500 text-sm mb-2">Hoppy, dark, and perfectly balanced with notes of chocolate and pine.</p>
+<div class="flex justify-end">
+<button class="h-10 px-4 rounded-lg border-2 border-secondary-container text-secondary-container font-label-bold flex items-center gap-2 hover:bg-secondary-container/10 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            Add
+                        </button>
+</div>
+</div>
+</div>
+<!-- Beer Item 2 (Wide Layout) -->
+<div class="col-span-full glass-card rounded-xl p-4 flex gap-4 border border-zinc-800/50 hover:border-secondary-container/30 transition-all">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="poured glass of golden draft lager with a thick white head in a pub setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCixiY4Ex_utoTu00psDc5KeczEfbw0EqP2q-qYuryAalC1c-DI0EOXvmeEk0YtVI1Ybxhq8y-btmMHyYHX6av0IImazI2FWBBxpPzAGG_nN3Pnz63duCWWzXgomVNfAM_-SNDsI_tz4elTMTynT3AeUE7s2Yj7836p2lt8ioQJgDHICsl3su6WTEjEQuukxVRC1s5qLvo6S5ldGwwjIJXpWl-e0ezVfF1-qSWYFIGQiLChc2X_48KAx4QS5EmpRaREGuIT1XEEL8w"/>
+</div>
+<div class="flex flex-col flex-grow justify-center">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-lg text-white">Citrus Lager</h4>
+<span class="text-secondary-container font-bold">R55</span>
+</div>
+<p class="text-zinc-500 text-sm mb-2">Light and refreshing lager with a crisp grapefruit finish.</p>
+<div class="flex justify-end">
+<button class="h-10 px-4 rounded-lg border-2 border-secondary-container text-secondary-container font-label-bold flex items-center gap-2 hover:bg-secondary-container/10 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                            Add
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Cart) -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="bg-secondary-container text-on-secondary-container h-16 px-6 rounded-full flex items-center gap-3 shadow-2xl neon-glow-pink active:scale-95 transition-transform group">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_basket">shopping_basket</span>
+<span class="absolute -top-2 -right-2 bg-white text-black text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center">3</span>
+</div>
+<div class="flex flex-col items-start leading-none">
+<span class="text-[10px] font-bold uppercase tracking-widest opacity-70">Total Cart</span>
+<span class="text-lg font-black tracking-tight">R320.00</span>
+</div>
+</button>
+</div>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Menu</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="Confirmation_Number">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">VIP</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Wallet</span>
+</button>
+</nav>
+<!-- Connectivity Banner (Conditional) -->
+<!-- Hidden by default, shown for UX demo -->
+<div class="hidden fixed top-16 left-0 w-full bg-[#FFB800] py-2 px-4 flex items-center justify-center gap-2 z-40">
+<span class="material-symbols-outlined text-black text-sm" data-icon="warning">warning</span>
+<span class="text-black font-status-banner text-status-banner">Slight delay in processing. Reconnecting...</span>
+</div>
+</body></html>

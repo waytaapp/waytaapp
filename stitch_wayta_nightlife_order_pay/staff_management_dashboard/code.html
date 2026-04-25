@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8f8",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-fixed": "#3a0033",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "surface-bright": "#fcf8f8",
+                        "on-secondary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#7212ff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#e3ec00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "on-tertiary-container": "#8243ff",
+                        "on-secondary-fixed-variant": "#840076",
+                        "surface-tint": "#5f6300",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed": "#23005b",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed": "#1c1d00",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-high": "#ebe7e7",
+                        "primary-fixed-dim": "#c7cf00",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c7cf00",
+                        "primary-container": "#f6ff00",
+                        "outline": "#78795f",
+                        "on-primary-fixed-variant": "#474a00",
+                        "secondary-fixed-dim": "#fface8",
+                        "tertiary-container": "#faf2ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fcf8f8",
+                        "primary": "#5f6300",
+                        "outline-variant": "#c9c8aa",
+                        "on-surface-variant": "#484831",
+                        "inverse-surface": "#313030",
+                        "secondary-container": "#d300bd",
+                        "on-primary-container": "#707400",
+                        "secondary-fixed": "#ffd7f0",
+                        "surface-container": "#f0edec",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#a90097"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit-sm": "8px",
+                        "touch-target-min": "48px",
+                        "unit-md": "16px",
+                        "unit-lg": "24px",
+                        "touch-target-optimal": "56px",
+                        "unit-xl": "40px",
+                        "unit-xs": "4px",
+                        "container-margin": "20px",
+                        "base": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Spline Sans"],
+                        "headline-lg": ["Spline Sans"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "status-banner": ["Inter"],
+                        "display-xl": ["Spline Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .active-pulse {
+            position: relative;
+        }
+        .active-pulse::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #e3ec00;
+            border-radius: 50%;
+            top: 0;
+            right: 0;
+            box-shadow: 0 0 8px #e3ec00;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col z-50 h-screen w-64 border-r border-slate-100 bg-white shadow-xl font-['Spline_Sans'] text-sm font-medium">
+<div class="p-6">
+<div class="text-lg font-black text-lime-500 uppercase tracking-widest mb-1">Electric Daybreak</div>
+<div class="text-xs text-slate-400 font-bold uppercase tracking-tighter">Daytime HQ</div>
+</div>
+<nav class="flex-1 px-2 py-4">
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Overview
+            </a>
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                Roster
+            </a>
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                Performance
+            </a>
+<!-- Active State: Staff Directory maps to "Staff" intent -->
+<a class="bg-lime-400 text-slate-900 rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-bold shadow-md" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                Staff Directory
+            </a>
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full bg-secondary-container text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                Add Staff Member
+            </button>
+</div>
+<div class="border-t border-slate-100 p-4">
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                Support
+            </a>
+<a class="text-slate-500 hover:text-lime-600 hover:bg-slate-50 transition-all mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 z-40 h-16 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm flex justify-between items-center px-8 font-['Spline_Sans'] antialiased">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-black tracking-tighter text-lime-600">Staff Management</h1>
+<span class="px-3 py-1 bg-lime-50 text-lime-700 text-xs font-bold rounded-full border border-lime-200">Night Shift - Saturday High Pulse</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-full text-sm focus:ring-2 focus:ring-lime-400 w-64 transition-all" placeholder="Search staff..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-600 hover:bg-lime-50 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:bg-lime-50 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900 leading-none">Marcus V.</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter font-bold">Venue Manager</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-lime-400 object-cover shadow-sm" data-alt="professional male portrait with confident expression in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxSh_-jjm3zbQuZ2C98zkkJ3JqXfvWvXwd6QnxxHQbaGCCB_-W0HKlj8NNFNUvHad71fZoN0REdMYVHccJhM0lEDjv31Ph_-6-QMfXntXJCfPwKr4-PXDjHb1wFsOUPemuZuR87xbN2RG7uYRzzGLQ0eOWnd_WgQPUS3LMml-vmik6TNUNCMr6jnFSVpOeqCF9qcGCubNkFPRMR-yRUPWNOX-l07A-vyyKzUIjnnXtk3ONcGpWI-UQ8Y0dbgiohIGM9xjeSrOVQm8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Bento Grid: Team Overview -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Team Score Card -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-2xl p-6 shadow-sm flex flex-col justify-between border-l-4 border-lime-500">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Team Score</p>
+<h2 class="text-4xl font-display-xl text-on-surface">94%</h2>
+</div>
+<div class="mt-4">
+<div class="flex items-center gap-2 text-lime-600 font-bold text-sm mb-2">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>+2.4% vs last shift</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-lime-500 h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<!-- On-Shift Stats -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-2xl p-6 shadow-sm border-l-4 border-secondary">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">On-Shift Status</p>
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-4xl font-display-xl text-on-surface">42</h2>
+<p class="text-sm font-medium text-slate-500">Active personnel</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-1 bg-lime-100 text-lime-700 text-[10px] font-black rounded-md">8 CAPACITY</span>
+<span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-black rounded-md">6 RESERVED</span>
+</div>
+</div>
+</div>
+<!-- Pending Break -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-2xl p-6 shadow-sm border-l-4 border-tertiary">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Pending Breaks</p>
+<div class="flex items-center gap-6">
+<div class="relative">
+<svg class="w-16 h-16 transform -rotate-90">
+<circle class="text-slate-100" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-tertiary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175" stroke-dashoffset="40" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-lg">04</div>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Critical Window</p>
+<p class="text-xs text-slate-500">Rotate Bartenders in 12m</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Active Team List Table -->
+<div class="col-span-12 lg:col-span-8">
+<div class="glass-card rounded-2xl shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-white/50">
+<h3 class="font-headline-md text-on-surface">Active Team List</h3>
+<div class="flex gap-2">
+<button class="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50/50 text-[11px] font-black text-slate-500 uppercase tracking-tighter">
+<tr>
+<th class="px-6 py-4">Name</th>
+<th class="px-6 py-4">Role</th>
+<th class="px-6 py-4">Zone</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-lime-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="active-pulse">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="close-up of a smiling young man with beard wearing professional attire in bright natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY-DhwczmASeIEYY7Y3iqduqLmOcHQL_yAFbWcFhQ2kWhZ0Wy7mDry8JAzU7y7z5k3tdQEHGsU6UTKQAEU23v2I6x1crhsQ3xNLVyganewzfBkUTDEnyOR3CeS5quOA7HoSDS9e4LXAWhKp_ePDpGEQY3GiALoQjcVyMzf9ZHvhOtXTLUuKz7HfhQ4uaNrQhxqbOKhsIswzNDhYIL3ipm8a-FYHk2nSEkOBjzGMX7KvaVcMisEE37xGF1K7S9eHWdAniPAXB8U0F0"/>
+</div>
+<div>
+<p class="font-label-bold text-slate-900">Alex Rivers</p>
+<p class="text-[10px] text-slate-400">ID: #ED-4022</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-black rounded-full border border-blue-100">BARTENDER</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-slate-600 text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="local_bar">local_bar</span>
+                                            Main Bar
+                                        </div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-lime-500 animate-pulse"></span>
+<span class="text-sm font-bold text-lime-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-lime-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional female portrait with warm smile and soft outdoor background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgi8qNpiYIpwKK4AzVt9fiAdkpyalhCBhblVEwTfVp_eUwkBR0jFJGPNeu2txXhaVcKvSgeUUr-3VhH8oiRmrJrAsRYEwM_ucJBCKm6GLlsGMTHgdCqe48QgubNn2ZAGSpgt2driU7yHKk7KbADrOnaA8-IJ9hy1dff4Hq9haTrnO8pPhf2sDKvs9skfTObaniJziK6BKh1Z32hy2HlFGiliBiuLUpWnbGJTFFIMno6MhApSR-voOuNYR_fhx-UYoc5PEaWSG_lPE"/>
+<div>
+<p class="font-label-bold text-slate-900">Sarah Chen</p>
+<p class="text-[10px] text-slate-400">ID: #ED-4056</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-purple-50 text-purple-700 text-[10px] font-black rounded-full border border-purple-100">VIP HOST</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-slate-600 text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+                                            VIP Deck
+                                        </div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-amber-400"></span>
+<span class="text-sm font-bold text-amber-700">On Break</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-lime-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="active-pulse">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="young man with direct gaze and friendly expression in studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoY3muvn86fPg3bi0Qu8fiqIJWE4ETgwlv42ywlkaRNAuzjAnVJZ1PXcWFzEgVgJjne-xR5bZDePI9p8mV2O01Jf2Ran6DIS5eGSRnQOfOYVPl0OhNbrOstZ0IX4dAUVe-MYWCx2-ewcRIEhxLlM_zob8qGJiM0aU0YuTA7zWzP35XiSAVKnJy9GxJbXnjGSTuwF-uUb8b78RBGvVKM3vIeF79chDqYYuqagQak_0g3FWG_tEBpOckmgZKdvzdW-GLALE-yC_KhOw"/>
+</div>
+<div>
+<p class="font-label-bold text-slate-900">Jordan Smith</p>
+<p class="text-[10px] text-slate-400">ID: #ED-3890</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-red-50 text-red-700 text-[10px] font-black rounded-full border border-red-100">BOUNCER</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-slate-600 text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="door_front">door_front</span>
+                                            Entrance
+                                        </div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-lime-500 animate-pulse"></span>
+<span class="text-sm font-bold text-lime-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-lime-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="active-pulse">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="young woman with creative hair style looking off-camera in soft window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLj4Fo_KjFdtoLpnBteQ1olv1GYzSIPRh2Q-SmD8HUQfsQKUeXaXhwx_NBrXFr1sGQZc6y1UnEpuzzZVrW-Pkjfz60w63Xg2HHM4pl7foOOz3OW99ys8LF1t8hDYFW7qV_4hOphMAjHpbAGFaY-JF3rUQruSbLty2C9LPOBdYnnbqmU8ZKtWXqy4RGcVnpH-hiXy8AqeoXdIcmIWZJyTxO7w5TO5mouCdTPlKcbusy4yXrVXNybYWrw42X8I5-a_xbeSBtwSIczyA"/>
+</div>
+<div>
+<p class="font-label-bold text-slate-900">Elena Petrov</p>
+<p class="text-[10px] text-slate-400">ID: #ED-4102</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black rounded-full border border-emerald-100">SERVER</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-slate-600 text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="dining">dining</span>
+                                            Main Floor
+                                        </div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-lime-500 animate-pulse"></span>
+<span class="text-sm font-bold text-lime-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Role Distribution & Insights -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Role Distribution Visualization -->
+<div class="glass-card rounded-2xl shadow-sm p-6">
+<h3 class="font-headline-md text-on-surface mb-6">Role Distribution</h3>
+<div class="space-y-6">
+<!-- Bartender -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-slate-700">Bartenders</span>
+<span class="text-xs font-black text-slate-400 uppercase tracking-widest">18 Staff</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Bouncers -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-slate-700">Bouncers</span>
+<span class="text-xs font-black text-slate-400 uppercase tracking-widest">12 Staff</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<!-- VIP Hosts -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-slate-700">VIP Hosts</span>
+<span class="text-xs font-black text-slate-400 uppercase tracking-widest">6 Staff</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+<!-- Servers -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-slate-700">Servers</span>
+<span class="text-xs font-black text-slate-400 uppercase tracking-widest">6 Staff</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-lime-300 rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Pulse Card -->
+<div class="bg-primary-container rounded-2xl p-6 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="bolt">bolt</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-3 h-3 bg-lime-600 rounded-full animate-ping"></span>
+<span class="text-xs font-black text-lime-800 uppercase tracking-widest">Live Shift Alert</span>
+</div>
+<p class="text-on-primary-container font-headline-md mb-2 leading-tight">Entrance Bottle-neck</p>
+<p class="text-on-primary-container/70 text-sm mb-6">Staff count at North Entrance is dropping below safety thresholds. Deploy floating Bouncer unit now.</p>
+<button class="w-full py-3 bg-lime-600 text-white font-bold rounded-xl shadow-lg shadow-lime-900/20 active:scale-95 duration-150">
+                        Redirect Units
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick action (Suppressed on details, but relevant on staff dashboard) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary text-white rounded-full shadow-2xl flex items-center justify-center hover:rotate-90 transition-transform active:scale-95 z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

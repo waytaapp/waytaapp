@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8f8",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed": "#ffd7f0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf8f8",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf8f8",
+                        "surface-container-low": "#f6f3f2",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed": "#e3ec00",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#f6ff00",
+                        "inverse-primary": "#c7cf00",
+                        "on-secondary-fixed": "#3a0033",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-container": "#d300bd",
+                        "outline-variant": "#c9c8aa",
+                        "on-secondary-fixed-variant": "#840076",
+                        "primary": "#5f6300",
+                        "secondary": "#a90097",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#8243ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#78795f",
+                        "on-tertiary-fixed": "#23005b",
+                        "on-primary-fixed-variant": "#474a00",
+                        "on-primary-fixed": "#1c1d00",
+                        "tertiary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#c7cf00",
+                        "on-primary-container": "#707400",
+                        "tertiary": "#7212ff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#5f6300",
+                        "tertiary-container": "#faf2ff",
+                        "on-surface-variant": "#484831",
+                        "surface-container": "#f0edec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "48px",
+                        "unit-xl": "40px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "unit-md": "16px",
+                        "touch-target-optimal": "56px",
+                        "unit-sm": "8px",
+                        "unit-lg": "24px",
+                        "unit-xs": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Spline Sans"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-xl": ["Spline Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Spline Sans"],
+                        "status-banner": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(246, 255, 0, 0.05) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm flex justify-between items-center h-16 px-5">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-slate-900" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-black italic text-slate-900 uppercase tracking-tighter font-headline-lg">Wayta</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed ring-4 ring-primary-fixed/20 animate-pulse"></span>
+<div class="w-10 h-10 rounded-full border-2 border-primary-fixed overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a trendy young man with neon lighting reflections on his face and stylish streetwear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxYXsx_OczckAydWYPly7I72Ui-YKV9SeTO-u297pFV3KQf3kQJK-7qQELzYq_rxj6ilc3oop_M65YzUdBxmbWVWC4KL69YmmGv4zxLAWixZyBTHWicBiJyU176H84w90ZrCNFQZTEEW-dw-Lw2aslBwiKaViLbxbwbtj0J3uyjoTp643motXKpOWBcR-q9ertVAnXMxHu4vRD1kDC-hNsIrI215pHLFAjx-x7wNwVeiC8vSwB_-XfuqFnICiNrP5N2Px-4yzkE1E"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-5 max-w-2xl mx-auto">
+<!-- Header Section -->
+<div class="mb-8">
+<h2 class="font-display-xl text-display-xl text-on-surface mb-2">Set A Budget</h2>
+<p class="text-on-surface-variant font-body-md">Keep your festival spend in check under the Electric Daybreak.</p>
+</div>
+<!-- Form Canvas -->
+<div class="space-y-6">
+<!-- Category Selection - Bento Style Card -->
+<div class="glass-card p-6 rounded-xl border border-white shadow-sm">
+<label class="block font-label-bold text-label-bold text-on-surface mb-3">Category</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-primary-fixed/10 border-2 border-primary-fixed text-on-primary-container active:scale-95 transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="local_bar">local_bar</span>
+<span class="text-xs font-bold uppercase tracking-wider">Drinks</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border border-transparent">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="text-xs font-bold uppercase tracking-wider">Entrance</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border border-transparent">
+<span class="material-symbols-outlined mb-1" data-icon="restaurant">restaurant</span>
+<span class="text-xs font-bold uppercase tracking-wider">Food</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border border-transparent">
+<span class="material-symbols-outlined mb-1" data-icon="category">category</span>
+<span class="text-xs font-bold uppercase tracking-wider">Misc.</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border border-transparent">
+<span class="material-symbols-outlined mb-1" data-icon="nightlife">nightlife</span>
+<span class="text-xs font-bold uppercase tracking-wider">Night Club</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border border-transparent">
+<span class="material-symbols-outlined mb-1" data-icon="directions_car">directions_car</span>
+<span class="text-xs font-bold uppercase tracking-wider">Transport</span>
+</button>
+</div>
+</div>
+<!-- Budget Input -->
+<div class="glass-card p-6 rounded-xl border border-white shadow-sm">
+<label class="block font-label-bold text-label-bold text-on-surface mb-3">Budget Amount</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-bold text-lg text-slate-400">R</span>
+<input class="w-full h-14 pl-10 pr-4 bg-surface-container-low border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-fixed focus:border-primary-fixed text-lg font-bold" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Venue / Location -->
+<div class="glass-card p-6 rounded-xl border border-white shadow-sm">
+<label class="block font-label-bold text-label-bold text-on-surface mb-3">Venue / Location</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400" data-icon="map">map</span>
+<select class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-fixed focus:border-primary-fixed appearance-none font-medium">
+<option>Main Stage Arena</option>
+<option>Neon Forest</option>
+<option>Electric Garden</option>
+<option>The Warehouse</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Description -->
+<div class="glass-card p-6 rounded-xl border border-white shadow-sm">
+<label class="block font-label-bold text-label-bold text-on-surface mb-3">Description</label>
+<textarea class="w-full p-4 bg-surface-container-low border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-fixed focus:border-primary-fixed resize-none" placeholder="What is this budget for?" rows="3"></textarea>
+</div>
+</div>
+<!-- Visual Decorative Backdrop -->
+<div class="mt-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-700 rounded-2xl overflow-hidden h-40">
+<img alt="Festival crowd at dawn" class="w-full h-full object-cover" data-alt="high contrast outdoor music festival stage at dawn with bright yellow morning light and silhouettes of a vibrant crowd dancing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIjoMfU1yEPytTzHz6frGMP4GQtzNsazjiBUjUyC_2syQoiXw_gUlXLdknqZc7cGgXYxS9IyvLB0nLGaN8RVcJfp1mz-1zCrqVrjp7a8hmGwyodOBKJ5fJdI4xY-lm7Rxxz_To2OjeX4EEuMrT60dJ1ARsM1jxw0AWFaiHgRIpWkKRn1Dab8QfN83c667USm4GuvdRy7WhLrhRUfN1f5qAQpX0LW6X0EtRUgIYR1X0yHkuueNELLLi1ZRytDHJM5ZneUXKrBmq3xA"/>
+</div>
+</main>
+<!-- Bottom Action Button Area -->
+<div class="fixed bottom-20 left-0 w-full px-5 py-4 bg-gradient-to-t from-white via-white/80 to-transparent z-40">
+<button class="w-full h-14 bg-primary-fixed text-on-primary-fixed font-label-bold text-lg rounded-xl shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="save" data-weight="fill" style="font-variation-settings: 'FILL' 1;">save</span>
+            Save Budget
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-white/95 backdrop-blur-lg border-t border-slate-100 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center h-20 pb-safe px-2">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-spline-sans text-[10px] font-semibold uppercase tracking-widest">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-spline-sans text-[10px] font-semibold uppercase tracking-widest">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-lime-600 scale-110 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-spline-sans text-[10px] font-semibold uppercase tracking-widest">Budget</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-spline-sans text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>

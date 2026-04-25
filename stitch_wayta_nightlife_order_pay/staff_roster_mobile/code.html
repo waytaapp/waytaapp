@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Spline+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "tertiary": "#7212ff",
+                      "surface-bright": "#fcf8f8",
+                      "surface-tint": "#5f6300",
+                      "surface-container-highest": "#e5e2e1",
+                      "inverse-surface": "#313030",
+                      "surface-dim": "#dcd9d9",
+                      "tertiary-fixed-dim": "#d1bcff",
+                      "secondary-fixed-dim": "#fface8",
+                      "primary-fixed-dim": "#c7cf00",
+                      "outline": "#78795f",
+                      "on-background": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#840076",
+                      "primary-fixed": "#e3ec00",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fcf8f8",
+                      "tertiary-fixed": "#e9ddff",
+                      "outline-variant": "#c9c8aa",
+                      "on-tertiary-fixed-variant": "#5700c9",
+                      "on-tertiary-container": "#8243ff",
+                      "secondary-fixed": "#ffd7f0",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#1c1d00",
+                      "on-secondary-container": "#fffbff",
+                      "surface-container-low": "#f6f3f2",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f3f0ef",
+                      "primary": "#5f6300",
+                      "on-surface": "#1c1b1b",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e5e2e1",
+                      "secondary": "#a90097",
+                      "on-primary-fixed-variant": "#474a00",
+                      "tertiary-container": "#faf2ff",
+                      "surface-container-high": "#ebe7e7",
+                      "surface-container": "#f0edec",
+                      "background": "#fcf8f8",
+                      "on-surface-variant": "#484831",
+                      "on-secondary-fixed": "#3a0033",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#707400",
+                      "secondary-container": "#d300bd",
+                      "inverse-primary": "#c7cf00",
+                      "primary-container": "#f6ff00",
+                      "on-tertiary-fixed": "#23005b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-xl": "40px",
+                      "unit-sm": "8px",
+                      "gutter": "12px",
+                      "unit-md": "16px",
+                      "unit-xs": "4px",
+                      "unit-lg": "24px",
+                      "container-margin": "20px",
+                      "base": "4px",
+                      "touch-target-optimal": "56px",
+                      "touch-target-min": "48px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "status-banner": ["Inter"],
+                      "headline-md": ["Spline Sans"],
+                      "display-xl": ["Spline Sans"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Spline Sans"],
+                      "label-bold": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .font-headline { font-family: 'Spline Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-5 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Manager Profile Photo" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling male event manager in a modern office with soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_RPMYo65pz-gj9i5kciKhNAWrscF3ssh6X7WcxN7nETloNCGlTqvSfJs7PiYxnZfrtu0IIN2ZJ6nnskFgzd45VqkTuvgldLn8envFMztEoqpeYwlcEPYdU4NwZwiCs9ISM6LnjcHO37FukuiWnQ5fD-KPtf5a4OtUTke0NaNfcTIGZFyxu4OTnlrYXBsc36q2GL5BoOZ2_GuGvsnwkIoH4JD-85lsHj74nLjXNl10bV6x1L1Z9RJ0khLsRW3Erdipq4kUtWX8ruM"/>
+</div>
+<h1 class="font-['Spline_Sans'] font-bold text-lg tracking-tight text-slate-900 dark:text-white">Staff Roster</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-20 px-container-margin space-y-6">
+<!-- Staff Summary Stats -->
+<section class="grid grid-cols-3 gap-3">
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-50 flex flex-col items-center justify-center space-y-1">
+<span class="text-primary font-headline-lg text-headline-lg">24</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">On Clock</span>
+</div>
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-50 flex flex-col items-center justify-center space-y-1">
+<span class="text-amber-500 font-headline-lg text-headline-lg">3</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">On Break</span>
+</div>
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-50 flex flex-col items-center justify-center space-y-1">
+<span class="text-tertiary font-headline-lg text-headline-lg">5</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Pending</span>
+</div>
+</section>
+<!-- Live Pulse Banner -->
+<div class="flex items-center gap-2 px-3 py-2 bg-primary-container/30 border border-primary-container/50 rounded-lg">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</div>
+<span class="font-status-banner text-status-banner text-on-primary-container">Live Shift Sync: Peak Hour (22:00 - 23:00)</span>
+</div>
+<!-- Staff List Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Personnel</h2>
+<span class="font-label-bold text-label-bold text-primary">View All</span>
+</div>
+<!-- Staff List Scrollable -->
+<div class="space-y-3">
+<!-- Staff Card 1 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Lindo M." class="w-full h-full object-cover" data-alt="Close-up portrait of a woman with braided hair wearing a professional black uniform in a bright festival environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3pfEN1Em95vpKk36GVbaH9xeYQJvDUqMh0TTwd2kOMZ2eA5DHMQM_kh8f0K2LzVUXxtMBcVjj094ONsCViKJ5mFUbsWkLLHYCoF3Uc_47KCMblv7Rn-QTe1dDLnKzK70HO0kwVfyYb3-Bvpw9xsF60OR60TXpdMx3rXknN9XW7K7EYIg9dFonRNT77RuRGTc1eBZDt__kg86370PF-J5t1cHSOjYtLCSMD4RyqmAIespS8a80DyKjDGXBGM4KyBEEVYc2hJ_YMtE"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-lime-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-label-bold text-label-bold text-on-surface truncate">Lindo M.</p>
+<span class="text-[10px] font-bold text-slate-400">Active 4h</span>
+</div>
+<p class="text-slate-500 text-xs font-medium">Bouncer</p>
+<div class="mt-2 flex">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-tight">Main Stage</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Staff Card 2 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Marcus J." class="w-full h-full object-cover" data-alt="Friendly male bartender with a clean beard and tattoos, wearing a black t-shirt in a modern outdoor venue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGSI2M2nayidHpPhKLkw_q8FLm0Q-Vz3xDNaDUpVxLNyV5mdf-aD9izkXc1mG1abmDBKe_cnd1pDc1PbXKf_1jdCvD3sQburUI_qBns8fSmmaG5NVnPLjCow0fr_Hb7eNGviuOXiD8mUvH-aCbwoTRzSQQtYKHwCKpJv7-bYfz5LvLv2Ewm6hT7UC-iiPWbSYo--21WAW6jVkAzouzF4jWnJI8pFIaNcAev_euJavRnGj65zzrUVEsOeIKSv-9laSsOKQGmdCfS0o"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-amber-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-label-bold text-label-bold text-on-surface truncate">Marcus J.</p>
+<span class="text-[10px] font-bold text-amber-500">Break: 12m</span>
+</div>
+<p class="text-slate-500 text-xs font-medium">Bartender</p>
+<div class="mt-2 flex">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-tight">VIP Deck</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Staff Card 3 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden opacity-75">
+<img alt="David S." class="w-full h-full object-cover" data-alt="Serious male medic in a professional red and white uniform, outdoor setting with soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK7hd6U9hbJTpLmq54I17bnXNYoZPRKAOdoCXoDXi_Cl8lHaoxLT6cII5BliWqC3c0XHNfRJ5MB6dwWvDKs1B7K0tCpuALWGf2rvwWaq7hLb6Q-ndOeAf3scg-sLVZgzK9LALZ5ypNt6z6jUBPXI-6fVqdFZqvsyO45Lcbmb9-szHsugOeHsgFx7wf0A6PxIj5RHnhv3hLYhz7grQRRcVq-cFO5VAyRLKfmMMFbXqfX5zPLM976eC7soYHZwpOZ83YjJvF3ebRwwc"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-slate-300 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-label-bold text-label-bold text-on-surface truncate">David S.</p>
+<span class="text-[10px] font-bold text-slate-400">Ends 2h</span>
+</div>
+<p class="text-slate-500 text-xs font-medium">Medic</p>
+<div class="mt-2 flex">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-tight">Entrance</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Staff Card 4 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Sarah P." class="w-full h-full object-cover" data-alt="Smiling young woman in a security vest, sunny outdoor event background with soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIBP5sGN1-f6ZR2bsCz3b62YZQvvMAX_Wj3e2lHWyj9arfehl9yPTdu7pjfnId3O_0hkE03vLjj_VQZCU-iadBBf379l8-j1Hm93v58mLAypkq8Xzz2Y2hu2Z4lSio2XJVnIlw9prE-QOndFKLaiZMAUDJapSGu9HOw5GzFMJutSTfhZhbw7U3BP8audhmrouAENCgYwxjvt4N-z9C2--NhqA8Rg0LN6NbGnTlJ6GT0M2UDhfnCI6o-K0OhLXToopf8vz9W7DBPRU"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-lime-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-label-bold text-label-bold text-on-surface truncate">Sarah P.</p>
+<span class="text-[10px] font-bold text-slate-400">Active 1h</span>
+</div>
+<p class="text-slate-500 text-xs font-medium">Security</p>
+<div class="mt-2 flex">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-tight">Main Stage</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Flash Action Notice -->
+<div class="p-6 bg-secondary text-white rounded-2xl shadow-xl shadow-secondary/20 flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-3xl" data-icon="emergency_share" data-weight="fill">emergency_share</span>
+<div class="space-y-1">
+<h3 class="font-headline text-lg font-bold">Protocol Alert</h3>
+<p class="text-sm opacity-90">Shift transition in 45 minutes. Ensure all zones are staffed before release.</p>
+</div>
+<button class="w-full h-12 bg-white text-secondary font-bold rounded-xl active:scale-95 transition-transform">
+                Acknowledge Protocol
+            </button>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg shadow-primary/30 flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity touch-manipulation active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-lime-600 dark:text-lime-400 bg-lime-50 dark:bg-lime-900/20 rounded-xl px-3 py-1 touch-manipulation active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="groups" data-weight="fill">groups</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold uppercase tracking-wider">Roster</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity touch-manipulation active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="leaderboard">leaderboard</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold uppercase tracking-wider">Metrics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity touch-manipulation active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_circle">account_circle</span>
+<span class="font-['Spline_Sans'] text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

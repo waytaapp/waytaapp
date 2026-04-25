@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Wayta - Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-container": "#d300bd", "on-background": "#1c1b1b", "on-secondary-fixed-variant": "#840076", "surface-variant": "#e5e2e1", "tertiary-fixed-dim": "#d1bcff", "outline-variant": "#c9c8aa", "error-container": "#ffdad6", "surface-dim": "#dcd9d9", "on-secondary": "#ffffff", "surface-container": "#f0edec", "on-error-container": "#93000a", tertiary: "#7212ff", "surface-container-low": "#f6f3f2", "on-tertiary-fixed": "#23005b", "inverse-surface": "#313030", "on-secondary-container": "#fffbff", "on-primary-container": "#707400", "on-primary-fixed-variant": "#474a00", surface: "#fcf8f8", "primary-container": "#f6ff00", "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-fixed": "#e3ec00", primary: "#5f6300", "surface-tint": "#5f6300", error: "#ba1a1a", "on-primary": "#ffffff", "surface-container-high": "#ebe7e7", "on-surface": "#1c1b1b", "secondary-fixed-dim": "#fface8", "on-error": "#ffffff", "tertiary-fixed": "#e9ddff", "primary-fixed-dim": "#c7cf00", "on-tertiary-container": "#8243ff", "inverse-on-surface": "#f3f0ef", "tertiary-container": "#faf2ff", "inverse-primary": "#c7cf00", outline: "#78795f", "on-tertiary-fixed-variant": "#5700c9", secondary: "#a90097", "on-secondary-fixed": "#3a0033", "surface-bright": "#fcf8f8", "on-primary-fixed": "#1c1d00", "secondary-fixed": "#ffd7f0", "surface-container-highest": "#e5e2e1", "on-surface-variant": "#484831", background: "#fcf8f8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {gutter: "12px", "touch-target-optimal": "56px", "unit-xl": "40px", "unit-xs": "4px", "unit-sm": "8px", base: "4px", "unit-lg": "24px", "touch-target-min": "48px", "container-margin": "20px", "unit-md": "16px"}, fontFamily: {"headline-md": ["Spline Sans"], "body-md": ["Inter"], "headline-lg": ["Spline Sans"], "body-lg": ["Inter"], "status-banner": ["Inter"], "display-xl": ["Spline Sans"], "label-bold": ["Inter"], headline: ["Spline Sans"], display: ["Spline Sans"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "status-banner": ["14px", {lineHeight: "20px", fontWeight: "600"}], "display-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-bold": ["14px", {lineHeight: "20px", fontWeight: "700"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .pulse-cyan {
+            animation: pulse-animation 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-animation {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .qr-gradient {
+            background: linear-gradient(135deg, #00dbe9 0%, #fface8 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800 font-['Spline_Sans'] tracking-tight">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-2xl font-black text-cyan-400 italic tracking-wider">Wayta</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-zinc-700 bg-zinc-800">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a young man with stylish haircut in a club setting with colorful neon lighting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPIL-KeekG1R8WJYb_4tBBI670VeCaH5GDM8Abb4jqgFMVuQyt3RRqbsizExIBsYeye7wfuOdX8Wb7khfR6UyqyztkXE2Yliy5cXOHcCLXVIBuHz3X5mfYx8oWNcj2De_B1C3jGOvMHAtBW-gZb71E7o18QcXGDG3NpR4ievwjdD03w7-kWfJIbijpZxrRmE5g_n2U6fBxVB5GkWcvHvOSeQ14S4ZbbIc70GRXYiB9LJ5_oRRuAORzTQxMhVWcVgUz8ZrE2R6WHmk"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-gutter min-h-screen">
+<!-- Connectivity Banner (Mandatory UI Element) -->
+<div class="mb-unit-md flex items-center gap-3 bg-primary-container/10 border border-primary-container/30 p-unit-md rounded-xl">
+<span class="material-symbols-outlined text-primary-container pulse-cyan" data-icon="sync">sync</span>
+<span class="font-status-banner text-status-banner text-primary-container">Order status updating in real-time</span>
+</div>
+<!-- Order Hero Card -->
+<div class="relative overflow-hidden rounded-xl border border-zinc-800 bg-surface-container-low mb-unit-lg p-unit-lg">
+<div class="flex justify-between items-start mb-unit-lg">
+<div>
+<p class="text-zinc-500 font-label-bold text-xs uppercase tracking-widest mb-1">Current Order</p>
+<h2 class="font-headline-md text-headline-md text-on-background">#WT-8842</h2>
+</div>
+<div class="px-unit-sm py-1 bg-zinc-900 border border-zinc-800 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container pulse-cyan"></div>
+<span class="text-xs font-bold text-primary-container">PREPARING</span>
+</div>
+</div>
+<!-- Bento Layout for Tracking and QR -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-unit-lg">
+<!-- Tracking Timeline -->
+<div class="flex flex-col gap-6 py-unit-md">
+<!-- State: Order Received -->
+<div class="flex gap-4 relative">
+<div class="absolute left-3 top-6 w-0.5 h-12 bg-primary-container"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<h3 class="font-label-bold text-on-background">Order Received</h3>
+<p class="text-zinc-500 text-sm">22:14 • 2x Electric Gin, 1x Neon Lager</p>
+</div>
+</div>
+<!-- State: Preparing (ACTIVE) -->
+<div class="flex gap-4 relative">
+<div class="absolute left-3 top-6 w-0.5 h-12 bg-zinc-800"></div>
+<div class="z-10 w-6 h-6 rounded-full bg-black border-2 border-primary-container flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary-container pulse-cyan"></div>
+</div>
+<div>
+<h3 class="font-label-bold text-primary-container">Preparing</h3>
+<p class="text-zinc-400 text-sm">Our mixologist is crafting your order.</p>
+</div>
+</div>
+<!-- State: Ready for Collection -->
+<div class="flex gap-4">
+<div class="z-10 w-6 h-6 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-zinc-700" data-icon="done_all">done_all</span>
+</div>
+<div>
+<h3 class="font-label-bold text-zinc-600">Ready for Collection</h3>
+<p class="text-zinc-700 text-sm">Head to the bar when notified.</p>
+</div>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="bg-zinc-950 p-unit-lg rounded-xl flex flex-col items-center justify-center border border-zinc-900 relative">
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none qr-gradient"></div>
+<div class="w-48 h-48 bg-white p-2 rounded-lg glow-cyan relative mb-unit-md">
+<img alt="Order QR Code" class="w-full h-full grayscale brightness-90 contrast-125" data-alt="Digital QR code display on a clean white background, sharp edges and modern aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnKOkZNnaerfCECkupJAOVxCCa73GxyjF-KXF91sLJdzniNFPLHEhxUksr3ZePcFsuBnL4MNJ2rGL0TlFTecK9IkpR9_BcFca88vMRE4LsrCnWXOucZ6GnIigSVzvugj06ynKHvupP1-rWHOxu6Efj9Gdi7XaBuUBzE-Jbw_rtHaLKDgKYIMCW1iHO_I82QKA_XaxcWx-2fypVx_vqTgytzmuRdsiaOTe-Y732zzlxbcDoFIG5lx4zGUCDyUbMkxPGBjhupy9vAUM"/>
+</div>
+<p class="font-label-bold text-xs text-zinc-500 text-center uppercase tracking-widest">Scan at Pickup Counter</p>
+</div>
+</div>
+</div>
+<!-- Estimated Time Section (Bottom Section) -->
+<div class="grid grid-cols-2 gap-unit-md mb-unit-xl">
+<div class="bg-surface-container border border-zinc-800 p-unit-md rounded-xl flex flex-col justify-center h-28">
+<span class="text-zinc-500 text-xs font-label-bold uppercase tracking-widest mb-2">Est. Wait</span>
+<span class="font-display-xl text-primary-container leading-none">04<span class="text-zinc-600 font-light text-2xl ml-1">m</span></span>
+</div>
+<div class="bg-surface-container border border-zinc-800 p-unit-md rounded-xl flex flex-col justify-center h-28">
+<span class="text-zinc-500 text-xs font-label-bold uppercase tracking-widest mb-2">Collection</span>
+<span class="font-display-xl text-on-background leading-none">22:25</span>
+</div>
+</div>
+<!-- Help Action -->
+<button class="w-full h-touch-target-optimal rounded-full border-2 border-secondary text-secondary font-label-bold flex items-center justify-center gap-2 hover:bg-secondary/10 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+            Need Help with this Order?
+        </button>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+<!-- Explore -->
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</div>
+<!-- Menu -->
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Menu</span>
+</div>
+<!-- Orders (ACTIVE) -->
+<div class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] scale-110 duration-200">
+<span class="material-symbols-outlined" data-icon="Confirmation_Number">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Orders</span>
+</div>
+<!-- VIP -->
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">VIP</span>
+</div>
+<!-- Wallet -->
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Wallet</span>
+</div>
+</nav>
+</body></html>

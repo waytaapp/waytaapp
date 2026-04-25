@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style id="tailwind-config">.map-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBke4PzL17GeBtwYv9nG9-SPC0oiCaF9pZ2rhkKx3l01vtT0JeEL0mqISm51FlVkv68VqdBRUISubmxNRiP3W_2Z86k2YFkufAQbChbuI_gOggnq4_Ohl1haf4addfYLhoK7AaScVLzc7vdpyl6hNdfrwvW0NX9asUXrtg3YSVhDJQJo53-KO3to13krPfUZPgJeDSnIZGcf6TvBY_5AGCjbPyxppQ2NjrBikgIyMbZNIPhUFHeg3zKxyM4yOG7DZ_uI4uT2eFMXiQ);
+    background-size: cover;
+    background-position: center
+    }
+.glass-panel {
+    backdrop-filter: blur(16px);
+    background-color: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(31, 31, 31, 1)
+    }
+.neon-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4)
+    }
+.pulse-cyan {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite
+    }
+@keyframes pulse-ring {
+    0%, 100% {
+        opacity: 1;
+        } 50% {
+        opacity: .5;
+        }
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer" data-icon="menu">menu</span>
+<h1 class="text-2xl font-black text-cyan-400 italic tracking-wider font-['Spline_Sans']">Wayta</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-cyan-300 transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<div class="w-10 h-10 rounded-full border-2 border-cyan-400 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a stylish young man in a nightclub setting with neon reflections on his face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADaGl0kGgqtytDc3cbpfRzgIeUY_Q-fxNvG4ibOJhRP9wSWBv-Z4PR_BVJgIEh5UGoONf194AMiRhnn64BaChKotQ8vzmQ26VEENgKl2GnFvKpreTrkVOiDWbdcE4nipfzVHyYujHbIMzBMzZqMvgn8L0dKS8ujPOwLYyg7_OGeBlxfIuAB_O7l91tuvG-vEPQVIPxtDMZcovtBAlrmUfOuD0pKr4QNwCMsl_WH3NXAZio4c1rfuXJ0d9nFvamWTq0oHlQeOIpfdY"/>
+</div>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="relative flex-grow mt-16 overflow-hidden">
+<!-- Background Map Image -->
+<div class="absolute inset-0 z-0 map-bg" data-location="Johannesburg, South Africa" style=""></div>
+<!-- Map Interaction Layer -->
+<div class="absolute inset-0 z-10 pointer-events-none">
+<!-- Active Pin 1: Madison Avenue -->
+<div class="absolute top-[40%] left-[35%] pointer-events-auto">
+<div class="relative group cursor-pointer">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-cyan-400 text-black px-3 py-1 rounded-full font-label-bold text-xs whitespace-nowrap shadow-lg scale-0 group-hover:scale-100 transition-transform origin-bottom">
+                        Madison Avenue
+                    </div>
+<div class="w-8 h-8 bg-cyan-400 rounded-full flex items-center justify-center neon-glow-cyan border-2 border-black">
+<span class="material-symbols-outlined text-black text-lg" data-icon="nightlife">nightlife</span>
+</div>
+<div class="absolute inset-0 w-8 h-8 rounded-full bg-cyan-400/40 pulse-cyan -z-10"></div>
+</div>
+</div>
+<!-- Pin 2: Harem -->
+<div class="absolute top-[55%] left-[60%] pointer-events-auto">
+<div class="relative group cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+<div class="w-6 h-6 bg-secondary-container rounded-full flex items-center justify-center border-2 border-black">
+<span class="material-symbols-outlined text-black text-sm" data-icon="music_note">music_note</span>
+</div>
+</div>
+</div>
+<!-- Pin 3: Truth -->
+<div class="absolute top-[25%] left-[75%] pointer-events-auto">
+<div class="relative group cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+<div class="w-6 h-6 bg-zinc-700 rounded-full flex items-center justify-center border-2 border-black">
+<span class="material-symbols-outlined text-white text-sm" data-icon="local_bar">local_bar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Search & Filter Controls -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-lg z-20 space-y-3">
+<!-- Search Bar -->
+<div class="glass-panel rounded-full px-5 py-3 flex items-center gap-3 shadow-2xl">
+<span class="material-symbols-outlined text-cyan-400" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-on-surface placeholder:text-zinc-500 w-full font-body-md" placeholder="Search clubs, bars, festivals..." type="text"/>
+<span class="material-symbols-outlined text-zinc-400" data-icon="mic">mic</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="bg-cyan-400 text-black px-4 py-2 rounded-full font-label-bold text-sm whitespace-nowrap flex items-center gap-2 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="schedule" data-weight="fill" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                    Open Now
+                </button>
+<button class="glass-panel text-on-surface px-4 py-2 rounded-full font-label-bold text-sm whitespace-nowrap flex items-center gap-2 flex-shrink-0 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span>
+                    No Cover
+                </button>
+<button class="glass-panel text-on-surface px-4 py-2 rounded-full font-label-bold text-sm whitespace-nowrap flex items-center gap-2 flex-shrink-0 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="distance">distance</span>
+                    &lt; 5km
+                </button>
+<button class="glass-panel text-on-surface px-4 py-2 rounded-full font-label-bold text-sm whitespace-nowrap flex items-center gap-2 flex-shrink-0 hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+                    More
+                </button>
+</div>
+</div>
+<!-- Floating Quick-Action Buttons -->
+<div class="absolute right-5 bottom-32 z-20 flex flex-col gap-3">
+<button class="w-14 h-14 glass-panel rounded-full flex items-center justify-center text-on-surface shadow-xl hover:text-cyan-400 transition-all">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+<button class="w-14 h-14 bg-cyan-400 rounded-full flex items-center justify-center text-black shadow-xl neon-glow-cyan transform active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+</div>
+<!-- Venue Detail Bottom Sheet/Card -->
+<div class="absolute bottom-0 w-full z-30 px-container-margin pb-24">
+<div class="glass-panel rounded-t-3xl p-5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<div class="w-12 h-1 bg-zinc-700 rounded-full mx-auto mb-6"></div>
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-zinc-800">
+<img alt="Madison Avenue" class="w-full h-full object-cover" data-alt="Interior of a high-end luxury nightclub with deep purple and blue neon lights, leather booths, and a polished dance floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD84una-IfoFTWiaY3dtWorwy29pjnwjeDg0ENHT52s_8JBTguDDIC8bfivXzzhXz40atT87_67RkOSyvAtO1GB6DCB_TIAfAAhkDBFIHQkt52g8Jzf-AEEbgREVbILMTvwNdO-_V0XNCBrAWwu0WUg9lxI3lncd_idIdq8zdJoysV_HSsQTrz9KLbkFXGRCq-z2fjPsPEAbdq29aiT96-nBtvsCpRWIWodu_bm19Nng2IWNXvZHLJkpHqWuH5V1JtOI85nA9M_n_4"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline-md text-cyan-400">Madison Avenue</h2>
+<p class="text-zinc-500 font-body-md">Rivonia, Johannesburg</p>
+</div>
+<div class="bg-zinc-900 px-2 py-1 rounded-lg flex items-center gap-1 border border-zinc-800">
+<span class="material-symbols-outlined text-yellow-500 text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+<span class="text-xs font-label-bold uppercase tracking-tighter">High Energy</span>
+</div>
+<div class="flex items-center gap-1 text-cyan-400">
+<span class="material-symbols-outlined text-xs" data-icon="directions_walk">directions_walk</span>
+<span class="text-xs font-label-bold uppercase tracking-tighter">1.2 km away</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-6">
+<button class="bg-cyan-400 text-black py-4 rounded-xl font-label-bold flex items-center justify-center gap-2 neon-glow-cyan active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+                        Buy Tickets
+                    </button>
+<button class="bg-zinc-900 text-on-surface border border-zinc-700 py-4 rounded-xl font-label-bold flex items-center justify-center gap-2 hover:bg-zinc-800 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+                        Directions
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+<a class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="Confirmation_Number">confirmation_number</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">VIP</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+</nav>
+<!-- Connectivity Banner (Hidden by default but ready) -->
+<div class="hidden fixed top-16 left-0 w-full bg-[#FFB800] text-black font-status-banner px-4 py-2 flex items-center justify-center gap-2 z-[60]">
+<span class="material-symbols-outlined text-[20px]" data-icon="warning">warning</span>
+        Searching for GPS signal...
+    </div>
+</body></html>

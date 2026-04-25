@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Venue Details - Black Door</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8f8",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed": "#ffd7f0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf8f8",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-bright": "#fcf8f8",
+                        "surface-container-low": "#f6f3f2",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed": "#e3ec00",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#f6ff00",
+                        "inverse-primary": "#c7cf00",
+                        "on-secondary-fixed": "#3a0033",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#fface8",
+                        "secondary-container": "#d300bd",
+                        "outline-variant": "#c9c8aa",
+                        "on-secondary-fixed-variant": "#840076",
+                        "primary": "#5f6300",
+                        "secondary": "#a90097",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#8243ff",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#78795f",
+                        "on-tertiary-fixed": "#23005b",
+                        "on-primary-fixed-variant": "#474a00",
+                        "on-primary-fixed": "#1c1d00",
+                        "tertiary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#c7cf00",
+                        "on-primary-container": "#707400",
+                        "tertiary": "#7212ff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#5f6300",
+                        "tertiary-container": "#faf2ff",
+                        "on-surface-variant": "#484831",
+                        "surface-container": "#f0edec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "48px",
+                        "unit-xl": "40px",
+                        "gutter": "12px",
+                        "base": "4px",
+                        "unit-md": "16px",
+                        "touch-target-optimal": "56px",
+                        "unit-sm": "8px",
+                        "unit-lg": "24px",
+                        "unit-xs": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Spline Sans"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-xl": ["Spline Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Spline Sans"],
+                        "status-banner": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "status-banner": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm flex justify-between items-center h-16 px-5">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-slate-500">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-slate-900 tracking-tighter uppercase font-black italic">Wayta</h1>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional male portrait avatar with clean background, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiN0g_X4GicHkTY4hUiZxOgtuILK5jEpdYyL41c70V2nxn_7VNi3hYGMV60cfHpdaUuCNN7Kl9zUkcqLRjI7_CuRIeFCG3jNoD-yxQytfGMsg-8MT5Bpr9ykpEJsqw2N-gsFH8CHOiX2WJykRZ85LJkRsBt7su6QLx5kG7xyFPuhCA0jmXrK6jnPl4uTFU33Y5xcbXXA3EQIuAz8IFE5GT200E8rCEJsRwinHaaSAI-HyHsc8c_p2OrHZgxfdNDD_GrsJ85QDse3E"/>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[530px] w-full overflow-hidden">
+<img alt="Black Door Venue" class="w-full h-full object-cover" data-alt="ultra-modern luxury nightclub interior with neon lime and pink lighting, sleek black surfaces, and atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7Glz2CeEfOYB58FaDc6oxijD4HRIQ8IDBqhnmMq5NqqIXXDuNLKxD6_Zf7s0VhYM0tFrN-pRWFgfj5UE3YmpKz8YY29TWlYSz-somcJELP5iHJH2JgqDPOuCaepjqUJg2mqv91KiTJagxX-GIf_kpJzDEFgG6m1a_FE9Lz8A9LfDHRJbSl8XR7qML7HxCbIZi4lSR2sv4DdQXw893LxMmhkC_cR4tk7NS436D3C-vp_LTWfMOTBffHlqxm7VrJGDpNlF02WuN5M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-container-margin space-y-unit-md">
+<div class="flex items-center gap-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-bold text-xs uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        Live Now
+                    </span>
+</div>
+<h2 class="text-white font-display-xl tracking-tight leading-tight">Black Door (BDNL)</h2>
+<div class="flex items-center text-white/80 gap-2 font-body-md">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+                    Sandton, Johannesburg
+                </div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="px-container-margin -mt-8 relative z-10 grid grid-cols-1 gap-base">
+<div class="glass-panel rounded-xl shadow-xl p-unit-md border border-white/20">
+<div class="grid grid-cols-1 gap-unit-md">
+<!-- Primary CTA -->
+<button class="bg-primary-container text-on-primary-container h-touch-target-optimal rounded-lg font-label-bold flex items-center justify-center gap-unit-sm active:scale-[0.98] transition-transform shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_bar</span>
+                        Get A Drink
+                    </button>
+<div class="grid grid-cols-2 gap-unit-md">
+<button class="border-2 border-secondary text-secondary h-touch-target-optimal rounded-lg font-label-bold flex items-center justify-center gap-unit-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">payments</span>
+                            Pay for Entrance
+                        </button>
+<button class="bg-slate-900 text-white h-touch-target-optimal rounded-lg font-label-bold flex items-center justify-center gap-unit-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">map</span>
+                            View Map
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Venue Info Section -->
+<section class="mt-unit-xl px-container-margin">
+<div class="flex items-center justify-between mb-unit-md">
+<h3 class="font-headline-md text-on-background">Venue Info</h3>
+<span class="material-symbols-outlined text-slate-400">info</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-unit-lg border border-slate-100 space-y-unit-lg">
+<!-- Manager -->
+<div class="flex items-center gap-unit-md">
+<div class="bg-primary-container/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-widest font-label-bold">Contact Name</p>
+<p class="font-body-lg font-semibold text-slate-900">Jameson Blake</p>
+</div>
+</div>
+<hr class="border-slate-50"/>
+<!-- Address -->
+<div class="flex items-start gap-unit-md">
+<div class="bg-secondary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">pin_drop</span>
+</div>
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-widest font-label-bold">Address</p>
+<p class="font-body-lg font-semibold text-slate-900">123 Maude Street, Sandton</p>
+<button class="text-secondary text-sm font-label-bold mt-unit-xs">Copy Address</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Orders Empty State -->
+<section class="mt-unit-xl px-container-margin pb-unit-xl">
+<h3 class="font-headline-md text-on-background mb-unit-md">Related Orders</h3>
+<div class="bg-surface-container-low rounded-2xl border-2 border-dashed border-slate-200 py-12 px-unit-xl flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-slate-200/50 rounded-full flex items-center justify-center mb-unit-md">
+<span class="material-symbols-outlined text-slate-400 text-3xl">receipt_long</span>
+</div>
+<h4 class="font-headline-md text-slate-400">No items</h4>
+<p class="text-slate-500 font-body-md mt-2">You haven't made any purchases at Black Door yet. Your order history will appear here.</p>
+<button class="mt-unit-lg text-primary font-label-bold flex items-center gap-base">
+                    Browse Menu <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shell Only - Background tonal shift) -->
+<nav class="fixed bottom-0 w-full z-50 bg-white/95 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] h-20 pb-safe px-2 flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-lime-600 scale-110 transition-all font-spline-sans text-[10px] font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+            Explore
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-400 font-spline-sans text-[10px] font-semibold uppercase tracking-widest hover:text-pink-500 transition-colors" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+            Orders
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-400 font-spline-sans text-[10px] font-semibold uppercase tracking-widest hover:text-pink-500 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+            Budget
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-400 font-spline-sans text-[10px] font-semibold uppercase tracking-widest hover:text-pink-500 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+            Profile
+        </a>
+</nav>
+<!-- Map FAB (Suppressed as per rules for Details page, but providing Map action in main UI) -->
+</body></html>
