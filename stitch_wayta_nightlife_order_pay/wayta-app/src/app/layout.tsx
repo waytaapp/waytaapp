@@ -12,7 +12,8 @@ const splineSans = Spline_Sans({
   subsets: ["latin"],
   variable: "--font-spline-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  // next/font only supports these weights for Spline Sans
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
