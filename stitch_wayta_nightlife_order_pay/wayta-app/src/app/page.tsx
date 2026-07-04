@@ -11,24 +11,34 @@ export default function Home() {
           Wayta
         </h1>
         <p className="mt-3 text-on-background/70">
-          First route wired up: order tracking screen.
+          Core patron journey wired up: discover, view a venue, order, track.
         </p>
 
         <div className="mt-6 flex flex-col gap-3">
           <Link
-            href="/orders/WT-8842"
+            href="/venues"
             className="h-12 rounded-full bg-primary text-fg-on-accent font-semibold flex items-center justify-center hover:bg-primary/90 transition-colors"
+          >
+            Discover venues
+          </Link>
+          <Link
+            href="/venues/black-door/menu"
+            className="h-12 rounded-full border border-outline-variant font-semibold flex items-center justify-center hover:bg-surface-variant/50 transition-colors"
+          >
+            Browse Black Door menu
+          </Link>
+          <Link
+            href="/orders/WT-8842"
+            className="h-12 rounded-full border border-outline-variant font-semibold flex items-center justify-center hover:bg-surface-variant/50 transition-colors"
           >
             Open sample order
           </Link>
-          <a
-            href="https://nextjs.org/docs"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/budget"
             className="h-12 rounded-full border border-outline-variant font-semibold flex items-center justify-center hover:bg-surface-variant/50 transition-colors"
           >
-            Next.js docs
-          </a>
+            View budget dashboard
+          </Link>
         </div>
       </div>
     </main>
