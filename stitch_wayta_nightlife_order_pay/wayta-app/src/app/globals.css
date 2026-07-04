@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Wayta base tokens (ported from prototypes) */
-  --background: #fcf8f8;
-  --on-background: #1c1b1b;
+  /* Wayta Signal Green tokens (ported from wayta-ai-studio's tokens.css) */
+  --background: #0a0a0a;
+  --on-background: #fafaf9;
 
-  --surface: #fcf8f8;
-  --surface-container: #f0edec;
-  --surface-container-low: #f6f3f2;
-  --surface-variant: #e5e2e1;
+  --surface: #0a0a0a;
+  --surface-container: #141414;
+  --surface-container-low: #1c1c1c;
+  --surface-variant: #262626;
 
-  --primary: #5f6300;
-  --primary-container: #f6ff00;
-  --secondary: #a90097;
-  --secondary-container: #d300bd;
+  --primary: #34d399;
+  --primary-container: #10b981;
+  --secondary: #059669;
+  --secondary-container: #6ee7b7;
 
-  --outline-variant: #c9c8aa;
+  --outline-variant: #262626;
+
+  --accent-hover: #6ee7b7;
+  --fg-on-accent: #062014;
+  /* RGB triplet (not a full color) so call sites can compose rgba(var(--glow-accent-rgb), alpha) at their own opacity */
+  --glow-accent-rgb: 52, 211, 153;
 }
 
 @theme inline {
@@ -33,6 +38,9 @@
   --color-secondary-container: var(--secondary-container);
 
   --color-outline-variant: var(--outline-variant);
+
+  --color-accent-hover: var(--accent-hover);
+  --color-fg-on-accent: var(--fg-on-accent);
 
   /* Tailwind v4 font tokens */
   --font-sans: var(--font-inter);

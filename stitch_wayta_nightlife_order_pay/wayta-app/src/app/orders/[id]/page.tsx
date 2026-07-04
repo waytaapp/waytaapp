@@ -13,12 +13,12 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className="material-symbols-outlined text-cyan-400 cursor-pointer"
+            className="material-symbols-outlined text-primary cursor-pointer"
             aria-label="Back"
           >
             arrow_back
           </Link>
-          <h1 className="text-2xl font-black text-cyan-400 italic tracking-wider">
+          <h1 className="text-2xl font-black text-primary italic tracking-wider">
             Wayta
           </h1>
         </div>
@@ -108,8 +108,8 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
             </div>
 
             <div className="bg-zinc-950 p-6 rounded-xl flex flex-col items-center justify-center border border-zinc-900 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-gradient-to-br from-cyan-400 to-pink-200" />
-              <div className="w-48 h-48 bg-white p-2 rounded-lg shadow-[0_0_15px_rgba(0,240,255,0.3)] relative mb-4">
+              <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-gradient-to-br from-primary to-accent-hover" />
+              <div className="w-48 h-48 bg-white p-2 rounded-lg shadow-[0_0_15px_rgba(var(--glow-accent-rgb),0.3)] relative mb-4">
                 <img
                   alt="Order QR Code"
                   className="w-full h-full grayscale brightness-90 contrast-125"
@@ -146,7 +146,7 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
         </button>
       </main>
 
-      <nav className="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(0,240,255,0.1)]">
+      <nav className="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(var(--glow-accent-rgb),0.1)]">
         <div className="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
           <span className="material-symbols-outlined">explore</span>
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
@@ -159,7 +159,7 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
             Menu
           </span>
         </div>
-        <div className="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] scale-110 duration-200">
+        <div className="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(var(--glow-accent-rgb),0.6)] scale-110 duration-200">
           <span className="material-symbols-outlined">confirmation_number</span>
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
             Orders
