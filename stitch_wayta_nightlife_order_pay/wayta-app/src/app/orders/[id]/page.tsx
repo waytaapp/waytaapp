@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { WaytaHeader } from "@/components/wayta-header";
+import { WaytaBottomNav } from "@/components/wayta-bottom-nav";
 
 type OrderTrackingPageProps = {
   params: Promise<{ id: string }>;
@@ -9,28 +10,7 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
 
   return (
     <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-black/80 backdrop-blur-lg border-b border-zinc-800 font-display tracking-tight">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            className="material-symbols-outlined text-primary cursor-pointer"
-            aria-label="Back"
-          >
-            arrow_back
-          </Link>
-          <h1 className="text-2xl font-black text-primary italic tracking-wider">
-            Wayta
-          </h1>
-        </div>
-        <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-700 bg-zinc-800">
-          {/* Keeping <img> to avoid configuring remote image domains yet */}
-          <img
-            alt="User profile"
-            className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPIL-KeekG1R8WJYb_4tBBI670VeCaH5GDM8Abb4jqgFMVuQyt3RRqbsizExIBsYeye7wfuOdX8Wb7khfR6UyqyztkXE2Yliy5cXOHcCLXVIBuHz3X5mfYx8oWNcj2De_B1C3jGOvMHAtBW-gZb71E7o18QcXGDG3NpR4ievwjdD03w7-kWfJIbijpZxrRmE5g_n2U6fBxVB5GkWcvHvOSeQ14S4ZbbIc70GRXYiB9LJ5_oRRuAORzTQxMhVWcVgUz8ZrE2R6WHmk"
-          />
-        </div>
-      </header>
+      <WaytaHeader variant="back" backHref="/" />
 
       <main className="pt-24 pb-32 px-3 min-h-screen">
         <div className="mb-4 flex items-center gap-3 bg-primary-container/10 border border-primary-container/30 p-4 rounded-xl">
@@ -146,38 +126,7 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
         </button>
       </main>
 
-      <nav className="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-2 bg-black/90 backdrop-blur-xl border-t border-zinc-800 shadow-[0_-4px_20px_rgba(var(--glow-accent-rgb),0.1)]">
-        <div className="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
-          <span className="material-symbols-outlined">explore</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
-            Explore
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
-          <span className="material-symbols-outlined">restaurant_menu</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
-            Menu
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(var(--glow-accent-rgb),0.6)] scale-110 duration-200">
-          <span className="material-symbols-outlined">confirmation_number</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
-            Orders
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
-          <span className="material-symbols-outlined">event_seat</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
-            VIP
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
-          <span className="material-symbols-outlined">account_balance_wallet</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
-            Wallet
-          </span>
-        </div>
-      </nav>
+      <WaytaBottomNav active="orders" />
     </div>
   );
 }
