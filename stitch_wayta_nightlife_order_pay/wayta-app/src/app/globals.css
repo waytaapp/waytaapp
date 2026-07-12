@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  /* Wayta Signal Green tokens (ported from wayta-ai-studio's tokens.css) */
-  --background: #0a0a0a;
-  --on-background: #fafaf9;
+  /* Brand — Amber */
+  --wayta-amber-600: #d97706;  /* primary: CTAs, active states, accents */
+  --wayta-amber-500: #f97316;  /* hover on dark */
+  --wayta-amber-700: #b45309;  /* press; small amber text on light */
 
-  --surface: #0a0a0a;
-  --surface-container: #141414;
-  --surface-container-low: #1c1c1c;
-  --surface-variant: #262626;
+  /* Dark (DEFAULT theme) */
+  --bg-0: #0a0a0a;         /* page */
+  --bg-elev-1: #171717;    /* cards */
+  --bg-elev-2: #2a2a2a;    /* raised surfaces, snackbar */
+  --border: #2a2a2a;
+  --border-strong: #3d3d3d;
+  --fg-0: #ffffff;         /* headings */
+  --fg-1: #e5e5e5;         /* body */
+  --fg-2: #a3a3a3;         /* secondary — passes 4.5:1 on bg-0/elev-1 */
+  --fg-3: #737373;         /* captions on large text only */
 
-  --primary: #34d399;
-  --primary-container: #10b981;
-  --secondary: #059669;
-  --secondary-container: #6ee7b7;
+  /* Semantic (both themes) */
+  --go: #16a34a;   /* ready, paid, on track */
+  --warn: #eab308; /* approaching limit, waiting */
+  --stop: #ef4444; /* declined, over budget */
 
-  --outline-variant: #262626;
+  /* Radii */
+  --r-md: 12px;   /* inputs */
+  --r-lg: 16px;   /* cards */
+  --r-pill: 999px;/* all CTAs */
 
-  --accent-hover: #6ee7b7;
-  --fg-on-accent: #062014;
-  /* RGB triplet (not a full color) so call sites can compose rgba(var(--glow-accent-rgb), alpha) at their own opacity */
-  --glow-accent-rgb: 52, 211, 153;
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --dur-tap: 120ms;
+  --dur-ui: 200ms;
+  --dur-screen: 360ms;
+
+  /* Glow — max ONE per screen, primary CTA only */
+  --glow-amber: 0 8px 32px rgba(217, 119, 6, 0.45);
+
+  /* Legacy aliases for backward compat during migration */
+  --background: var(--bg-0);
+  --on-background: var(--fg-0);
+  --surface: var(--bg-0);
+  --surface-container: var(--bg-elev-1);
+  --surface-container-low: var(--bg-elev-1);
+  --surface-variant: var(--bg-elev-1);
+  --primary: var(--wayta-amber-600);
+  --primary-container: var(--wayta-amber-600);
+  --secondary: var(--stop);
+  --secondary-container: var(--stop);
+  --outline-variant: var(--border);
+  --accent-hover: var(--wayta-amber-500);
+  --fg-on-accent: #0a0a0a;
+}
+
+[data-theme="light"] {
+  --bg-0: #ffffff;
+  --bg-elev-1: #ffffff;   /* cards use border for elevation, not fill */
+  --bg-elev-2: #f5f5f4;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --fg-0: #0a0a0a;
+  --fg-1: #262626;
+  --fg-2: #525252;
+  --fg-3: #737373;
 }
 
 @theme inline {
@@ -43,11 +84,29 @@
   --color-fg-on-accent: var(--fg-on-accent);
 
   /* Tailwind v4 font tokens */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-spline-sans);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--background);
   color: var(--on-background);
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

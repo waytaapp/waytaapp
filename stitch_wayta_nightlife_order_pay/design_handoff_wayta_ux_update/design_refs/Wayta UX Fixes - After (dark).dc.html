@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/wayta-design-system-019e264f-2a54-7e7a-ab10-e3863913f780/colors_and_type.css">
+<link rel="stylesheet" href="_ds/wayta-design-system-019e264f-2a54-7e7a-ab10-e3863913f780/styles.css">
+<script src="_ds/wayta-design-system-019e264f-2a54-7e7a-ab10-e3863913f780/_ds_bundle.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#0a0a0a; }
+  a { color:#f97316; text-decoration:none; }
+  a:hover { color:#d97706; text-decoration:underline; }
+</style>
+</helmet>
+<div style="font-family:'Manrope',system-ui,sans-serif; background:#0a0a0a; color:#e5e5e5; min-height:100vh; --before-disp: {{beforeDisp}};">
+
+  <!-- ============ HEADER ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:72px 32px 12px 32px;">
+    <div style="font:600 12px 'JetBrains Mono',monospace; letter-spacing:.22em; text-transform:uppercase; color:#d97706;">Wayta UX Audit · Part 2</div>
+    <h1 style="font:700 50px/1.05 'Space Grotesk',sans-serif; letter-spacing:-0.02em; color:#ffffff; margin:16px 0 0 0; max-width:760px; text-wrap:balance;">The top fixes, redesigned.</h1>
+    <p style="font-size:16px; line-height:1.6; color:#a3a3a3; max-width:680px; margin:18px 0 0 0;">Before → after mockups for the five highest-impact findings, rebuilt on the Wayta design system: amber on ink, flat charcoal cards with 1px borders, mono for prices and order codes, pill CTAs, sentence-case copy. No mesh, no pulse, no grid.</p>
+  </div>
+
+  <!-- ============ FIX 1: MENU ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:52px 32px 8px 32px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-top:1px solid #2a2a2a; padding-top:32px;">
+      <span style="font:700 13px 'JetBrains Mono',monospace; color:#d97706;">01</span>
+      <h2 style="font:700 28px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin:0;">A menu you can actually order from.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:260px 320px 1fr; gap:32px; margin-top:28px; align-items:start;">
+      <!-- BEFORE -->
+      <div style="display:var(--before-disp,block);">
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#737373; margin-bottom:10px;">Before</div>
+        <div style="width:250px; border-radius:24px; background:#0f120f; border:1px solid #26332C; overflow:hidden; opacity:.75; font-family:system-ui,sans-serif;">
+          <div style="padding:14px 14px 6px 14px;"><div style="font:700 15px sans-serif; color:#E7ECE8;">The Blue Room</div></div>
+          <div style="margin:8px 12px; display:flex; gap:8px; border:1px solid #26332C; border-radius:12px; padding:8px; align-items:center;">
+            <div style="width:44px; height:44px; border-radius:8px; background:linear-gradient(140deg,#4A524D,#2C3A32); filter:grayscale(1);"></div>
+            <div style="flex:1;">
+              <div style="font:700 11px sans-serif; color:#E7ECE8;">Mojito Classico</div>
+              <div style="font:800 8px sans-serif; letter-spacing:.24em; text-transform:uppercase; color:#5B6560; margin-top:2px;">WHITE RUM · MINT · LIME</div>
+              <div style="font:700 10px sans-serif; color:#34d399; margin-top:3px;">R 85</div>
+            </div>
+          </div>
+          <div style="margin:6px 12px 10px 12px; height:38px; border-radius:10px; background:#0B7A55; display:flex; align-items:center; justify-content:space-between; padding:0 12px;"><span style="font:700 10px sans-serif; color:#fff;">View Pulse Cart</span><span style="font:700 10px sans-serif; color:#fff;">R 250</span></div>
+          <div style="display:flex; justify-content:space-around; padding:8px; border-top:1px solid #1B241F;"><div style="width:16px; height:16px; border-radius:5px; background:#1B241F;"></div><div style="width:16px; height:16px; border-radius:5px; background:#1B241F;"></div><div style="width:16px; height:16px; border-radius:5px; background:#1B241F;"></div><div style="width:16px; height:16px; border-radius:5px; background:#1B241F;"></div></div>
+        </div>
+        <div style="font-size:12px; line-height:1.55; color:#737373; margin-top:10px; max-width:250px;">No add control, grayscale food, 10px tracking-heavy descriptions, two stacked bottom bars.</div>
+      </div>
+      <!-- AFTER -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After</div>
+        <div style="width:310px; border-radius:28px; background:#0a0a0a; border:1px solid #2a2a2a; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55);">
+          <div style="padding:18px 18px 10px 18px; display:flex; align-items:center; gap:12px;">
+            <div style="width:40px; height:40px; border-radius:12px; background:#d97706; display:flex; align-items:center; justify-content:center; font:700 15px 'Space Grotesk',sans-serif; color:#0a0a0a;">B</div>
+            <div style="flex:1;">
+              <div style="font:700 17px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff;">The Blue Room</div>
+              <div style="font:500 11px 'JetBrains Mono',monospace; letter-spacing:.14em; color:#a3a3a3; margin-top:1px;">LIVE AT VENUE · R300 LEFT</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px; padding:6px 18px 12px 18px;">
+            <div style="height:38px; padding:0 16px; border-radius:999px; background:#d97706; color:#0a0a0a; font:700 13px 'Manrope',sans-serif; display:flex; align-items:center;">Drinks</div>
+            <div style="height:38px; padding:0 16px; border-radius:999px; border:1px solid #2a2a2a; color:#a3a3a3; font:600 13px 'Manrope',sans-serif; display:flex; align-items:center;">Food</div>
+            <div style="height:38px; padding:0 16px; border-radius:999px; border:1px solid #2a2a2a; color:#a3a3a3; font:600 13px 'Manrope',sans-serif; display:flex; align-items:center;">Booths</div>
+          </div>
+          <div style="margin:0 14px 10px 14px; display:flex; gap:12px; background:#171717; border:1px solid #2a2a2a; border-radius:16px; padding:12px; align-items:center;">
+            <div style="width:64px; height:64px; border-radius:12px; background:linear-gradient(150deg,#7a4a12,#3d2508); position:relative; overflow:hidden;"><div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 25%, rgba(249,115,22,.5), transparent 60%);"></div></div>
+            <div style="flex:1; min-width:0;">
+              <div style="font:700 15px 'Space Grotesk',sans-serif; color:#ffffff;">Mojito Classico</div>
+              <div style="font:400 12.5px/1.45 'Manrope',sans-serif; color:#a3a3a3; margin-top:2px;">White rum, mint, lime soda.</div>
+              <div style="font:600 13px 'JetBrains Mono',monospace; color:#f97316; margin-top:5px;">R85</div>
+            </div>
+            <div style="width:44px; height:44px; border-radius:999px; background:#d97706; color:#0a0a0a; display:flex; align-items:center; justify-content:center; font:600 22px 'Space Grotesk',sans-serif; flex:none;">+</div>
+          </div>
+          <div style="margin:0 14px 12px 14px; display:flex; gap:12px; background:#171717; border:1px solid #3d3d3d; border-radius:16px; padding:12px; align-items:center;">
+            <div style="width:64px; height:64px; border-radius:12px; background:linear-gradient(150deg,#6b3d10,#2e1c06); position:relative; overflow:hidden;"><div style="position:absolute; inset:0; background:radial-gradient(circle at 70% 30%, rgba(234,179,8,.4), transparent 55%);"></div></div>
+            <div style="flex:1; min-width:0;">
+              <div style="font:700 15px 'Space Grotesk',sans-serif; color:#ffffff;">Loaded fries</div>
+              <div style="font:400 12.5px/1.45 'Manrope',sans-serif; color:#a3a3a3; margin-top:2px;">Cheddar, jalapeño, ranch.</div>
+              <div style="font:600 13px 'JetBrains Mono',monospace; color:#f97316; margin-top:5px;">R60</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:2px; background:#0a0a0a; border:1px solid #2a2a2a; border-radius:999px; padding:2px; flex:none;">
+              <div style="width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:#e5e5e5; font-size:18px;">−</div>
+              <div style="font:700 14px 'JetBrains Mono',monospace; color:#ffffff; width:18px; text-align:center;">1</div>
+              <div style="width:40px; height:40px; border-radius:999px; background:#d97706; color:#0a0a0a; display:flex; align-items:center; justify-content:center; font-size:18px;">+</div>
+            </div>
+          </div>
+          <div style="padding:6px 14px 16px 14px;">
+            <div style="height:54px; border-radius:999px; background:#d97706; box-shadow:0 8px 32px rgba(217,119,6,.45); display:flex; align-items:center; justify-content:space-between; padding:0 22px;">
+              <span style="font:700 15px 'Manrope',sans-serif; color:#0a0a0a;">View cart</span>
+              <span style="font:700 15px 'JetBrains Mono',monospace; color:#0a0a0a;">R145 →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NOTES -->
+      <div style="padding-top:28px;">
+        <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.8; color:#a3a3a3;">
+          <li><strong style="color:#e5e5e5;">44px "+" on every row</strong>, expanding to a pill stepper once qty ≥ 1. Row tap opens an item detail sheet.</li>
+          <li><strong style="color:#e5e5e5;">Full-color, warm imagery</strong> — appetite appeal restored; dominant-color placeholder while loading.</li>
+          <li><strong style="color:#e5e5e5;">Descriptions at 12.5px sentence case</strong>, prices in mono amber per the brand's numeral rules.</li>
+          <li><strong style="color:#e5e5e5;">Sticky category pills</strong> (44px) with scroll-spy replace the flat list.</li>
+          <li><strong style="color:#e5e5e5;">One bottom bar.</strong> The global nav hides inside the order flow; the amber cart pill (the screen's single glow) is the only fixed element.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FIX 2: CHECKOUT + PAY ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:52px 32px 8px 32px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-top:1px solid #2a2a2a; padding-top:32px;">
+      <span style="font:700 13px 'JetBrains Mono',monospace; color:#d97706;">02</span>
+      <h2 style="font:700 28px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin:0;">Checkout with an exit, a working pay control, and a receipt.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:320px 320px 1fr; gap:32px; margin-top:28px; align-items:start;">
+      <!-- AFTER: checkout -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After · Checkout</div>
+        <div style="width:310px; border-radius:28px; background:#0a0a0a; border:1px solid #2a2a2a; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55);">
+          <div style="padding:16px 14px 8px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="width:44px; height:44px; border-radius:999px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; color:#e5e5e5; font-size:18px;">←</div>
+            <div style="flex:1;">
+              <div style="font:700 19px 'Space Grotesk',sans-serif; color:#ffffff;">Checkout</div>
+              <div style="font:500 11px 'JetBrains Mono',monospace; letter-spacing:.14em; color:#a3a3a3;">ORDER #B-42 · THE BLUE ROOM</div>
+            </div>
+          </div>
+          <div style="margin:8px 14px; background:#171717; border:1px solid #2a2a2a; border-radius:16px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font:700 14px 'Space Grotesk',sans-serif; color:#ffffff;">Mojito Classico</div>
+              <div style="font:600 12px 'JetBrains Mono',monospace; color:#a3a3a3; margin-top:3px;">R85 × 2 · <span style="color:#f97316;">R170</span></div>
+            </div>
+            <div style="display:flex; align-items:center; gap:2px; background:#0a0a0a; border:1px solid #2a2a2a; border-radius:999px; padding:2px;">
+              <div style="width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:#e5e5e5; font-size:17px;">−</div>
+              <div style="font:700 13px 'JetBrains Mono',monospace; color:#ffffff; width:16px; text-align:center;">2</div>
+              <div style="width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:#e5e5e5; font-size:17px;">+</div>
+            </div>
+          </div>
+          <div style="margin:8px 14px; display:flex; gap:8px;">
+            <div style="flex:1; height:56px; border-radius:16px; border:1.5px solid #d97706; background:rgba(217,119,6,.08); display:flex; align-items:center; justify-content:center; gap:8px;">
+              <span style="font:600 14px 'Manrope',sans-serif; color:#ffffff;">Card</span>
+              <span style="width:18px; height:18px; border-radius:999px; background:#d97706; color:#0a0a0a; font:700 11px sans-serif; display:flex; align-items:center; justify-content:center;">✓</span>
+            </div>
+            <div style="flex:1; height:56px; border-radius:16px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center;">
+              <span style="font:600 14px 'Manrope',sans-serif; color:#a3a3a3;">Wallet</span>
+            </div>
+          </div>
+          <div style="margin:12px 14px 6px 14px; display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font:500 13px 'Manrope',sans-serif; color:#a3a3a3;">Total</span>
+            <span style="font:700 22px 'JetBrains Mono',monospace; color:#ffffff;">R170</span>
+          </div>
+          <div style="padding:6px 14px 16px 14px;">
+            <div style="height:56px; border-radius:999px; background:#d97706; box-shadow:0 8px 32px rgba(217,119,6,.45); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+              <div style="position:absolute; left:0; top:0; bottom:0; width:38%; background:#b45309;"></div>
+              <span style="position:relative; font:700 15px 'Manrope',sans-serif; color:#0a0a0a;">Hold to pay R170</span>
+            </div>
+            <div style="font:500 11px 'Manrope',sans-serif; color:#737373; text-align:center; margin-top:8px;">Press and hold for 1 second. Release to cancel.</div>
+          </div>
+        </div>
+      </div>
+      <!-- AFTER: receipt -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After · Payment success</div>
+        <div style="width:310px; border-radius:28px; background:#0a0a0a; border:1px solid #2a2a2a; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55); padding-bottom:16px;">
+          <div style="text-align:center; padding:30px 20px 0 20px;">
+            <div style="width:64px; height:64px; border-radius:999px; background:#16a34a; margin:0 auto; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px;">✓</div>
+            <div style="font:700 24px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin-top:14px;">Order placed.</div>
+            <div style="font:500 12px 'JetBrains Mono',monospace; letter-spacing:.14em; color:#a3a3a3; margin-top:4px;">ORDER #B-42 · PAID R170</div>
+          </div>
+          <div style="margin:18px 20px 0 20px; background:#171717; border:1px solid #2a2a2a; border-radius:16px; padding:16px; text-align:center;">
+            <div style="width:96px; height:96px; margin:0 auto; border-radius:12px; background:#ffffff; display:grid; grid-template-columns:repeat(6,1fr); grid-template-rows:repeat(6,1fr); padding:8px; gap:2px;">
+              <div style="background:#0a0a0a; grid-column:1/3; grid-row:1/3;"></div><div style="background:#0a0a0a; grid-column:5/7; grid-row:1/3;"></div><div style="background:#0a0a0a; grid-column:1/3; grid-row:5/7;"></div><div style="background:#0a0a0a; grid-column:4/5; grid-row:3/4;"></div><div style="background:#0a0a0a; grid-column:3/4; grid-row:4/6;"></div><div style="background:#0a0a0a; grid-column:5/6; grid-row:4/5;"></div><div style="background:#0a0a0a; grid-column:6/7; grid-row:5/6;"></div><div style="background:#0a0a0a; grid-column:4/6; grid-row:6/7;"></div>
+            </div>
+            <div style="font:600 12px 'Manrope',sans-serif; color:#e5e5e5; margin-top:10px;">Show this at fast-lane pickup.</div>
+            <div style="font:500 11px 'JetBrains Mono',monospace; color:#a3a3a3; margin-top:3px;">3 ORDERS AHEAD OF YOU</div>
+          </div>
+          <div style="margin:14px 20px 0 20px; height:48px; border-radius:999px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; font:600 14px 'Manrope',sans-serif; color:#e5e5e5;">Track my order</div>
+        </div>
+      </div>
+      <!-- NOTES -->
+      <div style="padding-top:28px;">
+        <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.8; color:#a3a3a3;">
+          <li><strong style="color:#e5e5e5;">44px back button</strong> + swipe-back returns to the menu with the cart intact.</li>
+          <li><strong style="color:#e5e5e5;">Line-item math is visible</strong> (R85 × 2), steppers are 44px, and removing the last unit asks via an undo snackbar.</li>
+          <li><strong style="color:#e5e5e5;">Hold-to-pay replaces slide-to-pay:</strong> works at any screen width, single-pointer (WCAG 2.5.7), fills the pill as progress, locks while processing, disabled at R0. Medium haptic on completion.</li>
+          <li><strong style="color:#e5e5e5;">A real success moment:</strong> drawn checkmark, mono order code, pickup QR, honest queue position — no fake ETA, no timeout redirect.</li>
+          <li>Selected payment method shows a <strong style="color:#e5e5e5;">check indicator</strong>, not just a fill change. No emoji.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FIX 3: STAFF CARD ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:52px 32px 8px 32px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-top:1px solid #2a2a2a; padding-top:32px;">
+      <span style="font:700 13px 'JetBrains Mono',monospace; color:#d97706;">03</span>
+      <h2 style="font:700 28px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin:0;">Tap to advance — no dragging behind the bar.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:260px 320px 1fr; gap:32px; margin-top:28px; align-items:start;">
+      <!-- BEFORE -->
+      <div style="display:var(--before-disp,block);">
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#737373; margin-bottom:10px;">Before</div>
+        <div style="width:250px; border-radius:20px; background:#0f120f; border:1px solid #26332C; padding:12px; opacity:.75; font-family:system-ui,sans-serif;">
+          <div style="font:800 8px sans-serif; letter-spacing:.16em; color:#8B948E;">NEW ORDERS — DRAG CARD →</div>
+          <div style="margin-top:8px; border:1px solid #26332C; border-radius:10px; padding:10px; background:#131A16;">
+            <div style="font:700 11px sans-serif; color:#E7ECE8;">#4821 · 2× Mojito</div>
+            <div style="font:600 9px sans-serif; color:#5B6560; margin-top:2px;">Table 12 · 2 min ago</div>
+          </div>
+        </div>
+        <div style="font-size:12px; line-height:1.55; color:#737373; margin-top:10px; max-width:250px;">HTML5 drag-and-drop — inert on the touch devices staff actually use.</div>
+      </div>
+      <!-- AFTER -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After · Order card</div>
+        <div style="width:310px; background:#171717; border:1px solid #2a2a2a; border-radius:16px; padding:18px; box-shadow:0 24px 60px rgba(0,0,0,.45);">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font:700 15px 'JetBrains Mono',monospace; color:#ffffff;">#B-42</span>
+            <span style="font:600 11px 'JetBrains Mono',monospace; letter-spacing:.1em; color:#eab308; background:rgba(234,179,8,.1); border:1px solid rgba(234,179,8,.3); border-radius:999px; padding:4px 10px;">WAITING 2M</span>
+          </div>
+          <div style="margin-top:12px; display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; justify-content:space-between;"><span style="font:600 14px 'Manrope',sans-serif; color:#e5e5e5;">2× Mojito Classico</span><span style="font:600 13px 'JetBrains Mono',monospace; color:#a3a3a3;">R170</span></div>
+            <div style="display:flex; justify-content:space-between;"><span style="font:600 14px 'Manrope',sans-serif; color:#e5e5e5;">1× Loaded fries</span><span style="font:600 13px 'JetBrains Mono',monospace; color:#a3a3a3;">R60</span></div>
+          </div>
+          <div style="font:500 12px 'Manrope',sans-serif; color:#a3a3a3; margin-top:8px;">Table 12 · Paid · Card</div>
+          <div style="margin-top:14px; height:52px; border-radius:999px; background:#d97706; display:flex; align-items:center; justify-content:center; font:700 15px 'Manrope',sans-serif; color:#0a0a0a;">Start preparing →</div>
+          <div style="margin-top:8px; height:44px; border-radius:999px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; font:600 13px 'Manrope',sans-serif; color:#a3a3a3;">Details</div>
+        </div>
+      </div>
+      <!-- NOTES -->
+      <div style="padding-top:28px;">
+        <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.8; color:#a3a3a3;">
+          <li><strong style="color:#e5e5e5;">One 52px button advances the state</strong> — Start preparing → Mark ready → Collected. Faster than dragging, even on desktop; drag stays as a desktop-only enhancement.</li>
+          <li><strong style="color:#e5e5e5;">Waiting time as a semantic badge</strong> (go / warn / stop thresholds) instead of pinging red dots.</li>
+          <li>Items and totals readable at arm's length: <strong style="color:#e5e5e5;">14px names, mono prices</strong> — a bartender scans it in one glance.</li>
+          <li>Errors in plain language: <strong style="color:#e5e5e5;">"Couldn't update the order. Retry."</strong> in a snackbar, never alert() or "ledger interrogation failed".</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FIX 4: FEEDBACK SYSTEM ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:52px 32px 8px 32px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-top:1px solid #2a2a2a; padding-top:32px;">
+      <span style="font:700 13px 'JetBrains Mono',monospace; color:#d97706;">04</span>
+      <h2 style="font:700 28px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin:0;">One feedback system: snackbar + bottom sheet.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:320px 320px 1fr; gap:32px; margin-top:28px; align-items:start;">
+      <!-- AFTER: snackbar -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After · Snackbar</div>
+        <div style="width:310px; border-radius:28px; background:#0a0a0a; border:1px solid #2a2a2a; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55); position:relative; height:280px;">
+          <div style="padding:18px;"><div style="height:14px; width:120px; border-radius:7px; background:#171717;"></div><div style="height:80px; border-radius:16px; background:#171717; border:1px solid #2a2a2a; margin-top:14px;"></div><div style="height:80px; border-radius:16px; background:#171717; border:1px solid #2a2a2a; margin-top:10px;"></div></div>
+          <div style="position:absolute; left:14px; right:14px; bottom:14px; background:#2a2a2a; border:1px solid #3d3d3d; border-radius:16px; padding:8px 8px 8px 16px; display:flex; align-items:center; gap:10px;">
+            <span style="flex:1; font:600 13.5px 'Manrope',sans-serif; color:#ffffff;">Item removed from cart.</span>
+            <span style="font:700 13px 'Manrope',sans-serif; color:#f97316; padding:12px 10px;">Undo</span>
+            <span style="width:44px; height:44px; display:flex; align-items:center; justify-content:center; color:#a3a3a3; font-size:15px;">✕</span>
+          </div>
+        </div>
+      </div>
+      <!-- AFTER: budget sheet -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After · Budget bottom sheet</div>
+        <div style="width:310px; border-radius:28px; background:#0a0a0a; border:1px solid #2a2a2a; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.55); position:relative; height:420px;">
+          <div style="position:absolute; inset:0; background:rgba(0,0,0,.7);"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; background:#171717; border-top:1px solid #3d3d3d; border-radius:24px 24px 0 0; padding:10px 20px 20px 20px;">
+            <div style="width:40px; height:4px; border-radius:2px; background:#3d3d3d; margin:0 auto;"></div>
+            <div style="font:700 20px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin-top:16px;">Set your night limit.</div>
+            <div style="font:400 13px/1.5 'Manrope',sans-serif; color:#a3a3a3; margin-top:4px;">Live spend stays visible while you order.</div>
+            <div style="font:600 11px 'JetBrains Mono',monospace; letter-spacing:.16em; text-transform:uppercase; color:#a3a3a3; margin-top:16px;">Night limit</div>
+            <div style="margin-top:6px; height:52px; border-radius:12px; background:#0a0a0a; border:1px solid #3d3d3d; display:flex; align-items:center; padding:0 14px; gap:8px;">
+              <span style="font:700 16px 'JetBrains Mono',monospace; color:#d97706;">R</span>
+              <span style="font:700 16px 'JetBrains Mono',monospace; color:#ffffff;">1200</span>
+              <span style="width:2px; height:20px; background:#d97706;"></span>
+            </div>
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <div style="flex:1; height:44px; border-radius:999px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; font:600 13px 'JetBrains Mono',monospace; color:#e5e5e5;">R500</div>
+              <div style="flex:1; height:44px; border-radius:999px; border:1px solid #d97706; background:rgba(217,119,6,.1); display:flex; align-items:center; justify-content:center; font:600 13px 'JetBrains Mono',monospace; color:#f97316;">R1200</div>
+              <div style="flex:1; height:44px; border-radius:999px; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; font:600 13px 'JetBrains Mono',monospace; color:#e5e5e5;">R2500</div>
+            </div>
+            <div style="margin-top:14px; height:52px; border-radius:999px; background:#d97706; display:flex; align-items:center; justify-content:center; font:700 15px 'Manrope',sans-serif; color:#0a0a0a;">Set limit</div>
+          </div>
+        </div>
+      </div>
+      <!-- NOTES -->
+      <div style="padding-top:28px;">
+        <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.8; color:#a3a3a3;">
+          <li><strong style="color:#e5e5e5;">Snackbar replaces toast + alert() + confirm():</strong> bottom-anchored above the nav, solid surface, 13.5px sentence case, 44px dismiss, swipe-to-dismiss, inline Undo for destructive actions.</li>
+          <li><strong style="color:#e5e5e5;">No alarming titles.</strong> The message says what happened, in the doorman voice: "Order sent to the bar." "You're back online — syncing."</li>
+          <li><strong style="color:#e5e5e5;">Budget becomes a dark bottom sheet</strong> on-brand: labeled currency field with R prefix (numeric keypad), 44px quick-amount chips, pill CTA. The keyboard never covers the action.</li>
+          <li>The fabricated "25% better night satisfaction" stat is gone. The sheet sells the feature with its actual behavior.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FIX 5: NAV + TYPE ============ -->
+  <div style="max-width:1120px; margin:0 auto; padding:52px 32px 80px 32px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-top:1px solid #2a2a2a; padding-top:32px;">
+      <span style="font:700 13px 'JetBrains Mono',monospace; color:#d97706;">05</span>
+      <h2 style="font:700 28px 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:#ffffff; margin:0;">A nav you can read, with the scan where your thumb is.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:260px 320px 1fr; gap:32px; margin-top:28px; align-items:start;">
+      <!-- BEFORE -->
+      <div style="display:var(--before-disp,block);">
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#737373; margin-bottom:10px;">Before</div>
+        <div style="width:250px; border-radius:16px; background:#0D1210; border:1px solid #26332C; padding:10px 8px; opacity:.75; display:flex; justify-content:space-around; font-family:system-ui,sans-serif;">
+          <div style="text-align:center;"><div style="width:30px; height:20px; border-radius:999px; background:#0B7A55; margin:0 auto;"></div><div style="font:800 8px sans-serif; letter-spacing:.16em; color:#E7ECE8; margin-top:3px;">HOME</div></div>
+          <div style="text-align:center;"><div style="width:20px; height:20px; border-radius:5px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px sans-serif; letter-spacing:.16em; color:#3E4A43; margin-top:3px;">EXPLORE</div></div>
+          <div style="text-align:center;"><div style="width:20px; height:20px; border-radius:5px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px sans-serif; letter-spacing:.16em; color:#3E4A43; margin-top:3px;">ORDERS</div></div>
+          <div style="text-align:center;"><div style="width:20px; height:20px; border-radius:5px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px sans-serif; letter-spacing:.16em; color:#3E4A43; margin-top:3px;">TICKETS</div></div>
+        </div>
+        <div style="font-size:12px; line-height:1.55; color:#737373; margin-top:10px; max-width:250px;">8px black-weight uppercase labels; inactive tabs at 60% opacity; the scan action buried at the top of the home scroll.</div>
+      </div>
+      <!-- AFTER -->
+      <div>
+        <div style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:#d97706; margin-bottom:10px;">After</div>
+        <div style="width:310px; border-radius:20px; background:#171717; border:1px solid #2a2a2a; padding:12px 8px 10px 8px; display:flex; justify-content:space-around; align-items:flex-end; box-shadow:0 24px 60px rgba(0,0,0,.45);">
+          <div style="text-align:center; width:56px;"><div style="width:24px; height:24px; border-radius:6px; border:1.75px solid #f97316; margin:0 auto;"></div><div style="font:600 11px 'Manrope',sans-serif; color:#f97316; margin-top:5px;">Home</div></div>
+          <div style="text-align:center; width:56px;"><div style="width:24px; height:24px; border-radius:6px; border:1.75px solid #a3a3a3; margin:0 auto;"></div><div style="font:600 11px 'Manrope',sans-serif; color:#a3a3a3; margin-top:5px;">Orders</div></div>
+          <div style="text-align:center; width:64px; margin-top:-26px;">
+            <div style="width:56px; height:56px; border-radius:999px; background:#d97706; box-shadow:0 8px 32px rgba(217,119,6,.45); margin:0 auto; display:flex; align-items:center; justify-content:center;">
+              <div style="width:22px; height:22px; border:2.5px solid #0a0a0a; border-radius:5px; position:relative;"><div style="position:absolute; inset:5px; background:#0a0a0a;"></div></div>
+            </div>
+            <div style="font:600 11px 'Manrope',sans-serif; color:#e5e5e5; margin-top:5px;">Scan</div>
+          </div>
+          <div style="text-align:center; width:56px;"><div style="width:24px; height:24px; border-radius:6px; border:1.75px solid #a3a3a3; margin:0 auto;"></div><div style="font:600 11px 'Manrope',sans-serif; color:#a3a3a3; margin-top:5px;">Tickets</div></div>
+          <div style="text-align:center; width:56px;"><div style="width:24px; height:24px; border-radius:6px; border:1.75px solid #a3a3a3; margin:0 auto;"></div><div style="font:600 11px 'Manrope',sans-serif; color:#a3a3a3; margin-top:5px;">Profile</div></div>
+        </div>
+      </div>
+      <!-- NOTES -->
+      <div style="padding-top:28px;">
+        <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.8; color:#a3a3a3;">
+          <li><strong style="color:#e5e5e5;">Scan gets the center slot</strong> — the money action lives permanently under the thumb, replacing the top-of-scroll banner and the scroll-triggered floating button.</li>
+          <li><strong style="color:#e5e5e5;">11px sentence-case labels</strong>, active = amber, inactive = full-opacity gray at ≥ 4.5:1. Outline icons at 1.75px stroke per the icon rules.</li>
+          <li>The nav <strong style="color:#e5e5e5;">hides inside the order flow</strong> (menu → checkout), where the cart pill takes over as the single bottom element.</li>
+          <li>Applies the global type floor everywhere: <strong style="color:#e5e5e5;">nothing under 11px, uppercase+tracking reserved for mono eyebrows and order codes only.</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showBefore&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      beforeDisp: (this.props.showBefore ?? true) ? 'block' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>

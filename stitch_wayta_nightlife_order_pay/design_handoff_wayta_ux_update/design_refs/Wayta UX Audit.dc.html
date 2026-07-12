@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#F4F2EC; }
+  a { color:#0B7A55; text-decoration:none; }
+  a:hover { color:#095F43; text-decoration:underline; }
+  @keyframes pinpulse { 0%,100% { box-shadow:0 0 0 0 rgba(196,55,43,.35);} 50% { box-shadow:0 0 0 6px rgba(196,55,43,0);} }
+</style>
+</helmet>
+<div style="font-family:'Instrument Sans',system-ui,sans-serif; color:#242B27; background:#F4F2EC; min-height:100vh; --minor-disp: {{minorDisp}}; --good-disp: {{goodDisp}};">
+
+  <!-- ============ COVER / SUMMARY ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:72px 32px 20px 32px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Mobile UI/UX Audit · WCAG 2.2 AA</div>
+      <div style="font:500 12px 'Space Grotesk',sans-serif; letter-spacing:.08em; color:#7C857F;">Wayta Order &amp; Pay PWA · v2.2 · All roles · Exhaustive</div>
+    </div>
+    <h1 style="font:700 52px/1.05 'Space Grotesk',sans-serif; margin:18px 0 0 0; color:#171C19; letter-spacing:-0.02em; max-width:820px; text-wrap:balance;">A fast engine wearing an unreadable interface.</h1>
+    <p style="font-size:17px; line-height:1.65; max-width:760px; margin:22px 0 0 0; color:#3C443F;">The architecture is genuinely strong — offline sync queues, role-based navigation, safe-area handling, first-use QR guidance. But the surface works against it: a micro-typography system (7–10px uppercase labels) that fails legibility on every screen, sub-44px touch targets throughout, a payment gesture that is physically broken on most phone widths, no way to add an item to the cart from the menu, and "terminal-core" copy that reads as alarming jargon to a patron standing in a loud, dark venue. The findings below are grouped per screen with annotated recreations, then rolled up into an action plan.</p>
+
+    <!-- Pillar scorecard -->
+    <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:10px; margin-top:44px;">
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#B3552A;">C−</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">Ergonomics &amp; hierarchy</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#B3261E;">D</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">A11y &amp; touch targets</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#B3261E;">D+</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">Functionality &amp; interaction</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#B3552A;">C</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">Motion &amp; transitions</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#B3552A;">C−</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">Alerts &amp; modals</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:16px 14px;">
+        <div style="font:700 26px 'Space Grotesk',sans-serif; color:#8A7B1E;">B−</div>
+        <div style="font:600 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; margin-top:6px; line-height:1.4;">System status visibility</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:18px; margin-top:16px; align-items:center; flex-wrap:wrap;">
+      <span style="display:inline-flex; align-items:center; gap:7px; font:600 12px 'Space Grotesk',sans-serif; color:#5B6560;"><span style="width:10px; height:10px; border-radius:50%; background:#B3261E; display:inline-block;"></span>Critical — blocks or breaks the task</span>
+      <span style="display:inline-flex; align-items:center; gap:7px; font:600 12px 'Space Grotesk',sans-serif; color:#5B6560;"><span style="width:10px; height:10px; border-radius:50%; background:#C08A1D; display:inline-block;"></span>Major — measurable friction / a11y failure</span>
+      <span style="display:inline-flex; align-items:center; gap:7px; font:600 12px 'Space Grotesk',sans-serif; color:#5B6560;"><span style="width:10px; height:10px; border-radius:50%; background:#8A938E; display:inline-block;"></span>Minor — polish</span>
+    </div>
+  </div>
+
+  <!-- ============ CRITICAL FINDINGS ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:48px 32px 8px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 1</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">Critical mobile findings</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">You cannot add an item to the cart</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">Menu item cards have no add button and are not tappable — there is no path from browsing to ordering. The cart total shown in the footer is a hardcoded value. This is the revenue path, and it is severed.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Slide-to-pay is broken off a single screen width</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">The drag distance is a fixed 280px constant. On narrower phones the handle can't reach the end; on wider ones payment triggers early. There is also no tap alternative — a drag-only payment gesture excludes switch, screen-reader, and motor-impaired users.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Staff order board uses desktop drag-and-drop</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">The kanban relies on HTML5 drag-and-drop, which does not fire on touch screens. Bartenders on phones or tablets cannot move an order to "Ready" — the core throughput workflow fails on the devices it's built for.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">7–10px uppercase micro-type is the house style</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">Nav labels, menu descriptions, stat cards, toasts, and status text render at 7–10px with heavy letterspacing and uppercase. That is below any legibility floor — in a dark venue, one-handed, slightly drunk, it is unreadable. Minimum body/label size should be 12–13px, 11px only for true captions.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Checkout has no exit and no confirmation</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">The checkout screen has no back button — the only escape is the bottom nav. After paying, the app fires an email and redirects after a timeout, with no in-UI receipt or success moment. With an empty cart, the pay slider is still live at R0.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-left:3px solid #B3261E; border-radius:12px; padding:18px 20px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Fabricated data erodes trust in a payments app</div>
+        <p style="font-size:14px; line-height:1.6; color:#4A524D; margin:8px 0 0 0;">The order ETA is a fake countdown that always shows ~10 minutes. Review counts, vendor stats, "25% better night satisfaction", and simulated biometric success ("hardware resonance scan") all present invented numbers as real. In an app that takes money, any discovered fake datum poisons all real ones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ANNOTATED SCREENS ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 8px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 2</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 6px 0; color:#171C19; letter-spacing:-0.01em;">Annotated screens</h2>
+    <p style="font-size:15px; line-height:1.6; color:#4A524D; max-width:680px; margin:0 0 36px 0;">Simplified recreations of each screen with issues pinned in place. Pin numbers match the findings beside each frame.</p>
+
+    <!-- ===== SCREEN: EXPLORE ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">01 · Explore — patron home</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 16px 6px 16px;">
+            <div style="font:700 26px 'Space Grotesk',sans-serif; color:#F2F5F2;">Wayta</div>
+            <div style="border:1px solid #2C3A32; border-radius:12px; padding:7px 10px;">
+              <div style="font:700 8px system-ui; letter-spacing:.2em; text-transform:uppercase; color:#7C857F;">BUDGET MESH</div>
+              <div style="font:700 12px system-ui; color:#34d399;">R 340 / R 500</div>
+            </div>
+          </div>
+          <div style="margin:10px 16px; height:64px; border-radius:14px; background:linear-gradient(120deg,#0B7A55,#0A5C41); display:flex; align-items:center; gap:10px; padding:0 14px;">
+            <div style="width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,.18);"></div>
+            <div>
+              <div style="font:700 12px system-ui; color:#fff;">Tap-to-Table</div>
+              <div style="font:600 8px system-ui; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6);">SCAN NODE TO ORDER</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:6px; margin:8px 16px;">
+            <div style="flex:1; height:34px; border-radius:9px; background:#131A16; border:1px solid #26332C; display:flex; align-items:center; padding:0 10px; font:400 11px system-ui; color:#5B6560;">Search venues…</div>
+            <div style="width:58px; height:34px; border-radius:9px; background:#131A16; border:1px solid #26332C; display:flex; align-items:center; justify-content:center; font:700 8px system-ui; letter-spacing:.14em; color:#7C857F;">CITY ▾</div>
+            <div style="width:34px; height:34px; border-radius:9px; background:#131A16; border:1px solid #26332C; display:flex; align-items:center; justify-content:center; color:#7C857F; font-size:12px;">⇅</div>
+          </div>
+          <div style="display:flex; gap:6px; margin:8px 16px; overflow:hidden;">
+            <div style="height:28px; border-radius:999px; background:#0B7A55; color:#fff; font:600 11px system-ui; display:flex; align-items:center; padding:0 12px;">All</div>
+            <div style="height:28px; border-radius:999px; border:1px solid #26332C; color:#8B948E; font:600 11px system-ui; display:flex; align-items:center; padding:0 12px;">Clubs</div>
+            <div style="height:28px; border-radius:999px; border:1px solid #26332C; color:#8B948E; font:600 11px system-ui; display:flex; align-items:center; padding:0 12px;">Bars</div>
+            <div style="height:28px; border-radius:999px; border:1px solid #26332C; color:#8B948E; font:600 11px system-ui; display:flex; align-items:center; padding:0 12px;">Fest</div>
+          </div>
+          <div style="margin:10px 16px 14px 16px; border-radius:16px; overflow:hidden; border:1px solid #26332C;">
+            <div style="height:110px; background:linear-gradient(160deg,#1E2B24,#101713); display:flex; align-items:flex-end; padding:12px;">
+              <div>
+                <div style="font:700 18px 'Space Grotesk',sans-serif; color:#F2F5F2;">The Blue Room</div>
+                <div style="font:600 10px system-ui; color:#8B948E;">★ 4.6 · 42 Reviews</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-around; padding:10px 8px 14px 8px; border-top:1px solid #1B241F; background:#0D1210;">
+            <div style="text-align:center;"><div style="width:34px; height:22px; border-radius:999px; background:#0B7A55; margin:0 auto;"></div><div style="font:800 8px system-ui; letter-spacing:.16em; color:#E7ECE8; margin-top:4px;">HOME</div></div>
+            <div style="text-align:center;"><div style="width:22px; height:22px; border-radius:6px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px system-ui; letter-spacing:.16em; color:#3E4A43; margin-top:4px;">EXPLORE</div></div>
+            <div style="text-align:center;"><div style="width:22px; height:22px; border-radius:6px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px system-ui; letter-spacing:.16em; color:#3E4A43; margin-top:4px;">ORDERS</div></div>
+            <div style="text-align:center;"><div style="width:22px; height:22px; border-radius:6px; background:#1B241F; margin:0 auto;"></div><div style="font:800 8px system-ui; letter-spacing:.16em; color:#3E4A43; margin-top:4px;">TICKETS</div></div>
+          </div>
+          <div style="position:absolute; top:34px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">1</div>
+          <div style="position:absolute; top:96px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:158px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+          <div style="position:absolute; top:200px; left:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">4</div>
+          <div style="position:absolute; top:294px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">5</div>
+          <div style="position:absolute; bottom:16px; left:50%; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">6</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Budget chip is interactive but looks like a static stat.</strong> It opens the budget dialog, yet has no button affordance, sits in the hardest-to-reach corner of the thumb map, and its label is 8px uppercase. Make it a clear tappable pill, or move budget editing into Profile/Wallet.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>The primary action lives at the top of the scroll.</strong> "Tap-to-Table" QR scanning is the money action, but it's furthest from the thumb and scrolls away. Promote it to a persistent FAB or center bottom-nav slot (the floating scan button that appears after 150px of scroll should simply always be there).</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Desktop filter row on a phone.</strong> Search + native select (10px uppercase text) + a hover-style sort dropdown crammed into one row. Replace with a full-width search bar and a "Filters" chip opening a bottom sheet with 48px rows.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">4</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Category pills ≈30px tall — below the 44pt floor.</strong> Same for the 32px grid/map toggles. Raise all pills and toggles to ≥44px height with ≥8px gaps.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">5</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>"42 Reviews" is hardcoded on every venue.</strong> Fake social proof is worse than none. Show real counts or hide the element until data exists.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">6</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Bottom-nav labels are 8–9px black-weight uppercase with 0.2em tracking</strong>, and inactive tabs sit at 60% opacity on near-black — a double contrast + legibility failure on the most-used component in the app. Use 11–12px sentence-case labels, full-opacity inactive color ≥4.5:1.</p>
+        </div>
+        <div style="display:var(--minor-disp,flex); gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">+</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>Jargon throughout: "Budget Mesh", "Scan node", empty state "No venues matching your pulse". The map view is a fixed 500px pane with tiny popup CTAs. The AI vibe input is placeholder-only with a long truncating prompt.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: MENU ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">02 · Venue menu</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif;">
+          <div style="padding:16px 16px 8px 16px;">
+            <div style="font:700 20px 'Space Grotesk',sans-serif; color:#F2F5F2;">The Blue Room</div>
+            <div style="height:3px; border-radius:99px; background:#1B241F; margin-top:10px;"><div style="width:60%; height:100%; border-radius:99px; background:#34d399;"></div></div>
+            <div style="display:flex; justify-content:space-between; margin-top:4px;"><span style="font:700 9px system-ui; letter-spacing:.2em; color:#5B6560;">BUDGET MESH</span><span style="font:700 9px system-ui; color:#5B6560;">R300 LEFT</span></div>
+          </div>
+          <div style="margin:10px 16px; display:flex; gap:10px; border:1px solid #26332C; border-radius:14px; padding:10px; align-items:center;">
+            <div style="width:56px; height:56px; border-radius:10px; background:linear-gradient(140deg,#3E4A43,#242B27); filter:grayscale(1);"></div>
+            <div style="flex:1;">
+              <div style="font:700 13px system-ui; color:#E7ECE8;">Mojito Classico</div>
+              <div style="font:800 10px system-ui; letter-spacing:.24em; text-transform:uppercase; color:#5B6560; margin-top:3px;">WHITE RUM · MINT · LIME SODA</div>
+              <div style="font:700 12px system-ui; color:#34d399; margin-top:4px;">R 85</div>
+            </div>
+          </div>
+          <div style="margin:0 16px 10px 16px; display:flex; gap:10px; border:1px solid #26332C; border-radius:14px; padding:10px; align-items:center;">
+            <div style="width:56px; height:56px; border-radius:10px; background:linear-gradient(140deg,#4A524D,#2C3A32); filter:grayscale(1);"></div>
+            <div style="flex:1;">
+              <div style="font:700 13px system-ui; color:#E7ECE8;">Loaded Fries</div>
+              <div style="font:800 10px system-ui; letter-spacing:.24em; text-transform:uppercase; color:#5B6560; margin-top:3px;">CHEDDAR · JALAPEÑO · RANCH</div>
+              <div style="font:700 12px system-ui; color:#34d399; margin-top:4px;">R 60</div>
+            </div>
+          </div>
+          <div style="margin:6px 16px 12px 16px; height:48px; border-radius:12px; background:#0B7A55; display:flex; align-items:center; justify-content:space-between; padding:0 16px;">
+            <span style="font:700 12px system-ui; color:#fff;">View Pulse Cart</span><span style="font:700 12px system-ui; color:#fff;">R 250</span>
+          </div>
+          <div style="display:flex; justify-content:space-around; padding:10px 8px 14px 8px; border-top:1px solid #1B241F; background:#0D1210;">
+            <div style="width:22px; height:22px; border-radius:6px; background:#1B241F;"></div>
+            <div style="width:22px; height:22px; border-radius:6px; background:#1B241F;"></div>
+            <div style="width:22px; height:22px; border-radius:6px; background:#1B241F;"></div>
+            <div style="width:22px; height:22px; border-radius:6px; background:#1B241F;"></div>
+          </div>
+          <div style="position:absolute; top:118px; right:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:130px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:216px; left:104px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">3</div>
+          <div style="position:absolute; top:268px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">4</div>
+          <div style="position:absolute; bottom:14px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">5</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>No add-to-cart control exists.</strong> Cards have no button and no tap handler; the R250 cart total is hardcoded. Add a 44px "+" per row (expanding to a stepper once qty ≥1) and make the whole row open an item detail sheet.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Food photography is rendered in grayscale.</strong> Appetite appeal is the strongest conversion lever a menu has. Show full-color images with a warm placeholder while loading.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Item descriptions are 10px, bold, uppercase, with 0.25em+ tracking.</strong> The single most-read text in the purchase flow is the least readable. Use 13–14px sentence case at normal tracking.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">4</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Two stacked bottom bars.</strong> The cart footer renders above the global bottom nav, eating ~160px of a small screen. While in the order flow, hide the global nav and keep only the cart bar.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">5</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>No category navigation or search.</strong> A long menu needs sticky category tabs (Drinks / Food / Shots) with scroll-spy and a search field. Right now it's one flat list.</p>
+        </div>
+        <div style="display:var(--minor-disp,flex); gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">+</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>"View Pulse Cart" → "View cart · R250". The budget progress bar is 1.5px tall with 9px labels — make it a visible 6px bar with a readable remaining amount.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: CHECKOUT ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">03 · Checkout &amp; slide-to-pay</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif;">
+          <div style="padding:18px 16px 8px 16px;">
+            <div style="font:700 22px 'Space Grotesk',sans-serif; color:#F2F5F2;">Checkout</div>
+          </div>
+          <div style="margin:8px 16px; display:flex; justify-content:space-between; align-items:center; border:1px solid #26332C; border-radius:12px; padding:10px 12px;">
+            <div style="font:600 12px system-ui; color:#E7ECE8;">Mojito Classico</div>
+            <div style="display:flex; gap:6px; align-items:center;">
+              <div style="width:26px; height:26px; border-radius:8px; background:#1B241F; color:#8B948E; display:flex; align-items:center; justify-content:center; font-size:13px;">−</div>
+              <div style="font:700 12px system-ui; color:#E7ECE8;">2</div>
+              <div style="width:26px; height:26px; border-radius:8px; background:#1B241F; color:#8B948E; display:flex; align-items:center; justify-content:center; font-size:13px;">+</div>
+            </div>
+          </div>
+          <div style="margin:8px 16px; display:flex; gap:8px;">
+            <div style="flex:1; height:44px; border-radius:11px; background:#0B7A55; display:flex; flex-direction:column; align-items:center; justify-content:center;"><span style="font-size:13px;">💳</span><span style="font:800 8px system-ui; letter-spacing:.18em; color:#fff;">CARD</span></div>
+            <div style="flex:1; height:44px; border-radius:11px; border:1px solid #26332C; display:flex; flex-direction:column; align-items:center; justify-content:center;"><span style="font-size:13px;">🚀</span><span style="font:800 8px system-ui; letter-spacing:.18em; color:#8B948E;">WALLET</span></div>
+          </div>
+          <div style="margin:14px 16px 6px 16px; display:flex; justify-content:space-between;"><span style="font:600 12px system-ui; color:#8B948E;">Total</span><span style="font:700 16px system-ui; color:#F2F5F2;">R 170</span></div>
+          <div style="margin:8px 16px 18px 16px; height:52px; border-radius:999px; background:#131A16; border:1px solid #26332C; position:relative; display:flex; align-items:center; justify-content:center;">
+            <span style="font:800 10px system-ui; letter-spacing:.3em; color:rgba(139,148,142,.5);">SLIDE TO PAY</span>
+            <div style="position:absolute; left:4px; top:4px; width:44px; height:44px; border-radius:50%; background:#0B7A55; display:flex; align-items:center; justify-content:center; color:#fff; font:700 12px system-ui;">≫</div>
+          </div>
+          <div style="position:absolute; top:20px; left:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:64px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:122px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+          <div style="position:absolute; bottom:30px; right:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">4</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>No back button, no exit.</strong> The header is just "Checkout" — abandoning or editing means tapping the bottom nav and losing context. Add a top-left back chevron and a swipe-back gesture that returns to the menu with the cart intact.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>32px steppers, no line-item prices, instant deletion.</strong> Tapping "−" at qty 1 removes the item with no undo. Use 44px steppers, show each line's price, and give a 4s "Item removed — Undo" snackbar.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Payment methods labeled with emoji + 8–10px uppercase text.</strong> A payment selector must be unambiguous: use proper card/wallet icons, 14px labels, and a visible selected state beyond fill color (check indicator).</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">4</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Slide-to-pay: fixed 280px drag distance, drag-only, 10px label at 50% opacity, live at R0.</strong> Compute the track from measured width; add a long-press "Hold to pay" or double-tap alternative for accessibility; disable the control when the cart is empty; show a processing state that locks the handle and animates progress; fire success haptics + an in-app receipt screen instead of a timeout redirect.</p>
+        </div>
+        <div style="display:var(--minor-disp,flex); gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">+</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>Empty-cart state is a blank void with the total reading R0 — needs an illustration-free "Your cart is empty" state with a single "Browse menu" action.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: ORDER STATUS ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">04 · Order tracking</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif; padding-bottom:18px;">
+          <div style="padding:18px 16px 8px 16px;">
+            <div style="font:700 20px 'Space Grotesk',sans-serif; color:#F2F5F2;">Order #4821</div>
+            <div style="font:600 10px system-ui; letter-spacing:.16em; text-transform:uppercase; color:#5B6560; margin-top:2px;">GRID QUEUE ENGAGED</div>
+          </div>
+          <div style="margin:10px 16px; border:1px solid #26332C; border-radius:14px; padding:14px; text-align:center;">
+            <div style="font:700 30px 'Space Grotesk',sans-serif; color:#34d399;">~10 min</div>
+            <div style="font:600 9px system-ui; letter-spacing:.2em; text-transform:uppercase; color:#5B6560; margin-top:2px;">ESTIMATED PREP</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin:16px 24px 4px 24px; align-items:center;">
+            <div style="width:30px; height:30px; border-radius:50%; background:#0B7A55; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px;">✓</div>
+            <div style="flex:1; height:2px; background:#0B7A55;"></div>
+            <div style="width:30px; height:30px; border-radius:50%; background:#1E3A8A; display:flex; align-items:center; justify-content:center; color:#93C5FD; font-size:12px;">●</div>
+            <div style="flex:1; height:2px; background:#1B241F;"></div>
+            <div style="width:30px; height:30px; border-radius:50%; background:#1B241F;"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin:0 12px;">
+            <span style="font:700 9px system-ui; letter-spacing:.1em; color:#5B6560;">RECEIVED</span>
+            <span style="font:700 9px system-ui; letter-spacing:.1em; color:#93C5FD;">PREPARING</span>
+            <span style="font:700 9px system-ui; letter-spacing:.1em; color:#3E4A43;">READY</span>
+          </div>
+          <div style="position:absolute; top:96px; right:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:40px; right:8px; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; bottom:14px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>The ETA is a fake client-side countdown</strong> that always shows roughly ten minutes regardless of the actual queue. When it's wrong (it always will be), patrons walk to the bar early, crowd it, and stop trusting the tracker. Show vendor-driven status only ("3 orders ahead of you") until a real ETA exists.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>"Grid Queue Engaged" as a status subtitle — say "In the queue". Status colors mix blue, amber and emerald arbitrarily; map each state to one semantic color and keep it consistent app-wide.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Loading is a full-screen blocking spinner ("Connecting to bar...").</strong> Render the status card skeleton immediately with shimmer placeholders — the layout is known before the data is. Step labels are 9–10px; raise to 12px.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: ORDERS + TICKETS combined ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">05 · Orders summary &amp; tickets</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif; padding-bottom:16px;">
+          <div style="padding:18px 16px 8px 16px;">
+            <div style="font:700 20px 'Space Grotesk',sans-serif; font-style:italic; color:#F2F5F2;">Pulse Summary</div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:6px 16px;">
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 4px; text-align:center;"><div style="font:700 13px system-ui; color:#E7ECE8;">12</div><div style="font:800 8px system-ui; letter-spacing:.1em; color:#5B6560; white-space:nowrap; overflow:hidden;">TOTAL ORD…</div></div>
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 4px; text-align:center;"><div style="font:700 13px system-ui; color:#E7ECE8;">R 840</div><div style="font:800 8px system-ui; letter-spacing:.1em; color:#5B6560; white-space:nowrap; overflow:hidden;">TOTAL SPE…</div></div>
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 4px; text-align:center;"><div style="font:700 13px system-ui; color:#34d399;">2</div><div style="font:800 8px system-ui; letter-spacing:.1em; color:#5B6560; white-space:nowrap; overflow:hidden;">ACTIVE</div></div>
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 4px; text-align:center;"><div style="font:700 13px system-ui; color:#F87171;">1</div><div style="font:800 8px system-ui; letter-spacing:.1em; color:#5B6560; white-space:nowrap; overflow:hidden;">UNPAID</div></div>
+          </div>
+          <div style="display:flex; gap:6px; margin:10px 16px;">
+            <div style="flex:1; height:38px; border-radius:10px; background:#0B7A55; color:#fff; font:700 11px system-ui; display:flex; align-items:center; justify-content:center;">Active</div>
+            <div style="flex:1; height:38px; border-radius:10px; border:1px solid #26332C; color:#8B948E; font:700 11px system-ui; display:flex; align-items:center; justify-content:center;">History</div>
+            <div style="flex:1; height:38px; border-radius:10px; border:1px solid #26332C; color:#8B948E; font:700 11px system-ui; display:flex; align-items:center; justify-content:center;">Unpaid</div>
+          </div>
+          <div style="margin:4px 16px; border:1px solid #26332C; border-radius:12px; padding:12px;">
+            <div style="display:flex; justify-content:space-between;"><span style="font:700 12px system-ui; color:#E7ECE8;">The Blue Room</span><span style="font:700 12px system-ui; color:#34d399;">R 170</span></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+              <span style="font:600 8px system-ui; letter-spacing:.18em; color:#5B6560;">SEARCH TICKETS… → "SEARCH TICKETS…"</span>
+            </div>
+          </div>
+          <div style="position:absolute; top:76px; left:50%; transform:translateX(-50%); width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:22px; right:8px; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; bottom:34px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Four stat cards forced into one row on a 390px screen.</strong> Each card ends up ~80px wide with 8px truncating labels. Use a 2×2 grid with 12px labels, or a single horizontal scroll row of full-size cards.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>"Pulse Summary" in italic display type — just say "Your orders". The Active/History/Unpaid tabs themselves are well-sized (a rare pass ✓).</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Tickets: the search input force-uppercases the user's own typing</strong> (bold + uppercase styling applied to the input itself), and ticket meta renders at 8px. Invoice feedback uses a native <em>alert()</em> dialog ("Invoice sent to your email!") — replace with the app snackbar.</p>
+        </div>
+        <div style="display:var(--minor-disp,flex); gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">+</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>Ticket QR thumbnails are 36px tap targets with "Tap to scan" at 10px; the layout toggles are 34px; the empty state sits at 50% opacity. All three need a size/contrast pass.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: AUTH ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">06 · Auth &amp; onboarding</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif; padding-bottom:18px;">
+          <div style="padding:22px 18px 0 18px; text-align:center;">
+            <div style="font:700 30px 'Space Grotesk',sans-serif; color:#F2F5F2;">Wayta</div>
+            <div style="display:inline-flex; align-items:center; gap:6px; border:1px solid #26332C; border-radius:999px; padding:5px 12px; margin-top:10px;">
+              <span style="font-size:10px;">🔒</span><span style="font:800 8px system-ui; letter-spacing:.2em; color:#5B6560;">AES-256 SECURED CRYPTO HANDSHAKE</span>
+            </div>
+            <p style="font:400 12px/1.5 system-ui; color:#8B948E; margin:14px 8px 0 8px;">Skip the line NOW.... Register your account or login.... Do you want to Register... OR Do you want register your business?</p>
+          </div>
+          <div style="margin:16px 18px 8px 18px; height:48px; border-radius:12px; background:#0B7A55; display:flex; align-items:center; justify-content:center; font:700 12px system-ui; letter-spacing:.2em; color:#fff;">GET STARTED</div>
+          <div style="margin:0 18px; height:48px; border-radius:12px; border:1px solid #26332C; display:flex; align-items:center; justify-content:center; font:700 12px system-ui; letter-spacing:.2em; color:#8B948E;">BUSINESS LOGIN</div>
+          <div style="text-align:center; margin-top:12px;"><span style="font:700 8px system-ui; letter-spacing:.2em; color:#3E4A43;">LIVE PRODUCTION • v1.0</span></div>
+          <div style="position:absolute; top:88px; right:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">1</div>
+          <div style="position:absolute; top:140px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:26px; left:76px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">3</div>
+          <div style="position:absolute; bottom:12px; right:60px; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">4</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Security theater.</strong> "AES-256 SECURED CRYPTO HANDSHAKE", "HARDWARE RESONANCE SCAN", a fake terminal feed during biometric setup, and a simulated-success fallback presented as real security. Trust in a payments app comes from calm, verifiable statements ("Protected by your device's Face ID") — not cryptographic cosplay. The simulated biometric success is the dangerous one: users believe protection exists that doesn't.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Copy needs an editor.</strong> Repeated "....", the typo "Do you want register", and a single wall of text asking three questions at once. One screen, one question: "Order faster. Skip the line." with two clear paths (I'm here to order / I run a venue).</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Hidden dev shortcuts ship in the patron-facing flow:</strong> tapping the logo auto-logs-in, a debug menu and role switcher are reachable, and demo credentials live in the client. Strip all of it behind a build flag before anyone real touches this.</p>
+        </div>
+        <div style="display:var(--minor-disp,flex); gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">4</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>"Live Production • v1.0" version chip is internal info leaking into UI (same as "Terminal v2.4" in the top bar). Positives worth keeping: 48–58px buttons, the 4-step progress bar, and the OTP resend countdown.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: STAFF KANBAN ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">07 · Staff order board</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif; padding-bottom:16px;">
+          <div style="padding:16px 16px 8px 16px; display:flex; justify-content:space-between; align-items:center;">
+            <div style="font:700 18px 'Space Grotesk',sans-serif; color:#F2F5F2;">Live Orders</div>
+            <div style="display:flex; align-items:center; gap:5px;"><span style="width:7px; height:7px; border-radius:50%; background:#F87171;"></span><span style="font:800 8px system-ui; letter-spacing:.16em; color:#F87171;">3 NEW</span></div>
+          </div>
+          <div style="display:flex; gap:8px; margin:6px 16px;">
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 10px;"><div style="font:700 13px system-ui; color:#E7ECE8;">142</div><div style="font:800 8px system-ui; letter-spacing:.12em; color:#5B6560;">SERVICED</div></div>
+            <div style="border:1px solid #26332C; border-radius:10px; padding:8px 10px;"><div style="font:700 13px system-ui; color:#E7ECE8;">3m 12s</div><div style="font:800 8px system-ui; letter-spacing:.12em; color:#5B6560;">AVG PULSE</div></div>
+          </div>
+          <div style="display:flex; gap:8px; margin:10px 0 0 16px; overflow:hidden;">
+            <div style="flex:none; width:180px; border:1px solid #26332C; border-radius:12px; padding:10px;">
+              <div style="font:800 9px system-ui; letter-spacing:.16em; color:#8B948E;">NEW ORDERS</div>
+              <div style="margin-top:8px; border:1px solid #26332C; border-radius:9px; padding:8px; background:#131A16;">
+                <div style="font:700 11px system-ui; color:#E7ECE8;">#4821 · 2× Mojito</div>
+                <div style="font:600 9px system-ui; color:#5B6560; margin-top:2px;">Table 12 · 2 min ago</div>
+              </div>
+              <div style="margin-top:6px; border:1px solid #26332C; border-radius:9px; padding:8px; background:#131A16;">
+                <div style="font:700 11px system-ui; color:#E7ECE8;">#4822 · Loaded Fries</div>
+                <div style="font:600 9px system-ui; color:#5B6560; margin-top:2px;">Bar · 4 min ago</div>
+              </div>
+            </div>
+            <div style="flex:none; width:120px; border:1px solid #26332C; border-radius:12px; padding:10px;">
+              <div style="font:800 9px system-ui; letter-spacing:.16em; color:#8B948E;">PREPARING</div>
+            </div>
+          </div>
+          <div style="position:absolute; top:190px; left:110px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:66px; left:8px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:16px; right:8px; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>Order cards move between columns via HTML5 drag-and-drop, which does not work on touch screens.</strong> On the phones and tablets bar staff actually use, orders cannot be advanced. Replace the drag with a single big status-advance button on each card ("Start → Ready → Collected") — faster than dragging even on desktop — and keep drag as a desktop enhancement.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Hardcoded stats ("142 serviced", "3m 12s avg")</strong> in a dashboard sold on analytics. Vendor dashboard has the same issue: invented shipments, scores, and pipeline rows. Show real data or an honest "Not enough data yet" empty state.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#8A938E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#5B6560; background:#ECEFEA; border-radius:5px; padding:2px 7px; margin-right:6px;">Minor</span>Constantly pinging red "new order" dots create alarm fatigue; error copy speaks in terminal ("Ledger interrogation failed", "Database rejected write transaction") — staff need "Couldn't load orders. Retry." Verification results appear in native <em>alert()</em> dialogs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN: SYSTEM FEEDBACK ===== -->
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:36px; padding:28px 0 40px 0; border-top:1px solid #E3DFD4;">
+      <div>
+        <div style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#7C857F; margin-bottom:14px;">08 · Toasts, dialogs &amp; modals</div>
+        <div style="position:relative; width:300px; border-radius:30px; background:#0B0F0D; border:1px solid #26332C; overflow:hidden; box-shadow:0 20px 50px rgba(20,30,25,.25); font-family:system-ui,sans-serif; height:420px;">
+          <div style="position:absolute; top:14px; left:14px; right:14px; border-radius:12px; background:rgba(180,60,50,.14); border:1px solid rgba(180,60,50,.3); padding:10px 12px; display:flex; gap:8px; align-items:flex-start;">
+            <span style="font-size:13px;">⚠️</span>
+            <div style="flex:1;">
+              <div style="font:800 10px system-ui; letter-spacing:.14em; color:#F0B4AC;">SECURITY BLOCKED</div>
+              <div style="font:700 10px system-ui; letter-spacing:.12em; text-transform:uppercase; color:rgba(240,180,172,.7); margin-top:3px;">NETWORK RESTORED: DUAL-SYNCHRONIZING SYSTEMS IN THE BACKGROUND</div>
+            </div>
+            <span style="color:#8B948E; font-size:11px;">✕</span>
+          </div>
+          <div style="position:absolute; left:24px; right:24px; top:130px; background:#FFFFFF; border-radius:20px; padding:18px; box-shadow:0 24px 60px rgba(0,0,0,.5);">
+            <div style="font:700 15px system-ui; background:linear-gradient(90deg,#2563EB,#06B6D4); -webkit-background-clip:text; background-clip:text; color:transparent;">Set Your Night Budget</div>
+            <div style="margin-top:10px; height:40px; border-radius:10px; border:1px solid #D7DBD5; display:flex; align-items:center; padding:0 12px; font:400 12px system-ui; color:#9AA39D;">Enter amount…</div>
+            <div style="display:flex; gap:6px; margin-top:8px;">
+              <div style="flex:1; height:34px; border-radius:9px; background:#F0F1EE; display:flex; align-items:center; justify-content:center; font:600 11px system-ui; color:#4A524D;">R500</div>
+              <div style="flex:1; height:34px; border-radius:9px; background:#F0F1EE; display:flex; align-items:center; justify-content:center; font:600 11px system-ui; color:#4A524D;">R1000</div>
+              <div style="flex:1; height:34px; border-radius:9px; background:#F0F1EE; display:flex; align-items:center; justify-content:center; font:600 11px system-ui; color:#4A524D;">R2500</div>
+            </div>
+            <div style="font:500 10px/1.5 system-ui; color:#7C857F; margin-top:10px;">✨ Gemini Tip: users who set strict limits report 25% better night satisfaction</div>
+            <div style="margin-top:10px; height:44px; border-radius:11px; background:#171C19; display:flex; align-items:center; justify-content:center; font:800 10px system-ui; letter-spacing:.22em; color:#fff;">ACTIVATE BUDGET MESH</div>
+          </div>
+          <div style="position:absolute; top:8px; left:8px; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC; animation:pinpulse 2s infinite;">1</div>
+          <div style="position:absolute; top:124px; right:12px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">2</div>
+          <div style="position:absolute; top:288px; left:12px; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center; border:2px solid #F4F2EC;">3</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#B3261E; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">1</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#B3261E; background:#FAE7E4; border-radius:5px; padding:2px 7px; margin-right:6px;">Critical</span><strong>The global toast is top-placed, 10px uppercase on 10%-opacity tinted glass, titled with alarming words ("Security Blocked", "Access Paused") regardless of content</strong>, has a ~16px dismiss target, shows one message at a time for a fixed 5.5s, and bounces its icon. Move to a bottom snackbar above the nav, 13–14px sentence case on a solid surface, severity-appropriate titles, 44px dismiss, swipe-to-dismiss, and duration scaled to message length.</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #E7E4DC;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">2</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>Three feedback systems coexist:</strong> the custom toast, native <em>alert()</em>, and native <em>confirm()</em> — different screens use different ones for the same kind of message. Consolidate: snackbar for passive feedback, bottom sheet for confirmations, inline validation for form errors (placed next to the field, above the keyboard).</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:10px 0;">
+          <div style="flex:none; width:24px; height:24px; border-radius:50%; background:#C08A1D; color:#fff; font:700 12px 'Space Grotesk',sans-serif; display:flex; align-items:center; justify-content:center;">3</div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#3C443F;"><span style="font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#9A6B15; background:#F8EFDC; border-radius:5px; padding:2px 7px; margin-right:6px;">Major</span><strong>The budget dialog is from a different app:</strong> white card, blue-cyan gradient title, gray CTA — none of it matches the dark emerald system. It's a centered modal whose CTA the keyboard will cover; the number input has no label and no currency affordance; and it cites a fabricated "25%" statistic. Rebuild as a dark bottom sheet with a labeled currency field (numeric keypad), quick-amount chips at 44px, and no invented stats.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ A11Y TABLE ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 8px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 3</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">Touch target &amp; accessibility gaps</h2>
+    <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:16px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; gap:0; font:700 11px 'Space Grotesk',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:#7C857F; border-bottom:1px solid #E3DFD4;">
+        <div style="padding:14px 18px;">Element</div><div style="padding:14px 12px;">Measured</div><div style="padding:14px 12px;">Standard</div><div style="padding:14px 18px;">Remediation</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Cart quantity steppers (checkout)</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">32×32</div><div style="padding:12px 12px;">44×44</div><div style="padding:12px 18px;">Raise to 44px; keep 8px gap so − / + can't be cross-tapped near the delete threshold.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Explore grid/map + Tickets layout toggles</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">32–34px</div><div style="padding:12px 12px;">44×44</div><div style="padding:12px 18px;">44px segmented control with labels, not bare icons.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Category pills, event "Book Space", sort menu rows</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">~30–36px</div><div style="padding:12px 12px;">44–48px</div><div style="padding:12px 18px;">Min-height 44px on all pills/menu rows; bottom-sheet rows at 48–56px.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Top-bar menu button, logo, QR scanner help, toast dismiss</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">16–36px</div><div style="padding:12px 12px;">44×44</div><div style="padding:12px 18px;">Pad hit areas to 44px even if the glyph stays smaller; the toast ✕ especially.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Label type: nav, stats, descriptions, toasts</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">7–10px</div><div style="padding:12px 12px;">≥12px</div><div style="padding:12px 18px;">Global type-scale pass: captions 12px, labels 13px, body 15–16px; drop uppercase+tracking for anything longer than two words.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Low-contrast text: 40–60% opacity on dark, tinted toast text, 50%-opacity slide label</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">&lt; 3:1</div><div style="padding:12px 12px;">4.5:1</div><div style="padding:12px 18px;">Replace opacity-based secondary text with explicit colors tested at 4.5:1 (small text) / 3:1 (large + UI states).</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Slide-to-pay gesture</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">Drag-only</div><div style="padding:12px 12px;">WCAG 2.5.7</div><div style="padding:12px 18px;">Provide a single-pointer alternative (hold-to-pay button); announce state to screen readers.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F; border-bottom:1px solid #EEEBE2;"><div style="padding:12px 18px;">Form inputs (search, budget, vibe, auth)</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">Placeholder-only</div><div style="padding:12px 12px;">3.3.2</div><div style="padding:12px 18px;">Persistent labels (floating is fine); inputmode="numeric/decimal/email" + autocomplete attributes for OTP, email, amounts.</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.6fr; font-size:13.5px; line-height:1.5; color:#3C443F;"><div style="padding:12px 18px;">Constant motion: pulsing dots, pinging badges, bouncing icons, glowing QR</div><div style="padding:12px 12px; color:#B3261E; font-weight:600;">No pause</div><div style="padding:12px 12px;">2.3.3</div><div style="padding:12px 18px;">Honor prefers-reduced-motion; reserve pulse animation for exactly one meaning (live order activity).</div></div>
+    </div>
+  </div>
+
+  <!-- ============ MOTION ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 8px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 4</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">Screen transition &amp; motion strategy</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:20px 22px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Adopt one spatial model</div>
+        <p style="font-size:14px; line-height:1.65; color:#4A524D; margin:8px 0 0 0;">Views currently cross-fade with slight vertical drift — every navigation feels the same, so users build no mental map. Use: <strong>lateral slide</strong> for drill-ins (venue → menu → checkout) with edge-swipe back; <strong>bottom-sheet rise</strong> for transient tasks (filters, item detail, budget); <strong>crossfade only</strong> for bottom-nav tab switches. Back should always reverse the entry motion.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:20px 22px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Shared-element continuity</div>
+        <p style="font-size:14px; line-height:1.65; color:#4A524D; margin:8px 0 0 0;">Venue card → venue page: let the card image expand into the header (View Transitions API works in a PWA). Menu item → detail sheet: the thumbnail grows into the sheet's hero. The cart bar's total should tick numerically when items are added, with a small badge pop on the cart icon.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:20px 22px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Skeletons, not spinners</div>
+        <p style="font-size:14px; line-height:1.65; color:#4A524D; margin:8px 0 0 0;">Replace the blocking "Connecting to bar..." spinner and full-screen loaders with layout-true skeletons: venue-card ghosts on Explore, row ghosts on the menu, a status-card ghost on tracking. Images should progressive-load with a dominant-color placeholder — never pop from empty gray.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:20px 22px;">
+        <div style="font:600 15px 'Space Grotesk',sans-serif; color:#171C19;">Haptics &amp; success moments</div>
+        <p style="font-size:14px; line-height:1.65; color:#4A524D; margin:8px 0 0 0;">Vibration API: light tick on add-to-cart and stepper taps; medium buzz when slide-to-pay completes; success pattern when the order flips to "Ready" (paired with a push notification). Payment success deserves a real moment — a drawn checkmark and receipt card, not an 800ms redirect. Kill the ambient animations (pulsing shields, glowing QR) so motion regains meaning.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ADDITIONS ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 8px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 5</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">Suggested mobile additions</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:18px 20px;">
+        <div style="font:600 14px 'Space Grotesk',sans-serif; color:#171C19;">Missing states</div>
+        <ul style="margin:10px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.7; color:#4A524D;">
+          <li>Empty cart (currently a void with a live pay slider)</li>
+          <li>Order-failed / payment-declined state with retry</li>
+          <li>Post-payment receipt &amp; confirmation screen</li>
+          <li>Menu skeleton + image placeholders</li>
+          <li>"Venue closed / not accepting orders" state</li>
+          <li>Staff board "no orders yet tonight" state</li>
+        </ul>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:18px 20px;">
+        <div style="font:600 14px 'Space Grotesk',sans-serif; color:#171C19;">Missing components</div>
+        <ul style="margin:10px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.7; color:#4A524D;">
+          <li>Item detail bottom sheet (size, modifiers, notes)</li>
+          <li>Persistent scan FAB / center nav slot</li>
+          <li>Filter &amp; sort bottom sheet (replacing selects + dropdown)</li>
+          <li>Undo snackbar for destructive actions</li>
+          <li>Sticky menu category tabs with scroll-spy</li>
+          <li>Manual code entry + torch toggle in QR scanner</li>
+        </ul>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:14px; padding:18px 20px;">
+        <div style="font:600 14px 'Space Grotesk',sans-serif; color:#171C19;">Structural moves</div>
+        <ul style="margin:10px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.7; color:#4A524D;">
+          <li>Split Profile: move the inbox/email client out; keep wallet, payment methods, settings</li>
+          <li>Wire browser back/deep links to the view stack so Android back works</li>
+          <li>Hide global bottom nav inside the order flow (single contextual bar)</li>
+          <li>One semantic color per order state, app-wide</li>
+          <li>Copy pass: replace Pulse/Mesh/Grid/Node vocabulary with plain words</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHAT'S GOOD ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 8px 32px; display:var(--good-disp,block);">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 6</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">What's already working</h2>
+    <div style="background:#EAF3ED; border:1px solid #C9DFD0; border-radius:16px; padding:22px 26px;">
+      <ul style="margin:0; padding-left:18px; font-size:14.5px; line-height:1.85; color:#2C4A3A; columns:2; column-gap:40px;">
+        <li>Offline detection with a sync queue and status banner — rare and valuable for venue Wi-Fi dead zones</li>
+        <li>Safe-area padding on the bottom nav; backdrop-blur sticky bars</li>
+        <li>QR scanner two-step first-use guide with skip</li>
+        <li>Auth progress bar and OTP resend countdown</li>
+        <li>Role-based navigation shaping (guest vs patron vs staff)</li>
+        <li>Empty states exist on Tickets and Explore (they need copy + contrast work, but the pattern is there)</li>
+        <li>Order-status stepper concept is right — it just needs honest data</li>
+        <li>Image error fallbacks on venue/menu cards</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ ACTION PLAN ============ -->
+  <div style="max-width:1060px; margin:0 auto; padding:56px 32px 80px 32px;">
+    <div style="font:600 12px 'Space Grotesk',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#0B7A55;">Section 7</div>
+    <h2 style="font:600 32px 'Space Grotesk',sans-serif; margin:8px 0 20px 0; color:#171C19; letter-spacing:-0.01em;">Prioritized action plan</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; align-items:start;">
+      <div style="background:#171C19; border-radius:16px; padding:22px 24px;">
+        <div style="font:700 11px 'Space Grotesk',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#5EDBA8;">Quick wins · high impact / low effort</div>
+        <ol style="margin:14px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.75; color:#D9E2DC;">
+          <li>Global type pass: nothing under 12px; kill uppercase+tracking on sentences</li>
+          <li>Un-grayscale food photography</li>
+          <li>44px minimum on steppers, pills, toggles, toast dismiss</li>
+          <li>Back button on checkout; disable pay slider at R0</li>
+          <li>Remove fake data: ETA countdown, "42 Reviews", hardcoded stats, "25%" tip</li>
+          <li>Neutral toast titles; move toast to bottom snackbar</li>
+          <li>Copy pass: Pulse/Mesh/Grid → plain language; fix auth typos</li>
+          <li>Strip dev shortcuts &amp; version chips from patron UI</li>
+        </ol>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:16px; padding:22px 24px;">
+        <div style="font:700 11px 'Space Grotesk',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#9A6B15;">Strategic upgrades · high impact / high effort</div>
+        <ol style="margin:14px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.75; color:#3C443F;">
+          <li>Build the real add-to-cart flow: item detail sheet, steppers, live cart total</li>
+          <li>Rebuild slide-to-pay: measured track, hold-to-pay fallback, processing lock, receipt screen</li>
+          <li>Replace staff kanban drag with tap-to-advance status buttons</li>
+          <li>Filter/sort/budget → bottom-sheet system; retire native selects, alert(), confirm()</li>
+          <li>Navigation model: lateral drill-in transitions, browser-back integration, nav hidden in order flow</li>
+          <li>Honest order tracking: vendor-driven states, queue position, push on "Ready"</li>
+          <li>Skeleton loading system across Explore, menu, tracking, dashboards</li>
+        </ol>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E3DFD4; border-radius:16px; padding:22px 24px;">
+        <div style="font:700 11px 'Space Grotesk',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#7C857F;">Polishing · nice to have</div>
+        <ol style="margin:14px 0 0 0; padding-left:18px; font-size:13.5px; line-height:1.75; color:#3C443F;">
+          <li>Shared-element transitions (venue card → header, item → sheet)</li>
+          <li>Haptic ticks on cart actions; payment success choreography</li>
+          <li>Animated cart-total tick + badge pop</li>
+          <li>prefers-reduced-motion support; retire ambient pulse animations</li>
+          <li>Sticky menu category tabs with scroll-spy</li>
+          <li>Torch toggle + manual entry in QR scanner</li>
+          <li>Consistent avatar system (one default style everywhere)</li>
+          <li>Semantic color tokens for order states</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showMinor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report&quot;},&quot;showPositives&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      minorDisp: (this.props.showMinor ?? true) ? 'flex' : 'none',
+      goodDisp: (this.props.showPositives ?? true) ? 'block' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>
