@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { SnackbarHost } from "@/components/snackbar-host";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -52,6 +53,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-on-background">
         {children}
+        <SnackbarHost />
       </body>
     </html>
   );

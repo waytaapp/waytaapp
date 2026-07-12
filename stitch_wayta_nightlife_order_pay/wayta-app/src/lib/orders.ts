@@ -15,6 +15,13 @@ export interface StoredOrder {
 
 export const ORDERS_KEY = "wayta_orders";
 
+export const STATUS_SEQUENCE: OrderStatus[] = ["received", "preparing", "ready", "collected"];
+
+export function nextStatus(status: OrderStatus): OrderStatus | null {
+  const index = STATUS_SEQUENCE.indexOf(status);
+  return index >= 0 && index < STATUS_SEQUENCE.length - 1 ? STATUS_SEQUENCE[index + 1] : null;
+}
+
 export function generateOrderId(venueName: string): string {
   const initial = venueName.trim().charAt(0).toUpperCase() || "W";
   const code = Math.floor(10 + Math.random() * 90);
@@ -36,6 +43,13 @@ export function createOrder(
   };
   writeLocalStorageValue(ORDERS_KEY, [...existingOrders, order]);
   return order;
+}
+
+export function updateOrderStatus(existingOrders: StoredOrder[], id: string, status: OrderStatus): void {
+  writeLocalStorageValue(
+    ORDERS_KEY,
+    existingOrders.map((order) => (order.id === id ? { ...order, status } : order))
+  );
 }
 
 export function findOrder(orders: StoredOrder[], id: string): StoredOrder | undefined {
