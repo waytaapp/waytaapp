@@ -43,14 +43,14 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
     <>
       {/* Scrim */}
       <div
-        className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-200"
+        className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition-opacity duration-200"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Sheet */}
       <div
-        className="fixed inset-x-0 bottom-0 z-50 max-h-[90vh] rounded-t-2xl bg-surface-container border-t border-border shadow-2xl transition-transform duration-300"
+        className="fixed inset-x-0 bottom-0 z-[61] max-h-[90vh] rounded-t-2xl bg-surface-container border-t border-border shadow-2xl transition-transform duration-300"
         ref={sheetRef}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -61,7 +61,7 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
         </div>
 
         {/* Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-4rem)] px-4 pb-6">
+        <div className="overflow-y-auto max-h-[calc(90vh-4rem)] px-4 pb-10">
           {title && (
             <h2 className="text-[20px] font-semibold text-fg-0 mb-4">
               {title}
