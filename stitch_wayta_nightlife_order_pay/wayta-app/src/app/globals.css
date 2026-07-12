@@ -83,6 +83,18 @@
   --color-accent-hover: var(--accent-hover);
   --color-fg-on-accent: var(--fg-on-accent);
 
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-fg-0: var(--fg-0);
+  --color-fg-1: var(--fg-1);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+
+  --color-go: var(--go);
+  --color-warn: var(--warn);
+  --color-stop: var(--stop);
+
   /* Tailwind v4 font tokens */
   --font-sans: var(--font-manrope);
   --font-display: var(--font-space-grotesk);

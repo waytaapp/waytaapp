@@ -12,10 +12,10 @@ export function WaytaHeader({ variant = "menu", backHref = "/venues" }: WaytaHea
         {variant === "back" ? (
           <Link
             href={backHref}
-            className="material-symbols-outlined text-primary cursor-pointer hover:text-accent-hover active:scale-95 transition-transform"
+            className="flex items-center justify-center w-11 h-11 -ml-2 text-primary cursor-pointer hover:text-accent-hover active:scale-95 transition-transform"
             aria-label="Back"
           >
-            arrow_back
+            <span className="material-symbols-outlined">arrow_back</span>
           </Link>
         ) : (
           <button className="material-symbols-outlined text-primary hover:text-accent-hover active:scale-95 transition-transform" aria-label="Menu">menu</button>
