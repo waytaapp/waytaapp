@@ -92,7 +92,7 @@ export function HoldToPay({
       onTouchStart={handleMouseDown}
       onTouchEnd={handleMouseUp}
       disabled={disabled || isProcessing}
-      className="w-full h-14 rounded-full relative overflow-hidden font-medium transition-all active:scale-95 disabled:opacity-50"
+      className="w-full h-14 rounded-full relative overflow-hidden font-medium transition-all active:scale-95 disabled:opacity-50 bg-surface-container-low"
     >
       {/* Background fill */}
       <div
@@ -100,8 +100,14 @@ export function HoldToPay({
         style={{ width: `${progress * 100}%` }}
       />
 
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-black font-medium relative z-10">
+      {/* Content — black once the amber fill has covered most of the
+          button (matches the fill's contrast), fg-0 otherwise so it stays
+          readable against the neutral resting background in both themes. */}
+      <div
+        className={`absolute inset-0 flex flex-col items-center justify-center font-medium relative z-10 ${
+          progress > 0.6 || isProcessing ? "text-black" : "text-fg-0"
+        }`}
+      >
         {isProcessing ? (
           <>
             <span className="text-sm">Processing...</span>
