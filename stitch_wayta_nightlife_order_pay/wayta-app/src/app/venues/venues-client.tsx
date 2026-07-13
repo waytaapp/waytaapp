@@ -38,12 +38,21 @@ export function VenuesClient({ venues, featured }: VenuesClientProps) {
     <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
       <main className="pt-20 pb-32 px-3 min-h-screen">
         {/* Search & filter controls */}
-        <div className="flex items-center gap-3 bg-surface-container/80 backdrop-blur-lg border border-border rounded-full px-5 py-3 mb-3">
-          <span className="material-symbols-outlined text-primary">search</span>
+        <div
+          role="search"
+          className="flex items-center gap-3 bg-surface-container/80 backdrop-blur-lg border border-border rounded-full px-5 py-3 mb-3"
+        >
+          <span className="material-symbols-outlined text-primary" aria-hidden="true">search</span>
+          <label htmlFor="venue-search" className="sr-only">
+            Search clubs, bars, festivals
+          </label>
           <input
+            id="venue-search"
             className="bg-transparent border-none outline-none text-fg-1 placeholder:text-fg-2 w-full text-sm"
             placeholder="Search clubs, bars, festivals..."
-            type="text"
+            type="search"
+            inputMode="search"
+            autoComplete="off"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

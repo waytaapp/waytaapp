@@ -12,6 +12,11 @@ interface BottomSheetProps {
 export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef(0);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -21,6 +26,28 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
     }
     return () => {
       document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  // Let the hardware/browser back button close the sheet instead of
+  // navigating away from the page underneath it.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let poppedByUser = false;
+    window.history.pushState({ waytaSheet: true }, '');
+
+    const handlePopState = () => {
+      poppedByUser = true;
+      onCloseRef.current();
+    };
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      if (!poppedByUser) {
+        window.history.back();
+      }
     };
   }, [isOpen]);
 

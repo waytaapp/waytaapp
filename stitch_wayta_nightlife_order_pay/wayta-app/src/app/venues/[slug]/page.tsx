@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { WaytaHeader } from "@/components/wayta-header";
 import { WaytaBottomNav } from "@/components/wayta-bottom-nav";
 import { getVenue } from "@/lib/venues";
+import { VenueComingSoonActions } from "./venue-coming-soon-actions";
 
 type VenueDetailsPageProps = {
   params: Promise<{ slug: string }>;
@@ -48,14 +49,7 @@ export default async function VenueDetailsPage({ params }: VenueDetailsPageProps
             <span className="material-symbols-outlined">local_bar</span>
             Get a drink
           </Link>
-          <button className="bg-surface-container border border-stop text-stop h-14 rounded-full flex flex-col items-center justify-center gap-1 font-semibold hover:bg-surface-container-low active:scale-95 transition-all">
-            <span className="material-symbols-outlined">payments</span>
-            <span className="text-xs">Pay entry</span>
-          </button>
-          <button className="bg-surface-container border border-border text-fg-1 h-14 rounded-full flex flex-col items-center justify-center gap-1 font-semibold hover:border-primary active:scale-95 transition-all">
-            <span className="material-symbols-outlined text-primary">map</span>
-            <span className="text-xs">View map</span>
-          </button>
+          <VenueComingSoonActions />
         </section>
 
         {/* Venue info */}

@@ -26,10 +26,10 @@ export default function Home() {
             Browse Black Door menu
           </Link>
           <Link
-            href="/orders/WT-8842"
+            href="/orders"
             className="h-12 rounded-full border border-border font-semibold flex items-center justify-center hover:bg-surface-container-low active:scale-95 transition-all text-fg-1"
           >
-            Open sample order
+            View your orders
           </Link>
           <Link
             href="/budget"

@@ -25,18 +25,26 @@ export function BudgetDialog({ isOpen, onClose, currentLimit, onSave }: BudgetDi
   return (
     <BottomSheet isOpen={isOpen} onClose={onClose} title="Set your night limit.">
       <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-2 rounded-lg border border-border bg-surface-container-low px-4 h-16">
-          <span className="text-primary text-2xl font-mono font-semibold">R</span>
-          <input
-            type="text"
-            inputMode="decimal"
-            autoComplete="off"
-            value={value}
-            onChange={(e) => setValue(e.target.value.replace(/[^0-9.]/g, ""))}
-            placeholder="0"
-            aria-label="Budget amount in rand"
-            className="flex-1 bg-transparent text-2xl font-mono font-semibold text-fg-0 placeholder:text-fg-3 outline-none"
-          />
+        <div>
+          <label htmlFor="budget-amount" className="block text-fg-2 text-[13px] font-medium mb-2">
+            Nightly limit
+          </label>
+          <div className="flex items-center gap-2 rounded-lg border border-border bg-surface-container-low px-4 h-16">
+            <span className="text-primary text-2xl font-mono font-semibold" aria-hidden="true">
+              R
+            </span>
+            <input
+              id="budget-amount"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
+              value={value}
+              onChange={(e) => setValue(e.target.value.replace(/[^0-9.]/g, ""))}
+              placeholder="0"
+              aria-label="Nightly limit in rand"
+              className="flex-1 bg-transparent text-2xl font-mono font-semibold text-fg-0 placeholder:text-fg-3 outline-none"
+            />
+          </div>
         </div>
 
         <div className="flex gap-3">

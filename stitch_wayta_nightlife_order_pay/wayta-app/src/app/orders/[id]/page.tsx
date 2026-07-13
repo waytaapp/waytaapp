@@ -35,7 +35,7 @@ export default function OrderTrackingPage() {
   if (order === undefined) {
     return (
       <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
-        <WaytaHeader variant="back" backHref="/" />
+        <WaytaHeader variant="back" backHref="/orders" />
         <main className="pt-24 pb-32 px-3 min-h-screen">
           <div className="rounded-lg border border-border bg-surface-container h-64 animate-pulse" />
         </main>
@@ -47,7 +47,7 @@ export default function OrderTrackingPage() {
   if (order === null) {
     return (
       <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
-        <WaytaHeader variant="back" backHref="/" />
+        <WaytaHeader variant="back" backHref="/orders" />
         <main className="pt-24 pb-32 px-3 min-h-screen flex flex-col items-center text-center">
           <span className="material-symbols-outlined text-fg-3 text-5xl mb-4">receipt_long</span>
           <h1 className="text-[20px] font-semibold text-fg-0 mb-2">Order not found</h1>
@@ -69,7 +69,7 @@ export default function OrderTrackingPage() {
 
   return (
     <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
-      <WaytaHeader variant="back" backHref="/" />
+      <WaytaHeader variant="back" backHref="/orders" />
 
       <main className="pt-24 pb-32 px-3 min-h-screen">
         {/* Order status card */}
