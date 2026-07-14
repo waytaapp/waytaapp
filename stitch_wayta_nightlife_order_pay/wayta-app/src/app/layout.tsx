@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Spline_Sans } from "next/font/google";
+import { Manrope, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { SnackbarHost } from "@/components/snackbar-host";
 import "./globals.css";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-manrope",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const splineSans = Spline_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-spline-sans",
+  variable: "--font-space-grotesk",
   display: "swap",
-  // next/font only supports these weights for Spline Sans
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -38,13 +46,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${splineSans.variable} h-full antialiased`}
+      className={`${manrope.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <link rel="stylesheet" href={materialSymbolsHref} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-on-background">
         {children}
+        <SnackbarHost />
       </body>
     </html>
   );

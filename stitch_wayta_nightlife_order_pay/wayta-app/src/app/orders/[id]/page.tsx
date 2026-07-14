@@ -1,128 +1,182 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 import { WaytaHeader } from "@/components/wayta-header";
 import { WaytaBottomNav } from "@/components/wayta-bottom-nav";
+import { StatusBadge, WaitingTimeBadge } from "@/components/status-badge";
+import { useLocalStorageValue } from "@/hooks/use-local-storage";
+import { formatZar } from "@/lib/menu";
+import { findOrder, ORDERS_KEY, type StoredOrder } from "@/lib/orders";
 
-type OrderTrackingPageProps = {
-  params: Promise<{ id: string }>;
+const STATUS_LABEL: Record<StoredOrder["status"], string> = {
+  received: "Order received",
+  preparing: "Preparing your order",
+  ready: "Ready for collection",
+  collected: "Collected",
 };
 
-export default async function OrderTrackingPage({ params }: OrderTrackingPageProps) {
-  const { id } = await params;
+export default function OrderTrackingPage() {
+  const params = useParams<{ id: string }>();
+  const orders = useLocalStorageValue<StoredOrder[]>(ORDERS_KEY);
+  const order = orders === undefined ? undefined : (findOrder(orders ?? [], params.id) ?? null);
+  const [elapsedMinutes, setElapsedMinutes] = useState(0);
+
+  useEffect(() => {
+    if (!order) return;
+
+    const tick = () => setElapsedMinutes(Math.floor((Date.now() - order.createdAt) / 60000));
+    tick();
+    const interval = setInterval(tick, 30000);
+    return () => clearInterval(interval);
+  }, [order]);
+
+  if (order === undefined) {
+    return (
+      <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
+        <WaytaHeader variant="back" backHref="/orders" />
+        <main className="pt-24 pb-32 px-3 min-h-screen">
+          <div className="rounded-lg border border-border bg-surface-container h-64 animate-pulse" />
+        </main>
+        <WaytaBottomNav active="orders" />
+      </div>
+    );
+  }
+
+  if (order === null) {
+    return (
+      <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
+        <WaytaHeader variant="back" backHref="/orders" />
+        <main className="pt-24 pb-32 px-3 min-h-screen flex flex-col items-center text-center">
+          <span className="material-symbols-outlined text-fg-3 text-5xl mb-4">receipt_long</span>
+          <h1 className="text-[20px] font-semibold text-fg-0 mb-2">Order not found</h1>
+          <p className="text-fg-2 text-sm mb-6">This order doesn&apos;t exist on this device.</p>
+          <Link
+            href="/venues"
+            className="h-12 px-6 rounded-full bg-primary text-black font-medium flex items-center hover:bg-accent-hover active:scale-95 transition-all"
+          >
+            Find a venue
+          </Link>
+        </main>
+        <WaytaBottomNav active="orders" />
+      </div>
+    );
+  }
+
+  const itemSummary = order.lines.map((line) => `${line.quantity}x ${line.name}`).join(", ");
+  const isDone = order.status === "ready" || order.status === "collected";
 
   return (
     <div className="bg-background text-on-background overflow-x-hidden min-h-screen">
-      <WaytaHeader variant="back" backHref="/" />
+      <WaytaHeader variant="back" backHref="/orders" />
 
       <main className="pt-24 pb-32 px-3 min-h-screen">
-        <div className="mb-4 flex items-center gap-3 bg-primary-container/10 border border-primary-container/30 p-4 rounded-xl">
-          <span className="material-symbols-outlined text-primary-container animate-pulse">
-            sync
-          </span>
-          <span className="text-sm font-semibold text-primary-container">
-            Order status updating in real-time
-          </span>
-        </div>
-
-        <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-surface-container-low mb-6 p-6">
+        {/* Order status card */}
+        <div className="relative overflow-hidden rounded-lg border border-border bg-surface-container mb-6 p-6">
           <div className="flex justify-between items-start mb-6">
             <div>
-              <p className="text-zinc-500 text-xs font-semibold uppercase tracking-[0.2em] mb-1">
-                Current Order
+              <p className="text-fg-2 text-[12px] font-medium mb-1">
+                {order.venueName}
               </p>
-              <h2 className="text-2xl font-semibold">{id}</h2>
+              <h2 className="text-2xl font-bold font-mono text-fg-0">{order.id}</h2>
             </div>
-            <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded-full flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-              <span className="text-xs font-bold text-primary-container">
-                PREPARING
-              </span>
-            </div>
+            <StatusBadge status={order.status} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Timeline */}
             <div className="flex flex-col gap-6 py-4">
+              {/* Received */}
               <div className="flex gap-4 relative">
-                <div className="absolute left-3 top-6 w-0.5 h-12 bg-primary-container" />
-                <div className="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-black">
-                  <span className="material-symbols-outlined text-sm font-bold">
-                    check
-                  </span>
+                <div className="absolute left-3 top-6 w-0.5 h-12 bg-go" />
+                <div className="z-10 w-6 h-6 rounded-full bg-go flex items-center justify-center text-black flex-shrink-0">
+                  <span className="material-symbols-outlined text-sm">check</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Order Received</h3>
-                  <p className="text-zinc-500 text-sm">
-                    22:14 • 2x Electric Gin, 1x Neon Lager
-                  </p>
+                  <h3 className="font-medium text-fg-0">Order received</h3>
+                  <p className="text-fg-2 text-sm">{itemSummary}</p>
                 </div>
               </div>
 
+              {/* Preparing */}
               <div className="flex gap-4 relative">
-                <div className="absolute left-3 top-6 w-0.5 h-12 bg-zinc-800" />
-                <div className="z-10 w-6 h-6 rounded-full bg-black border-2 border-primary-container flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
+                <div className={`absolute left-3 top-6 w-0.5 h-12 ${isDone ? "bg-go" : "bg-border"}`} />
+                <div
+                  className={`z-10 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                    isDone ? "bg-go text-black" : "bg-background border-2 border-warn"
+                  }`}
+                >
+                  {isDone ? (
+                    <span className="material-symbols-outlined text-sm">check</span>
+                  ) : (
+                    <div className="w-2 h-2 rounded-full bg-warn" />
+                  )}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-primary-container">
-                    Preparing
-                  </h3>
-                  <p className="text-zinc-400 text-sm">
-                    Our mixologist is crafting your order.
-                  </p>
+                  <h3 className={`font-medium ${isDone ? "text-fg-0" : "text-warn"}`}>Preparing</h3>
+                  <p className="text-fg-2 text-sm">Your order is being made at the bar.</p>
                 </div>
               </div>
 
+              {/* Ready */}
               <div className="flex gap-4">
-                <div className="z-10 w-6 h-6 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-sm text-zinc-700">
+                <div
+                  className={`z-10 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                    isDone ? "bg-go text-black" : "bg-background border border-border"
+                  }`}
+                >
+                  <span className={`material-symbols-outlined text-sm ${isDone ? "" : "text-fg-2"}`}>
                     done_all
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-zinc-600">
-                    Ready for Collection
+                  <h3 className={`font-medium ${isDone ? "text-fg-0" : "text-fg-3"}`}>
+                    Ready for collection
                   </h3>
-                  <p className="text-zinc-700 text-sm">
+                  <p className={`text-sm ${isDone ? "text-fg-2" : "text-fg-3"}`}>
                     Head to the bar when notified.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-zinc-950 p-6 rounded-xl flex flex-col items-center justify-center border border-zinc-900 relative overflow-hidden">
+            {/* QR Code */}
+            <div className="bg-surface-container-low p-6 rounded-lg flex flex-col items-center justify-center border border-border relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-gradient-to-br from-primary to-accent-hover" />
-              <div className="w-48 h-48 bg-white p-2 rounded-lg shadow-[0_0_15px_rgba(var(--glow-accent-rgb),0.3)] relative mb-4">
+              <div className="w-48 h-48 bg-white p-2 rounded-lg relative mb-4" style={{ boxShadow: "var(--glow-amber)" }}>
                 <img
-                  alt="Order QR Code"
-                  className="w-full h-full grayscale brightness-90 contrast-125"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnKOkZNnaerfCECkupJAOVxCCa73GxyjF-KXF91sLJdzniNFPLHEhxUksr3ZePcFsuBnL4MNJ2rGL0TlFTecK9IkpR9_BcFca88vMRE4LsrCnWXOucZ6GnIigSVzvugj06ynKHvupP1-rWHOxu6Efj9Gdi7XaBuUBzE-Jbw_rtHaLKDgKYIMCW1iHO_I82QKA_XaxcWx-2fypVx_vqTgytzmuRdsiaOTe-Y732zzlxbcDoFIG5lx4zGUCDyUbMkxPGBjhupy9vAUM"
+                  alt={`QR code for order ${order.id}`}
+                  className="w-full h-full"
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(order.id)}`}
                 />
               </div>
-              <p className="text-xs text-zinc-500 text-center uppercase tracking-[0.2em] font-semibold">
-                Scan at Pickup Counter
+              <p className="text-[12px] text-fg-2 text-center font-medium">
+                Show this at the pickup counter
               </p>
             </div>
           </div>
         </div>
 
+        {/* Status summary cards */}
         <div className="grid grid-cols-2 gap-4 mb-10">
-          <div className="bg-surface-container border border-zinc-800 p-4 rounded-xl flex flex-col justify-center h-28">
-            <span className="text-zinc-500 text-xs font-semibold uppercase tracking-[0.2em] mb-2">
-              Est. Wait
+          <div className="bg-surface-container border border-border p-4 rounded-lg flex flex-col justify-center gap-2">
+            <span className="text-fg-2 text-[12px] font-medium">
+              {STATUS_LABEL[order.status]}
             </span>
-            <span className="text-primary-container text-4xl font-bold leading-none">
-              04<span className="text-zinc-600 font-light text-2xl ml-1">m</span>
-            </span>
+            <WaitingTimeBadge minutes={elapsedMinutes} />
           </div>
-          <div className="bg-surface-container border border-zinc-800 p-4 rounded-xl flex flex-col justify-center h-28">
-            <span className="text-zinc-500 text-xs font-semibold uppercase tracking-[0.2em] mb-2">
-              Collection
+          <div className="bg-surface-container border border-border p-4 rounded-lg flex flex-col justify-center">
+            <span className="text-fg-2 text-[12px] font-medium mb-2">Total paid</span>
+            <span className="text-2xl font-bold leading-none text-fg-0 font-mono">
+              {formatZar(order.total)}
             </span>
-            <span className="text-4xl font-bold leading-none">22:25</span>
           </div>
         </div>
 
-        <button className="w-full h-14 rounded-full border-2 border-secondary text-secondary font-semibold flex items-center justify-center gap-2 hover:bg-secondary/10 transition-all active:scale-[0.99]">
+        <button className="w-full h-14 rounded-full border-2 border-stop text-stop font-semibold flex items-center justify-center gap-2 hover:bg-stop/10 active:scale-95 transition-all">
           <span className="material-symbols-outlined">contact_support</span>
-          Need Help with this Order?
+          Need help with this order
         </button>
       </main>
 
@@ -130,4 +184,3 @@ export default async function OrderTrackingPage({ params }: OrderTrackingPagePro
     </div>
   );
 }
-
