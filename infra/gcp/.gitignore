@@ -1,0 +1,19 @@
+# Local Terraform state & workspace files
+# (.terraform.lock.hcl IS committed — it pins provider versions)
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+crash.*.log
+
+# Variable files may contain sensitive values
+terraform.tfvars
+*.auto.tfvars
+!terraform.tfvars.example
+
+# Plan output files
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
