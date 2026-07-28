@@ -25,6 +25,14 @@ Ramps 0→50 req/sec over 120s against https://wayta-throughput-engine-rbac-v3.a
     set -a && source .env && set +a
     npm run load
 Drives ~50 Firestore writes/sec for 120s at the local emulator (no cloud traffic, no quota cost).
+### Concurrent Auth sign-ins (emulator only)
+    # With the auth emulator running (see above):
+    cd firebase-load
+    FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 \
+      AUTH_SIGNINS_TARGET=50 AUTH_DURATION_SECONDS=20 npm run load:auth
+Pre-creates N emulator users, then signs them in (password sign-in via the
+emulator's Identity Toolkit REST endpoint) spread across the duration.
+Emulator-only by design — it refuses to run without `FIREBASE_AUTH_EMULATOR_HOST`.
 ## 3. Firebase (real test/staging project we own — optional)
 Only against a project WE control. Firestore has per-second limits and a documented
 ramp-up rule (increase ~50% every 5 min; avoid jumping straight to peak).
