@@ -1,0 +1,26 @@
+config:
+  target: "https://wayta-throughput-engine-rbac-v3.ai.studio"
+  phases:
+    # Hold at each rate for 30s to localize where the service starts
+    # resetting connections / growing its latency tail.
+    - name: "Hold 20 req/sec"
+      duration: 30
+      arrivalRate: 20
+    - name: "Hold 30 req/sec"
+      duration: 30
+      arrivalRate: 30
+    - name: "Hold 40 req/sec"
+      duration: 30
+      arrivalRate: 40
+    - name: "Hold 50 req/sec"
+      duration: 30
+      arrivalRate: 50
+  http:
+    timeout: 30
+  ensure:
+    maxErrorRate: 5
+scenarios:
+  - name: "Origin homepage GET"
+    flow:
+      - get:
+          url: "/"
