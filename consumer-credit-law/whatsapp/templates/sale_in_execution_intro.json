@@ -1,0 +1,49 @@
+{
+  "_comment": [
+    "MARKETING template. May only be sent to a contact returned by the",
+    "marketable_contacts view — i.e. one holding a live direct_marketing consent event.",
+    "",
+    "Submit with: POST /v21.0/{WABA_ID}/message_templates",
+    "",
+    "Character budget: body text below is 937 characters as written, against Meta's",
+    "1,024 limit. The sender identity and opt-out address are HARDCODED, not variables —",
+    "POPIA s69(4) requires both in every direct marketing communication, and a variable",
+    "can be passed empty. Only the first name is parameterised.",
+    "",
+    "Before submitting, replace [REGISTERED ENTITY NAME] and [STREET ADDRESS]. Those two",
+    "substitutions change the length; re-measure if the entity name is long."
+  ],
+
+  "name": "sale_in_execution_intro_v1",
+  "language": "en",
+  "category": "MARKETING",
+  "parameter_format": "POSITIONAL",
+
+  "components": [
+    {
+      "type": "BODY",
+      "text": "Hi {{1}}, is your home going on auction?\n\nWe DO NOT buy houses. This is not an offer to purchase.\n\n*Consumer Credit Law* is a consumer credit consultancy. We work for homeowners, never for the bank.\n\nUnder Rule 46A a court must consider alternatives before a primary residence is sold in execution.\n\n*Our fee is upfront and set by property value. Total, or over two months:*\n- Under R500,000 = R18,000 (R9,000 x 2)\n- R500,000-R800,000 = R24,000 (R12,000 x 2)\n- R800,000-R1.2m = R34,000 (R17,000 x 2)\n- R1.2m-R1.5m = R36,000 (R18,000 x 2)\n- Above R1.5m = R44,000 (R22,000 x 2)\n\nCourt work is done by independent affiliate attorneys. We are not a law firm. No outcome is guaranteed.\n\nFree guides on section 129 letters, summonses and sale in execution: creditlaws.co.za\n\nSend us your court papers. The earlier we start, the more options are open.\n\n[REGISTERED ENTITY NAME] t/a Consumer Credit Law, [STREET ADDRESS], Fourways, Johannesburg.",
+      "example": {
+        "body_text": [["Thandi"]]
+      }
+    },
+    {
+      "type": "FOOTER",
+      "text": "Reply STOP and we will not message you again."
+    },
+    {
+      "type": "BUTTONS",
+      "buttons": [
+        {
+          "type": "QUICK_REPLY",
+          "text": "Stop these messages"
+        },
+        {
+          "type": "URL",
+          "text": "Read the free guides",
+          "url": "https://creditlaws.co.za/guides"
+        }
+      ]
+    }
+  ]
+}

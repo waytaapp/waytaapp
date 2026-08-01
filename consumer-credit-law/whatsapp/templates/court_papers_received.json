@@ -1,0 +1,45 @@
+{
+  "_comment": [
+    "UTILITY template. Sent to someone who has already approached you and sent",
+    "documents — it follows up on an existing matter and promotes nothing.",
+    "",
+    "This is the template that does most of the real work. Note that if the person",
+    "messaged you within the last 24 hours you do not need a template at all: reply",
+    "free-form inside the customer service window. Use this one when the window has",
+    "closed, e.g. papers arrived by email or the assessment took a day.",
+    "",
+    "Body is 430 characters as written, against Meta's 1,024 limit."
+  ],
+
+  "name": "court_papers_received_v1",
+  "language": "en",
+  "category": "UTILITY",
+  "parameter_format": "POSITIONAL",
+
+  "components": [
+    {
+      "type": "BODY",
+      "text": "Hi {{1}}, we have received the documents you sent and a consultant is reading them now.\n\nStage recorded: {{2}}\n\nWe will come back to you by {{3}} with what we think your options are. There is no charge for this assessment.\n\nIf your sale date moves, or anything further arrives from the sheriff or the bank, send it through straight away.\n\n[REGISTERED ENTITY NAME] t/a Consumer Credit Law, [STREET ADDRESS], Fourways, Johannesburg.",
+      "example": {
+        "body_text": [["Thandi", "Rule 46A application served", "Tuesday 4 August"]]
+      }
+    },
+    {
+      "type": "FOOTER",
+      "text": "Reply STOP and we will not message you again."
+    },
+    {
+      "type": "BUTTONS",
+      "buttons": [
+        {
+          "type": "QUICK_REPLY",
+          "text": "My sale date has changed"
+        },
+        {
+          "type": "QUICK_REPLY",
+          "text": "Stop these messages"
+        }
+      ]
+    }
+  ]
+}
