@@ -1,0 +1,24 @@
+# Copy to terraform.tfvars and fill in. Never commit terraform.tfvars.
+
+project_id  = "my-gcp-project-id"
+region      = "europe-west2"
+domain_name = "app.example.com"
+app_name    = "app"
+
+# Container image (leave "" to deploy a placeholder on first apply)
+# container_image = "europe-west2-docker.pkg.dev/my-gcp-project-id/app-images/app:latest"
+
+# --- Domain registration (only if buying the domain through Cloud Domains) ---
+# register_domain  = true
+# registrant_email = "admin@example.com"
+# registrant_phone = "+27.123456789"
+# domain_yearly_price = {
+#   currency_code = "USD"
+#   units         = 12   # must match: gcloud domains registrations get-register-parameters <domain>
+# }
+
+# --- Domain mapping (only in regions that support Cloud Run domain mappings) ---
+# enable_domain_mapping = true
+
+# --- Cloud Source Repositories (deprecated; leave false, use GitHub + Cloud Build) ---
+# enable_source_repo = true
