@@ -1,0 +1,13 @@
+{
+  "name": "wayta-firebase-load",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "load": "node load-driver.js",
+    "load:auth": "node auth-driver.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  }
+}

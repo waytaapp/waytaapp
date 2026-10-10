@@ -1,0 +1,26 @@
+config:
+  target: "https://wayta-throughput-engine-rbac-v3.ai.studio"
+  phases:
+    # Fine-grained sweep between the healthy zone (~40) and saturation (~50)
+    # to find the exact rate where the first connection resets appear.
+    - name: "Hold 42 req/sec"
+      duration: 30
+      arrivalRate: 42
+    - name: "Hold 44 req/sec"
+      duration: 30
+      arrivalRate: 44
+    - name: "Hold 46 req/sec"
+      duration: 30
+      arrivalRate: 46
+    - name: "Hold 48 req/sec"
+      duration: 30
+      arrivalRate: 48
+  http:
+    timeout: 30
+  ensure:
+    maxErrorRate: 5
+scenarios:
+  - name: "Origin homepage GET"
+    flow:
+      - get:
+          url: "/"
